@@ -21,6 +21,7 @@ export default new Vuex.Store({
       }
     }
   },
+
   getters: {
     firstName: state => {
       return state.shipper.name.firstName
@@ -47,7 +48,30 @@ export default new Vuex.Store({
       return state.shipper.address.zip
     },
   },
-  setters: {},
+
+  mutations: {
+    setShipperName (state, payload) {
+      console.log("Entering setShipperName")
+      state.shipper.name.firstName = payload.firstName
+      state.shipper.name.middleName = payload.middleName
+      state.shipper.name.lastName = payload.lastName
+      state.shipper.name.companyName = payload.companyName
+
+      console.log("shipperName has been set")
+      console.log(state.shipper.name.firstName + " " + state.shipper.name.middleName + " " + state.shipper.name.lastName + " " + state.shipper.name.companyName)
+    },
+    setShipperAddress (state, payload) {
+      console.log("Entering setShipperAddress")
+      state.shipper.address.streetAddress1 = payload.streetAddress1
+      state.shipper.address.streetAddress2 = payload.streetAddress2
+      state.shipper.address.city = payload.city
+      state.shipper.address.stateUSA = payload.state
+
+      console.log("shipperAddress has been set")
+      console.log(state.shipper.address.streetAddress1 + " " + state.shipper.address.streetAddress2 + " " + state.shipper.address.city + " " + state.shipper.address.stateUSA)
+    }
+  },
+
   actions: {}
   
 });

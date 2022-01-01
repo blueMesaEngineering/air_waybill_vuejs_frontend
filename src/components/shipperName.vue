@@ -83,10 +83,24 @@
       submit: function() {
         console.log(this.firstName, this.middleName, this.lastName, this.companyName);
 
+        const payload = {
+          firstName: this.firstName,
+          middleName: this.middleName,
+          lastName: this.lastName,
+          companyName: this.companyName
+        }
+
+        this.$store.commit("setShipperName", payload)
+
         this.firstName = '';
         this.middleName = '';
         this.lastName = '';
         this.companyName = '';
+
+        payload.firstName = '';
+        payload.middleName = '';
+        payload.lastName = '';
+        payload.companyName = '';
 
         this.$router.push('/shipperAddress');
       }

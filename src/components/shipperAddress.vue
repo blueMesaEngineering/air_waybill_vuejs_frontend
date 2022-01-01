@@ -92,10 +92,24 @@
       submit: function() {
         console.log(this.streetAddress1, this.streetAddress2, this.city, this.state);
 
+        const payload = {
+          streetAddress1: this.streetAddress1,
+          streetAddress2: this.streetAddress2,
+          city: this.city,
+          state: this.state
+        }
+
+        this.$store.commit("setShipperAddress", payload)
+
         this.streetAddress1 = '';
         this.streetAddress2 = '';
         this.city = '';
         this.state = '';
+
+        payload.streetAddress1 = '';
+        payload.streetAddress2 = '';
+        payload.city = '';
+        payload.state = '';
 
         this.$router.push('/shipperName')
       },
