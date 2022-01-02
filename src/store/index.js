@@ -32,6 +32,9 @@ export default new Vuex.Store({
     lastName: state => {
       return state.shipper.name.lastName
     },
+    companyName: state => {
+      return state.shipper.name.companyName
+    },
     streetAddress1: state => {
       return state.shipper.address.streetAddress1
     },

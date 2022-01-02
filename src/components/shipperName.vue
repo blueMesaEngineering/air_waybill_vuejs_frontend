@@ -64,10 +64,6 @@
             margin-top: 2vw; 
             padding: .3vh .5vh .3vh .5vh;"/>
       </div>
-
-      <!-- <div>
-        <h2>The name entered is {{firstName}} {{middleName}} {{lastName}} at the company {{companyName}} </h2>
-      </div> -->
   </div>
 </template>
 

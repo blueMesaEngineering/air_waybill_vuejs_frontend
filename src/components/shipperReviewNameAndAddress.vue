@@ -18,7 +18,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.name.firstName"
+            :value = "this.$store.getters.firstName"
             class = "input-field-item"
             disabled/>
             <!-- {{this.$store.state.shipper.name.firstName}} -->
@@ -26,14 +26,14 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.name.middleName"
+            :value = "this.$store.getters.middleName"
             class = "input-field-item"
             disabled/>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.name.lastName"
+            :value = "this.$store.getters.lastName"
             class = "input-field-item"
             disabled/>
         </div>        
@@ -43,7 +43,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.name.companyName"
+            :value = "this.$store.getters.companyName"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -55,7 +55,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.address.streetAddress1"
+            :value = "this.$store.getters.streetAddress1"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -67,7 +67,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.address.streetAddress2"
+            :value = "this.$store.getters.streetAddress2"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -79,7 +79,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.address.city"
+            :value = "this.$store.getters.city"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -91,7 +91,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.state.shipper.address.stateUSA"
+            :value = "this.$store.getters.stateUSA"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -118,10 +118,6 @@
             margin-top: 2vw; 
             padding: .3vh .5vh .3vh .5vh;"/>
       </div>
-
-      <!-- <div>
-        <h2>The address entered is <p>{{streetAddress1}} </p> <p> {{streetAddress2}}</p> <p> {{city}}, {{state}} </p> </h2>
-      </div> -->
   </div>
 </template>
 
@@ -161,7 +157,7 @@
       },
 
       submit: function() {
-        console.log(this.$store.state.shipper.name.firstName)
+        console.log(this.$store.getters.firstName)
         console.log(this.$store.state.shipper.name.firstName + " " + this.$store.state.shipper.name.middleName + " " + this.$store.state.shipper.name.lastName + "\n" + this.$store.state.shipper.name.companyName + "\n" + this.$store.state.shipper.address.streetAddress1 + " " + this.$store.state.shipper.address.streetAddress2 + "\n" + this.$store.state.shipper.address.city + ", " + this.$store.state.shipper.address.stateUSA)
       },
 
