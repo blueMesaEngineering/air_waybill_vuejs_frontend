@@ -89,6 +89,10 @@
       state: '',
     }),
     methods: {
+      mounted: function() {
+        console.log("shipperAddress component mounted.")
+      },
+      
       submit: function() {
         console.log(this.streetAddress1, this.streetAddress2, this.city, this.state);
 
@@ -111,7 +115,7 @@
         payload.city = '';
         payload.state = '';
 
-        this.$router.push('/shipperName')
+        this.$router.push('/shipperReviewNameAndAddress')
       },
 
       back: function() {

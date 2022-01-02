@@ -111,9 +111,9 @@
 <style>
 .grid-container {
   display: grid;
-  width: 44vw;
+  width: 40vw;
   justify-content: center;
-  grid-template-columns: 22vw 22vw;
+  grid-template-columns: 20vw 20vw;
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -128,7 +128,7 @@
 }
 
 .input-field-item {
-  width: 15vw;
+  width: 13vw;
   border: 1px solid rgba(0, 0, 0, 0.4); 
   padding: 1.5vh 2vw 1.5vh 2vw; 
   margin: 1vh 0vw 1vh 0vw;
