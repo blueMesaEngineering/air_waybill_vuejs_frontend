@@ -122,8 +122,9 @@
 </template>
 
 <script> 
+  import axios from "axios";
+  
   export default {
-    
     data: () => ({
       firstName: this.$store.state.shipper.name.firstName,
       middleName: '',
@@ -158,7 +159,22 @@
 
       submit: function() {
         console.log(this.$store.getters.firstName)
-        console.log(this.$store.state.shipper.name.firstName + " " + this.$store.state.shipper.name.middleName + " " + this.$store.state.shipper.name.lastName + "\n" + this.$store.state.shipper.name.companyName + "\n" + this.$store.state.shipper.address.streetAddress1 + " " + this.$store.state.shipper.address.streetAddress2 + "\n" + this.$store.state.shipper.address.city + ", " + this.$store.state.shipper.address.stateUSA)
+        console.log(this.$store.getters.firstName + " " + this.$store.getters.middleName + " " + this.$store.getters.lastName + "\n" + this.$store.getters.companyName + "\n" + this.$store.getters.streetAddress1 + "\n" + this.$store.getters.streetAddress2 + "\n" + this.$store.getters.city + ", " + this.$store.getters.stateUSA)
+
+        axios({
+          method: 'post',
+          url: 'http://127.0.0.1:5000/api/shippers',
+          data: {
+            'firstName': this.$store.getters.firstName,
+            'middleName': this.$store.getters.middleName,
+            'lastName': this.$store.getters.lastName,
+            'companyName': this.$store.getters.companyName,
+            'streetAddress1': this.$store.getters.streetAddress1,
+            'streetAddress2': this.$store.getters.streetAddress2,
+            'city': this.$store.getters.city,
+            'state': this.$store.getters.stateUSA
+          }
+        })
       },
 
       editShipperNameAddress: function() {
