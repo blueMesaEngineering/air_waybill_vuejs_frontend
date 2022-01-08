@@ -1,6 +1,7 @@
 import shipperName from "../components/shipperName";
 import shipperAddress from "../components/shipperAddress";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
+import searchByCompanyName from "../components/searchByCompanyName";
 
 export default [
   {
@@ -20,5 +21,10 @@ export default [
     path: '/shipperReviewNameAndAddress',
     component: shipperReviewNameAndAddress,
     name: "Shipper Review Name and Address",
+  },
+  {
+    path: '/searchByCompanyName',
+    component: searchByCompanyName,
+    name: "Search for Shipper by Company Name",
   },
 ]

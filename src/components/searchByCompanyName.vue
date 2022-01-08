@@ -138,7 +138,7 @@
     methods: {
       mounted: function() {
         console.log("shipperReviewNameAndAddress component mounted.")
-        // this.populateOnLoad;
+        this.populateOnLoad;
       },
 
       populateOnLoad: function() {
@@ -158,11 +158,10 @@
       },
 
       submit: function() {
-        console.log(this.$store.getters.firstName)
-        console.log(this.$store.getters.firstName + " " + this.$store.getters.middleName + " " + this.$store.getters.lastName + "\n" + this.$store.getters.companyName + "\n" + this.$store.getters.streetAddress1 + "\n" + this.$store.getters.streetAddress2 + "\n" + this.$store.getters.city + ", " + this.$store.getters.stateUSA)
+        
 
         axios({
-          method: 'post',
+          method: 'get',
           url: 'http://127.0.0.1:5000/api/shippers',
           data: {
             'firstName': this.$store.getters.firstName,
