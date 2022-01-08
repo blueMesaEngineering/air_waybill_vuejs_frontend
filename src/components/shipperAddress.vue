@@ -1,8 +1,5 @@
 <template>
   <div>
-   <div>
-      <img src = "../assets/logo.png" style="height: 12vh; width 12vh">
-    </div>
     <h2 
       style="
         text-align: left; 
