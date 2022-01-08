@@ -79,6 +79,24 @@
       submit: function() {
         console.log(this.firstName, this.middleName, this.lastName, this.companyName);
 
+        if(this.firstName == "") {
+          alert("The First Name cannot be blank.")
+
+          return
+        }
+
+        if(this.lastName == "") {
+          alert("The Last Name cannot be blank.")
+
+          return
+        }
+
+        if(this.companyName == "") {
+          alert("The Company Name cannot be blank.")
+
+          return
+        }
+
         const payload = {
           firstName: this.firstName,
           middleName: this.middleName,

@@ -94,6 +94,25 @@
       },
       
       submit: function() {
+
+        if(this.streetAddress1 == "") {
+          alert("The Street Address cannot be blank.")
+
+          return
+        }
+
+        if(this.city == "") {
+          alert("The City cannot be blank.")
+
+          return
+        }
+
+        if(this.state == "") {
+          alert("The State cannot be blank.")
+
+          return
+        }
+
         console.log(this.streetAddress1, this.streetAddress2, this.city, this.state);
 
         const payload = {
