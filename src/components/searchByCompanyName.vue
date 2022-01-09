@@ -17,7 +17,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = companyName
+            v-model = "companyName"
             class = "input-field-item">
         </div>
       </div>
@@ -32,6 +32,10 @@
             margin-right: 27vw; 
             margin-top: 2vw; 
             padding: .3vh .5vh .3vh .5vh;"/>
+      </div>
+      
+      <div>
+        <!-- {{this.response}} -->
       </div>
   </div>
 </template>
@@ -56,22 +60,17 @@
         this.populateOnLoad;
       },
 
-      submit: function() {
+      submit: async function() {
 
-        axios({
+        const response = await axios({
           method: 'get',
           url: 'http://127.0.0.1:5000/api/shippers',
-          data: {
-            'firstName': this.$store.getters.firstName,
-            'middleName': this.$store.getters.middleName,
-            'lastName': this.$store.getters.lastName,
-            'companyName': this.$store.getters.companyName,
-            'streetAddress1': this.$store.getters.streetAddress1,
-            'streetAddress2': this.$store.getters.streetAddress2,
-            'city': this.$store.getters.city,
-            'state': this.$store.getters.stateUSA
+          params: {
+            companyName: this.companyName
           }
         })
+
+        console.log(response)
       },
     }
   }
