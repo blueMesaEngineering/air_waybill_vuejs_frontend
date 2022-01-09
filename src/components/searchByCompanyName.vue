@@ -8,7 +8,7 @@
         padding-left: 27vw; 
         text-decoration: underline; 
         text-underline-position:under"
-        >Search Shippers by Company Name</h2>
+        >Search Shippers</h2>
     <center>
       <div class="grid-container">
         <div class="grid-item">
@@ -32,10 +32,6 @@
             margin-right: 27vw; 
             margin-top: 2vw; 
             padding: .3vh .5vh .3vh .5vh;"/>
-      </div>
-      
-      <div>
-        <!-- {{this.response}} -->
       </div>
   </div>
 </template>
