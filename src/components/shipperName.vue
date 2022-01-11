@@ -5,7 +5,8 @@
         text-align: left; 
         padding-left: 27vw; 
         text-decoration: underline; 
-        text-underline-position:under"
+        text-underline-position:under;
+        font-family: Verdana;"
         >Shipper's Name</h2>
     <center>
       <div class="grid-container">
@@ -128,6 +129,7 @@
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .grid-item {

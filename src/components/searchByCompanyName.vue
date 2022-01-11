@@ -7,7 +7,8 @@
         text-align: left; 
         padding-left: 27vw; 
         text-decoration: underline; 
-        text-underline-position:under"
+        text-underline-position:under;
+        font-family: Verdana;"
         >Search Shippers</h2>
     <center>
       <div class="grid-container">
