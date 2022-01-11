@@ -1,16 +1,15 @@
 <template>
   <div style = "background: rgba(0,0,0,.1);">
     <span>
-      <img src = "../assets/logo.png" style="height: 5vh; width 5vh; margin: .75vh">
+      <img src = "../assets/logo.png" style="height: 6vh; width 6vh; margin: .75vh">
     </span>
     <span style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      Link 1
-    </span>
-    <span style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      Link 2
-    </span>
-    <span style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      Link 3
+      <div>
+        <img src = "../assets/navbar/shipper.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
+      </div>
+      <div style="font-size: .75em">
+        SHIPPER
+      </div>
     </span>
   </div>
 </template>
