@@ -5,7 +5,8 @@
         text-align: left; 
         padding-left: 9vw; 
         text-decoration: underline; 
-        text-underline-position:under"
+        text-underline-position:under;
+        font-family: Verdana;"
         >Review Shipper's Name and Address</h2>
     <center>
       <div class="grid-container-name-and-address">
