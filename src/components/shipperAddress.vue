@@ -5,7 +5,8 @@
         text-align: left; 
         padding-left: 27vw; 
         text-decoration: underline; 
-        text-underline-position:under"
+        text-underline-position:under;
+        font-family: Verdana;"
         >Shipper's Address</h2>
     <center>
       <div class="grid-container">

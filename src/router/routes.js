@@ -1,3 +1,5 @@
+import login from "../components/login";
+import home from "../components/home";
 import shipperName from "../components/shipperName";
 import shipperAddress from "../components/shipperAddress";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
@@ -5,7 +7,17 @@ import searchByCompanyName from "../components/searchByCompanyName";
 
 export default [
   {
-    path: '/', redirect: '/shipperName'
+    path: '/', redirect: '/login'
+  },
+  {
+    path: '/login',
+    component: login,
+    name: "Log In",
+  },
+  {
+    path: '/home',
+    component: home,
+    name: "Home",
   },
   {
     path: '/shipperName',

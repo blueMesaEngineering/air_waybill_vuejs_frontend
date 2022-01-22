@@ -173,6 +173,8 @@
             'state': this.$store.getters.stateUSA
           }
         })
+
+        this.$router.push('/home')
       },
 
       editShipperNameAddress: function() {
@@ -192,6 +194,7 @@
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .grid-item {
