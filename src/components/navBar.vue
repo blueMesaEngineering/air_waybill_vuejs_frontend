@@ -37,7 +37,7 @@
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
       <router-link to = "/login">
-        <img src = "../assets/navbar/exit.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
+        <img src = "../assets/navbar/logout.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
       </router-link>
       <div style="font-size: .75em">
         LOG OUT
