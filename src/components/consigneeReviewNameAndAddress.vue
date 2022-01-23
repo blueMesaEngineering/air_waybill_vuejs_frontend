@@ -7,7 +7,7 @@
         text-decoration: underline; 
         text-underline-position:under;
         font-family: Verdana;"
-        >Review Shipper's Name and Address</h2>
+        >Review Consignee's Name and Address</h2>
     <center>
       <div class="grid-container-name-and-address">
         <div class="grid-item">
@@ -16,22 +16,22 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.getters.firstName"
+            :value = "this.$store.getters.consigneeFirstName"
             class = "input-field-item"
             disabled/>
-            <!-- {{this.$store.state.shipper.name.firstName}} -->
+            <!-- {{this.$store.state.consignee.name.firstName}} -->
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.getters.middleName"
+            :value = "this.$store.getters.consigneeMiddleName"
             class = "input-field-item"
             disabled/>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.getters.lastName"
+            :value = "this.$store.getters.consigneeLastName"
             class = "input-field-item"
             disabled/>
         </div>        
@@ -41,7 +41,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.companyName"
+            :value = "this.$store.getters.consigneeCompanyName"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -53,7 +53,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.streetAddress1"
+            :value = "this.$store.getters.consigneeStreetAddress1"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -65,7 +65,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.streetAddress2"
+            :value = "this.$store.getters.consigneeStreetAddress2"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -77,7 +77,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.city"
+            :value = "this.$store.getters.consigneeCity"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -89,7 +89,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.stateUSA"
+            :value = "this.$store.getters.consigneeStateUSA"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -101,7 +101,7 @@
         <input 
           type="submit" 
           value="Edit" 
-          v-on:click="editShipperNameAddress" 
+          v-on:click="editConsigneeNameAddress" 
           style="
             margin-right: 1vw; 
             margin-top: 2vw; 
@@ -120,66 +120,65 @@
 </template>
 
 <script> 
-  // import axios from "axios";
+  import axios from "axios";
   
   export default {
     data: () => ({
-      shipperFirstName: '',
-      shipperMiddleName: '',
-      shipperLastName: '',
-      shipperCompanyName: '',
-      shipperStreetAddress1: '',
-      shipperStreetAddress2: '',
-      shipperCity: '',
-      shipperStateUSA: '',
+      consigneeFirstName: '',
+      consigneeMiddleName: '',
+      consigneeLastName: '',
+      consigneeCompanyName: '',
+      consigneeStreetAddress1: '',
+      consigneeStreetAddress2: '',
+      consigneeCity: '',
+      consigneeStateUSA: '',
     }),
     methods: {
       mounted: function() {
-        console.log("shipperReviewNameAndAddress component mounted.")
+        console.log("consigneeReviewNameAndAddress component mounted.")
         // this.populateOnLoad;
       },
 
       populateOnLoad: function() {
         console.log("Entering populateOnLoad")
-        console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
+        console.log(this.$store.state.getters.firstName + " " + this.$store.state.getters.middleName + " " + this.$store.state.getters.lastName + " " + this.$store.state.getters.companyName + " " + this.$store.state.getters.streetAddress1 + " " + this.$store.state.getters.streetAddress2 + " " + this.$store.state.getters.city + " " + this.$store.state.getters.stateUSA)
 
-        this.shipperFirstName = this.$store.state.shipper.name.shipperFirstName;
-        this.shipperMiddleName = this.$store.state.shipper.name.shipperMiddleName;
-        this.shipperLastName = this.$store.state.shipper.name.shipperLastName;
-        this.shipperCompanyName = this.$store.state.shipper.name.shipperCompanyName;
-        this.shipperStreetAddress1 = this.$store.state.shipper.address.shipperStreetAddress1;
-        this.shipperStreetAddress2 = this.$store.state.shipper.address.shipperStreetAddress2;
-        this.shipperCity = this.$store.state.shipper.address.shipperCity;
-        this.shipperStateUSA = this.$store.state.shipper.address.shipperStateUSA;
+        this.consigneeFirstName = this.$store.state.consignee.name.firstName;
+        this.consigneeMiddleName = this.$store.state.consignee.name.middleName;
+        this.consigneeLastName = this.$store.state.consignee.name.lastName;
+        this.consigneeCompanyName = this.$store.state.consignee.name.companyName;
+        this.consigneeStreetAddress1 = this.$store.state.consignee.address.streetAddress1;
+        this.consigneeStreetAddress2 = this.$store.state.consignee.address.streetAddress2;
+        this.consigneeCity = this.$store.state.consignee.address.city;
+        this.consigneeStateUSA = this.$store.state.consignee.address.stateUSA;
 
         console.log("Leaving populateOnLoad")
       },
 
       submit: function() {
-        console.log(this.$store.getters.firstName)
-        console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
+        console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
 
-        // axios({
-        //   method: 'post',
-        //   url: 'http://127.0.0.1:5000/api/shippers',
-        //   data: {
-        //     'shipperFirstName': this.$store.getters.shipperFirstName,
-        //     'shipperMiddleName': this.$store.getters.shipperMiddleName,
-        //     'shipperLastName': this.$store.getters.shipperLastName,
-        //     'shipperCompanyName': this.$store.getters.shipperCompanyName,
-        //     'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
-        //     'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
-        //     'shipperCity': this.$store.getters.shipperCity,
-        //     'shipperStateUSA': this.$store.getters.shipperStateUSA
-        //   }
-        // })
+        axios({
+          method: 'post',
+          url: 'http://127.0.0.1:5000/api/consignees',
+          data: {
+            'firstName': this.$store.getters.consigneeFirstName,
+            'middleName': this.$store.getters.consigneeMiddleName,
+            'lastName': this.$store.getters.consigneeLastName,
+            'companyName': this.$store.getters.consigneeCompanyName,
+            'streetAddress1': this.$store.getters.consigneeStreetAddress1,
+            'streetAddress2': this.$store.getters.consigneeStreetAddress2,
+            'city': this.$store.getters.consigneeCity,
+            'state': this.$store.getters.consigneeStateUSA
+          }
+        })
 
-        this.$router.push('/consigneeName')
+        this.$router.push('/home')
       },
 
-      editShipperNameAddress: function() {
+      editconsigneeNameAddress: function() {
         
-        this.$router.push('/shipperName')
+        this.$router.push('/consigneeName')
       }
     }
   }

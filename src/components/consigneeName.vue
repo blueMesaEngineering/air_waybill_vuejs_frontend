@@ -102,7 +102,7 @@
           companyName: this.companyName
         }
 
-        this.$store.commit("setShipperName", payload)
+        this.$store.commit("setConsigneeName", payload)
 
         this.firstName = '';
         this.middleName = '';
@@ -114,7 +114,7 @@
         payload.lastName = '';
         payload.companyName = '';
 
-        this.$router.push('/shipperAddress');
+        this.$router.push('/consigneeAddress');
       }
     }
   }

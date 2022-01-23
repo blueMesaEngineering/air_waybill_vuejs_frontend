@@ -20,17 +20,9 @@
       </div>
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <div>
-        <img src = "../assets/navbar/shipment4.png" style="height: 4vh; width 4vh; margin: .25vh; transform: scaleX(-1);">
-      </div>
-      <div style="font-size: .75em">
-        SHIPMENT
-      </div>
-    </div>
-    <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <div>
+      <router-link to = "/consigneeName">
         <img src = "../assets/navbar/consignee.png" style="height: 3.5vh; width 3.5vh; margin-top: .5vh; margin-bottom: .5vh; margin-left: .5vh; margin-right: .5vh">
-      </div>
+      </router-link>
       <div style="font-size: .75em">
         CONSIGNEE
       </div>
@@ -41,6 +33,14 @@
       </div>
       <div style="font-size: .75em">
         CARRIER
+      </div>
+    </div>
+        <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
+      <div>
+        <img src = "../assets/navbar/shipment4.png" style="height: 4vh; width 4vh; margin: .25vh; transform: scaleX(-1);">
+      </div>
+      <div style="font-size: .75em">
+        SHIPMENT
       </div>
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
