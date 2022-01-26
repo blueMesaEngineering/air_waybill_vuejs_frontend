@@ -162,14 +162,26 @@
           method: 'post',
           url: 'http://127.0.0.1:5000/api/consignees',
           data: {
-            'firstName': this.$store.getters.consigneeFirstName,
-            'middleName': this.$store.getters.consigneeMiddleName,
-            'lastName': this.$store.getters.consigneeLastName,
-            'companyName': this.$store.getters.consigneeCompanyName,
-            'streetAddress1': this.$store.getters.consigneeStreetAddress1,
-            'streetAddress2': this.$store.getters.consigneeStreetAddress2,
-            'city': this.$store.getters.consigneeCity,
-            'state': this.$store.getters.consigneeStateUSA
+
+            // Shipper data
+            'shipperFirstName': this.$store.getters.shipperFirstName,
+            'shipperMiddleName': this.$store.getters.shipperMiddleName,
+            'shipperLastName': this.$store.getters.shipperLastName,
+            'shipperCompanyName': this.$store.getters.shipperCompanyName,
+            'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
+            'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
+            'shipperCity': this.$store.getters.shipperCity,
+            'shipperStateUSA': this.$store.getters.shipperStateUSA,
+
+            // Consignee data
+            'consigneeFirstName': this.$store.getters.consigneeFirstName,
+            'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
+            'consigneeLastName': this.$store.getters.consigneeLastName,
+            'consigneeCompanyName': this.$store.getters.consigneeCompanyName,
+            'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
+            'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
+            'consigneeCity': this.$store.getters.consigneeCity,
+            'consigneeStateUSA': this.$store.getters.consigneeStateUSA
           }
         })
 
@@ -202,5 +214,15 @@
   padding: 1vh .5vw 1vh .5vw;
   text-align: center;
   background: #eee;
+}
+
+.button {
+
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
 }
 </style>
