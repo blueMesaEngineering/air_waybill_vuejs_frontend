@@ -16,7 +16,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "streetAddress1" 
+            v-model = "consigneeStreetAddress1" 
             class = "input-field-item"/>
         </div>
 
@@ -26,7 +26,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "streetAddress2" 
+            v-model = "consigneeStreetAddress2" 
             class = "input-field-item"/>
         </div>
 
@@ -36,7 +36,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "city" 
+            v-model = "consigneeCity" 
             class = "input-field-item"/>
         </div>
 
@@ -46,7 +46,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "state" 
+            v-model = "consigneeStateUSA" 
             class = "input-field-item"/>
         </div>
       </div>
@@ -79,7 +79,7 @@
       consigneeStreetAddress1: '',
       consigneeStreetAddress2: '',
       consigneeCity: '',
-      consigneeState: '',
+      consigneeStateUSA: '',
     }),
     methods: {
       mounted: function() {
@@ -100,38 +100,40 @@
           return
         }
 
-        if(this.consigneeState == "") {
+        if(this.consigneeStateUSA == "") {
           alert("The State cannot be blank.")
 
           return
         }
 
-        console.log(this.streetAddress1, this.streetAddress2, this.city, this.state);
+        console.log(this.consigneeStreetAddress1, this.consigneeStreetAddress2, this.consigneeCity, this.consigneeStateUSA);
 
         const payload = {
           consigneeStreetAddress1: this.consigneeStreetAddress1,
           consigneeStreetAddress2: this.consigneeStreetAddress2,
           consigneeCity: this.consigneeCity,
-          consigneeState: this.consigneeState
+          consigneeStateUSA: this.consigneeStateUSA
         }
+
+        console.log(payload)
 
         this.$store.commit("setConsigneeAddress", payload)
 
         this.consigneeStreetAddress1 = '';
         this.consigneeStreetAddress2 = '';
         this.consigneeCity = '';
-        this.consigneeState = '';
+        this.consigneeStateUSA = '';
 
         payload.consigneeStreetAddress1 = '';
         payload.consigneeStreetAddress2 = '';
         payload.consigneeCity = '';
-        payload.consigneeState = '';
+        payload.consigneeStateUSA = '';
 
         this.$router.push('/consigneeReviewNameAndAddress')
       },
 
       back: function() {
-        console.log(this.streetAddress1, this.streetAddress2, this.city, this.state);
+        console.log(this.consigneeStreetAddress1, this.consigneeStreetAddress2, this.consigneeCity, this.consigneeStateUSA);
 
         this.$router.push('/consgineeName')
       }

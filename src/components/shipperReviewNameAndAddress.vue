@@ -16,7 +16,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.getters.firstName"
+            :value = "this.$store.getters.shipperFirstName"
             class = "input-field-item"
             disabled/>
             <!-- {{this.$store.state.shipper.name.firstName}} -->
@@ -24,14 +24,14 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.getters.middleName"
+            :value = "this.$store.getters.shipperMiddleName"
             class = "input-field-item"
             disabled/>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            :value = "this.$store.getters.lastName"
+            :value = "this.$store.getters.shipperLastName"
             class = "input-field-item"
             disabled/>
         </div>        
@@ -41,7 +41,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.companyName"
+            :value = "this.$store.getters.shipperCompanyName"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -53,7 +53,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.streetAddress1"
+            :value = "this.$store.getters.shipperStreetAddress1"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -65,7 +65,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.streetAddress2"
+            :value = "this.$store.getters.shipperStreetAddress2"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -77,7 +77,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.city"
+            :value = "this.$store.getters.shipperCity"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -89,7 +89,7 @@
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
           <input 
             type = "text" 
-            :value = "this.$store.getters.stateUSA"
+            :value = "this.$store.getters.shipperStateUSA"
             class = "input-field-item"
             disabled
             style="width: 53vw;"/>
@@ -156,8 +156,8 @@
       },
 
       submit: function() {
-        console.log(this.$store.getters.firstName)
-        console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
+        console.log(this.$store.getters.shipperFirstName)
+        // console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
 
         // axios({
         //   method: 'post',

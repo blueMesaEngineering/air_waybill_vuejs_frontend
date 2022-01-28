@@ -156,11 +156,11 @@
       },
 
       submit: function() {
-        console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
+        // console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
 
         axios({
           method: 'post',
-          url: 'http://127.0.0.1:5000/api/consignees',
+          url: 'http://127.0.0.1:5000/api/airWaybills',
           data: {
 
             // Shipper data
@@ -188,7 +188,7 @@
         this.$router.push('/home')
       },
 
-      editconsigneeNameAddress: function() {
+      editConsigneeNameAddress: function() {
         
         this.$router.push('/consigneeName')
       }

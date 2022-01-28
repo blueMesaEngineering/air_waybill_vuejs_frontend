@@ -16,7 +16,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "firstName" 
+            v-model = "consigneeFirstName" 
             class = "input-field-item"/>
         </div>
 
@@ -26,7 +26,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "middleName" 
+            v-model = "consigneeMiddleName" 
             class = "input-field-item"/>
         </div>
 
@@ -36,7 +36,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "lastName" 
+            v-model = "consigneeLastName" 
             class = "input-field-item"/>
         </div>
 
@@ -46,7 +46,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "companyName" 
+            v-model = "consigneeCompanyName" 
             class = "input-field-item"/>
         </div>
       </div>
@@ -68,51 +68,53 @@
 <script> 
   export default {
     data: () => ({
-      firstName: '',
-      middleName: '',
-      lastName: '',
-      companyName: '',
+      consigneeFirstName: '',
+      consigneeMiddleName: '',
+      consigneeLastName: '',
+      consigneeCompanyName: '',
     }),
     methods: {
       submit: function() {
-        console.log(this.firstName, this.middleName, this.lastName, this.companyName);
+        console.log(this.consigneeFirstName, this.consigneeMiddleName, this.consigneeLastName, this.consigneeCompanyName);
 
-        if(this.firstName == "") {
+        if(this.consigneeFirstName == "") {
           alert("The First Name cannot be blank.")
 
           return
         }
 
-        if(this.lastName == "") {
+        if(this.consigneeLastName == "") {
           alert("The Last Name cannot be blank.")
 
           return
         }
 
-        if(this.companyName == "") {
+        if(this.consigneeCompanyName == "") {
           alert("The Company Name cannot be blank.")
 
           return
         }
 
         const payload = {
-          firstName: this.firstName,
-          middleName: this.middleName,
-          lastName: this.lastName,
-          companyName: this.companyName
+          consigneeFirstName: this.consigneeFirstName,
+          consigneeMiddleName: this.consigneeMiddleName,
+          consigneeLastName: this.consigneeLastName,
+          consigneeCompanyName: this.consigneeCompanyName
         }
 
+        console.log(payload)
+        
         this.$store.commit("setConsigneeName", payload)
 
-        this.firstName = '';
-        this.middleName = '';
-        this.lastName = '';
-        this.companyName = '';
+        this.consigneeFirstName = '';
+        this.consigneeMiddleName = '';
+        this.consigneeLastName = '';
+        this.consigneeCompanyName = '';
 
-        payload.firstName = '';
-        payload.middleName = '';
-        payload.lastName = '';
-        payload.companyName = '';
+        payload.consigneeFirstName = '';
+        payload.consigneeMiddleName = '';
+        payload.consigneeLastName = '';
+        payload.consigneeCompanyName = '';
 
         this.$router.push('/consigneeAddress');
       }

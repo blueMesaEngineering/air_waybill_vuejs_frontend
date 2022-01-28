@@ -16,7 +16,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "firstName" 
+            v-model = "shipperFirstName" 
             class = "input-field-item"/>
         </div>
 
@@ -26,7 +26,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "middleName" 
+            v-model = "shipperMiddleName" 
             class = "input-field-item"/>
         </div>
 
@@ -36,7 +36,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "lastName" 
+            v-model = "shipperLastName" 
             class = "input-field-item"/>
         </div>
 
@@ -46,7 +46,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "companyName" 
+            v-model = "shipperCompanyName" 
             class = "input-field-item"/>
         </div>
       </div>
@@ -68,51 +68,51 @@
 <script> 
   export default {
     data: () => ({
-      firstName: '',
-      middleName: '',
-      lastName: '',
-      companyName: '',
+      shipperFirstName: '',
+      shipperMiddleName: '',
+      shipperLastName: '',
+      shipperCompanyName: '',
     }),
     methods: {
       submit: function() {
-        console.log(this.firstName, this.middleName, this.lastName, this.companyName);
+        console.log(this.shipperFirstName, this.shipperMiddleName, this.shipperLastName, this.shipperCompanyName);
 
-        if(this.firstName == "") {
+        if(this.shipperFirstName == "") {
           alert("The First Name cannot be blank.")
 
           return
         }
 
-        if(this.lastName == "") {
+        if(this.shipperLastName == "") {
           alert("The Last Name cannot be blank.")
 
           return
         }
 
-        if(this.companyName == "") {
+        if(this.shipperCompanyName == "") {
           alert("The Company Name cannot be blank.")
 
           return
         }
 
         const payload = {
-          firstName: this.firstName,
-          middleName: this.middleName,
-          lastName: this.lastName,
-          companyName: this.companyName
+          shipperFirstName: this.shipperFirstName,
+          shipperMiddleName: this.shipperMiddleName,
+          shipperLastName: this.shipperLastName,
+          shipperCompanyName: this.shipperCompanyName
         }
 
         this.$store.commit("setShipperName", payload)
 
-        this.firstName = '';
-        this.middleName = '';
-        this.lastName = '';
-        this.companyName = '';
+        this.shipperFirstName = '';
+        this.shipperMiddleName = '';
+        this.shipperLastName = '';
+        this.shipperCompanyName = '';
 
-        payload.firstName = '';
-        payload.middleName = '';
-        payload.lastName = '';
-        payload.companyName = '';
+        payload.shipperFirstName = '';
+        payload.shipperMiddleName = '';
+        payload.shipperLastName = '';
+        payload.shipperCompanyName = '';
 
         this.$router.push('/shipperAddress');
       }

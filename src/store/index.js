@@ -72,31 +72,31 @@ export default new Vuex.Store({
     // Consignee Getters
 
     consigneeFirstName: state => {
-      return state.shipper.name.firstName
+      return state.consignee.name.firstName
     },
     consigneeMiddleName: state => {
-      return state.shipper.name.middleName
+      return state.consignee.name.middleName
     },
     consigneeLastName: state => {
-      return state.shipper.name.lastName
+      return state.consignee.name.lastName
     },
     consigneeCompanyName: state => {
-      return state.shipper.name.companyName
+      return state.consignee.name.companyName
     },
     consigneeStreetAddress1: state => {
-      return state.shipper.address.streetAddress1
+      return state.consignee.address.streetAddress1
     },
     consigneeStreetAddress2: state => {
-      return state.shipper.address.streetAddress2
+      return state.consignee.address.streetAddress2
     },
     consigneeCity: state => {
-      return state.shipper.address.city
+      return state.consignee.address.city
     },
     consigneeStateUSA: state => {
-      return state.shipper.address.stateUSA
+      return state.consignee.address.stateUSA
     },
     consigneeZip: state => {
-      return state.shipper.address.zip
+      return state.consignee.address.zip
     },
 
     // Consignee Getters
@@ -105,40 +105,40 @@ export default new Vuex.Store({
   mutations: {
     setShipperName (state, payload) {
       console.log("Entering setShipperName")
-      state.shipper.name.firstName = payload.firstName
-      state.shipper.name.middleName = payload.middleName
-      state.shipper.name.lastName = payload.lastName
-      state.shipper.name.companyName = payload.companyName
+      state.shipper.name.firstName = payload.shipperFirstName
+      state.shipper.name.middleName = payload.shipperMiddleName
+      state.shipper.name.lastName = payload.shipperLastName
+      state.shipper.name.companyName = payload.shipperCompanyName
 
       console.log("shipperName has been set")
       // console.log(state.shipper.name.firstName + " " + state.shipper.name.middleName + " " + state.shipper.name.lastName + " " + state.shipper.name.companyName)
     },
     setShipperAddress (state, payload) {
       console.log("Entering setShipperAddress")
-      state.shipper.address.streetAddress1 = payload.streetAddress1
-      state.shipper.address.streetAddress2 = payload.streetAddress2
-      state.shipper.address.city = payload.city
-      state.shipper.address.stateUSA = payload.state
+      state.shipper.address.streetAddress1 = payload.shipperStreetAddress1
+      state.shipper.address.streetAddress2 = payload.shipperStreetAddress2
+      state.shipper.address.city = payload.shipperCity
+      state.shipper.address.stateUSA = payload.shipperStateUSA
 
       console.log("shipperAddress has been set")
       // console.log(state.shipper.address.streetAddress1 + " " + state.shipper.address.streetAddress2 + " " + state.shipper.address.city + " " + state.shipper.address.stateUSA)
     },
     setConsigneeName (state, payload) {
-      console.log("Entering setShipperName")
-      state.consignee.name.firstName = payload.firstName
-      state.consignee.name.middleName = payload.middleName
-      state.consignee.name.lastName = payload.lastName
-      state.consignee.name.companyName = payload.companyName
+      console.log("Entering setConsigneeName")
+      state.consignee.name.firstName = payload.consigneeFirstName
+      state.consignee.name.middleName = payload.consigneeMiddleName
+      state.consignee.name.lastName = payload.consigneeLastName
+      state.consignee.name.companyName = payload.consigneeCompanyName
 
       console.log("consigneeName has been set")
       // console.log(state.consignee.name.firstName + " " + state.consignee.name.middleName + " " + state.consignee.name.lastName + " " + state.consignee.name.companyName)
     },
     setConsigneeAddress (state, payload) {
-      console.log("Entering setShipperAddress")
-      state.consignee.address.streetAddress1 = payload.streetAddress1
-      state.consignee.address.streetAddress2 = payload.streetAddress2
-      state.consignee.address.city = payload.city
-      state.consignee.address.stateUSA = payload.state
+      console.log("Entering setConsigneeAddress")
+      state.consignee.address.streetAddress1 = payload.consigneeStreetAddress1
+      state.consignee.address.streetAddress2 = payload.consigneeStreetAddress2
+      state.consignee.address.city = payload.consigneeCity
+      state.consignee.address.stateUSA = payload.consigneeStateUSA
 
       console.log("consigneeAddress has been set")
       // console.log(state.consignee.address.streetAddress1 + " " + state.consignee.address.streetAddress2 + " " + state.consignee.address.city + " " + state.consignee.address.stateUSA)

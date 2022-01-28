@@ -16,7 +16,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "streetAddress1" 
+            v-model = "shipperStreetAddress1" 
             class = "input-field-item"/>
         </div>
 
@@ -26,7 +26,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "streetAddress2" 
+            v-model = "shipperStreetAddress2" 
             class = "input-field-item"/>
         </div>
 
@@ -36,7 +36,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "city" 
+            v-model = "shipperCity" 
             class = "input-field-item"/>
         </div>
 
@@ -46,7 +46,7 @@
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
             type = "text" 
-            v-model = "state" 
+            v-model = "shipperStateUSA" 
             class = "input-field-item"/>
         </div>
       </div>
@@ -73,7 +73,7 @@
       </div>
 
       <!-- <div>
-        <h2>The address entered is <p>{{streetAddress1}} </p> <p> {{streetAddress2}}</p> <p> {{city}}, {{state}} </p> </h2>
+        <h2>The address entered is <p>{{shipperStreetAddress1}} </p> <p> {{shipperStreetAddress2}}</p> <p> {{shipperCity}}, {{shipperStateUSA}} </p> </h2>
       </div> -->
   </div>
 </template>
@@ -81,10 +81,10 @@
 <script> 
   export default {
     data: () => ({
-      streetAddress1: '',
-      streetAddress2: '',
-      city: '',
-      state: '',
+      shipperStreetAddress1: '',
+      shipperStreetAddress2: '',
+      shipperCity: '',
+      shipperStateUSA: '',
     }),
     methods: {
       mounted: function() {
@@ -93,50 +93,50 @@
       
       submit: function() {
 
-        if(this.streetAddress1 == "") {
+        if(this.shipperStreetAddress1 == "") {
           alert("The Street Address cannot be blank.")
 
           return
         }
 
-        if(this.city == "") {
+        if(this.shipperCity == "") {
           alert("The City cannot be blank.")
 
           return
         }
 
-        if(this.state == "") {
+        if(this.shipperStateUSA == "") {
           alert("The State cannot be blank.")
 
           return
         }
 
-        console.log(this.streetAddress1, this.streetAddress2, this.city, this.state);
+        console.log(this.shipperStreetAddress1, this.shipperStreetAddress2, this.shipperCity, this.shipperStateUSA);
 
         const payload = {
-          streetAddress1: this.streetAddress1,
-          streetAddress2: this.streetAddress2,
-          city: this.city,
-          state: this.state
+          shipperStreetAddress1: this.shipperStreetAddress1,
+          shipperStreetAddress2: this.shipperStreetAddress2,
+          shipperCity: this.shipperCity,
+          shipperStateUSA: this.shipperStateUSA
         }
 
         this.$store.commit("setShipperAddress", payload)
 
-        this.streetAddress1 = '';
-        this.streetAddress2 = '';
-        this.city = '';
-        this.state = '';
+        this.shipperStreetAddress1 = '';
+        this.shipperStreetAddress2 = '';
+        this.shipperCity = '';
+        this.shipperStateUSA = '';
 
-        payload.streetAddress1 = '';
-        payload.streetAddress2 = '';
-        payload.city = '';
-        payload.state = '';
+        payload.shipperStreetAddress1 = '';
+        payload.shipperStreetAddress2 = '';
+        payload.shipperCity = '';
+        payload.shipperStateUSA = '';
 
         this.$router.push('/shipperReviewNameAndAddress')
       },
 
       back: function() {
-        console.log(this.streetAddress1, this.streetAddress2, this.city, this.state);
+        console.log(this.shipperStreetAddress1, this.shipperStreetAddress2, this.shipperCity, this.shipperStateUSA);
 
         this.$router.push('/shipperName')
       }
