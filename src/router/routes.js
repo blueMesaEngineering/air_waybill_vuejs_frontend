@@ -7,6 +7,7 @@ import consigneeName from "../components/consigneeName";
 import consigneeAddress from "../components/consigneeAddress";
 import consigneeReviewNameAndAddress from "../components/consigneeReviewNameAndAddress";
 import searchByCompanyName from "../components/searchByCompanyName";
+import airWaybill from "../components/airWaybill";
 
 export default [
   {
@@ -56,5 +57,10 @@ export default [
     path: '/searchByCompanyName',
     component: searchByCompanyName,
     name: "Search for Shipper by Company Name",
+  },
+  {
+    path: '/airWaybill',
+    component: airWaybill,
+    name: "Air Waybill Review",
   },
 ]

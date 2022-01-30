@@ -158,34 +158,29 @@
       submit: function() {
         // console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
 
-        axios({
-          method: 'post',
-          url: 'http://127.0.0.1:5000/api/airWaybills',
-          data: {
+        if (confirm("Would you like to save this consignee to the database for future use?") == true) {
+          axios({
+            method: 'post',
+            url: 'http://127.0.0.1:5000/api/consignees',
+            data: {
+              'consigneeFirstName': this.$store.getters.consigneeFirstName,
+              'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
+              'consigneeLastName': this.$store.getters.consigneeLastName,
+              'consigneeCompanyName': this.$store.getters.consigneeCompanyName,
+              'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
+              'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
+              'consigneeCity': this.$store.getters.consigneeCity,
+              'consigneeStateUSA': this.$store.getters.consigneeStateUSA
+            }
+          })
 
-            // Shipper data
-            'shipperFirstName': this.$store.getters.shipperFirstName,
-            'shipperMiddleName': this.$store.getters.shipperMiddleName,
-            'shipperLastName': this.$store.getters.shipperLastName,
-            'shipperCompanyName': this.$store.getters.shipperCompanyName,
-            'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
-            'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
-            'shipperCity': this.$store.getters.shipperCity,
-            'shipperStateUSA': this.$store.getters.shipperStateUSA,
+          alert("Consignee saved to database.")
+        }
+        else {
+          alert("Consignee data has been discarded.")
+        }
 
-            // Consignee data
-            'consigneeFirstName': this.$store.getters.consigneeFirstName,
-            'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
-            'consigneeLastName': this.$store.getters.consigneeLastName,
-            'consigneeCompanyName': this.$store.getters.consigneeCompanyName,
-            'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
-            'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
-            'consigneeCity': this.$store.getters.consigneeCity,
-            'consigneeStateUSA': this.$store.getters.consigneeStateUSA
-          }
-        })
-
-        this.$router.push('/home')
+        this.$router.push('/airWaybill')
       },
 
       editConsigneeNameAddress: function() {

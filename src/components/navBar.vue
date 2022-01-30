@@ -21,7 +21,7 @@
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
       <router-link to = "/consigneeName">
-        <img src = "../assets/navbar/consignee.png" style="height: 3.5vh; width 3.5vh; margin-top: .5vh; margin-bottom: .5vh; margin-left: .5vh; margin-right: .5vh">
+        <img src = "../assets/navbar/consignee2.png" style="height: 4vh; width 4vh; margin-top: .25vh; margin-bottom: .25vh; margin-left: .25vh; margin-right: .25vh">
       </router-link>
       <div style="font-size: .75em">
         CONSIGNEE
@@ -41,6 +41,14 @@
       </div>
       <div style="font-size: .75em">
         SHIPMENT
+      </div>
+    </div>
+    <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
+      <router-link to = "/airWaybill">
+        <img src = "../assets/navbar/airWaybill.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
+      </router-link>
+      <div style="font-size: .75em">
+        AIR WAYBILL
       </div>
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
@@ -75,42 +83,42 @@ export default ({
   width: 99vw;
   justify-content: center;
   background: rgba(0,0,0,.1);
-  grid-template-columns: 6vw 58vw 6vw 6vw 6vw 6vw 6vw 6vw;
+  grid-template-columns: 6vw 52vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw;
 }
 
 @media screen and (max-width: 1200px) {
   .grid-container-navbar {
-    grid-template-columns: 7vw 50vw 7vw 7vw 7vw 7vw 7vw 7vw;
+    grid-template-columns: 7vw 44vw 7vw 7vw 7vw 7vw 7vw 7vw 7vw;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .grid-container-navbar {
-    grid-template-columns: 8vw 44vw 8vw 8vw 8vw 8vw 8vw 8vw;
+    grid-template-columns: 8vw 36vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw;
   }
 }
 
 @media screen and (max-width: 880px) {
   .grid-container-navbar {
-    grid-template-columns: 9vw 36vw 9vw 9vw 9vw 9vw 9vw 9vw;
+    grid-template-columns: 9vw 28vw 9vw 9vw 9vw 9vw 9vw 9vw 9vw;
   }
 }
 
 @media screen and (max-width: 760px) {
   .grid-container-navbar {
-    grid-template-columns: 11vw 18vw 11vw 11vw 11vw 11vw 11vw 11vw;
+    grid-template-columns: 11vw 12vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw;
   }
 }
 
 @media screen and (max-width: 640px) {
   .grid-container-navbar {
-    grid-template-columns: 12vw 9vw 12vw 12vw 12vw 12vw 12vw 12vw;
+    grid-template-columns: 12vw 4vw 12vw 12vw 12vw 12vw 12vw 12vw 12vw;
   }
 }
 
 @media screen and (max-width: 580px) {
   .grid-container-navbar {
-    grid-template-columns: 13vw 0vw 13vw 13vw 13vw 13vw 13vw 13vw;
+    grid-template-columns: 12vw 0vw 12vw 12vw 12vw 12vw 12vw 12vw 12vw;
   }
 }
 

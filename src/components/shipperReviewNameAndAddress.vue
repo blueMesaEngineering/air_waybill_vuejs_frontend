@@ -120,7 +120,7 @@
 </template>
 
 <script> 
-  // import axios from "axios";
+  import axios from "axios";
   
   export default {
     data: () => ({
@@ -159,20 +159,29 @@
         console.log(this.$store.getters.shipperFirstName)
         // console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
 
-        // axios({
-        //   method: 'post',
-        //   url: 'http://127.0.0.1:5000/api/shippers',
-        //   data: {
-        //     'shipperFirstName': this.$store.getters.shipperFirstName,
-        //     'shipperMiddleName': this.$store.getters.shipperMiddleName,
-        //     'shipperLastName': this.$store.getters.shipperLastName,
-        //     'shipperCompanyName': this.$store.getters.shipperCompanyName,
-        //     'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
-        //     'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
-        //     'shipperCity': this.$store.getters.shipperCity,
-        //     'shipperStateUSA': this.$store.getters.shipperStateUSA
-        //   }
-        // })
+        // var saveShipper;
+
+        if (confirm("Would you like to save this shipper to the database for future use?") == true) {
+          axios({
+            method: 'post',
+            url: 'http://127.0.0.1:5000/api/shippers',
+            data: {
+              'shipperFirstName': this.$store.getters.shipperFirstName,
+              'shipperMiddleName': this.$store.getters.shipperMiddleName,
+              'shipperLastName': this.$store.getters.shipperLastName,
+              'shipperCompanyName': this.$store.getters.shipperCompanyName,
+              'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
+              'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
+              'shipperCity': this.$store.getters.shipperCity,
+              'shipperStateUSA': this.$store.getters.shipperStateUSA
+            }
+          })
+
+          alert("Shipper saved to database.")
+        }
+        else {
+          alert("Shipper data has been discarded.")
+        }
 
         this.$router.push('/consigneeName')
       },
