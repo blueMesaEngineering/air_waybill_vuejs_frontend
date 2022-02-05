@@ -1,7 +1,8 @@
 <template>
   <div>
     <!-- Shipper Review Data -->
-    <div>
+    <div
+      id="shipperData">
       <h2 
         style="
           text-align: left; 
@@ -17,6 +18,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "shipperFirstName"
               type = "text" 
               :value = "this.$store.getters.shipperFirstName"
               class = "input-field-item"
@@ -25,6 +27,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "shipperMiddleName"
               type = "text" 
               :value = "this.$store.getters.shipperMiddleName"
               class = "input-field-item"
@@ -32,6 +35,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "shipperLastName"
               type = "text" 
               :value = "this.$store.getters.shipperLastName"
               class = "input-field-item"
@@ -42,6 +46,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "shipperCompanyName"
               type = "text" 
               :value = "this.$store.getters.shipperCompanyName"
               class = "input-field-item"
@@ -54,6 +59,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "shipperStreetAddress1"
               type = "text" 
               :value = "this.$store.getters.shipperStreetAddress1"
               class = "input-field-item"
@@ -66,6 +72,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "shipperStreetAddress2"
               type = "text" 
               :value = "this.$store.getters.shipperStreetAddress2"
               class = "input-field-item"
@@ -78,6 +85,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "shipperCity"
               type = "text" 
               :value = "this.$store.getters.shipperCity"
               class = "input-field-item"
@@ -90,6 +98,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "shipperStateUSA"
               type = "text" 
               :value = "this.$store.getters.shipperStateUSA"
               class = "input-field-item"
@@ -99,29 +108,45 @@
         </div>
       </center>
       
-        <!-- <div align = "right">
+        <div align = "right">
           <input 
+            id = "doneEditShipperNameAddress"
             type="submit" 
-            value="Edit" 
-            v-on:click="editShipperNameAddress" 
+            value="Done" 
+            v-on:click="doneEditShipperNameAddress"
+            hidden
             style="
               margin-right: 1vw; 
               margin-top: 2vw; 
               padding: .3vh .5vh .3vh .5vh;"/>
 
           <input 
+            id = "editShipperNameAddress"
             type="submit" 
-            value="Submit" 
-            v-on:click="submit" 
+            value="Edit" 
+            v-on:click="editShipperNameAddress"
+            style="
+              margin-right: 1vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
+
+          <input 
+            id = "submitShipperNameAddress"
+            type="submit" 
+            value="Next" 
+            v-on:click="submitShipperNameAddress"
             style="
               margin-right: 9vw; 
               margin-top: 2vw; 
               padding: .3vh .5vh .3vh .5vh;"/>
-        </div> -->
+        </div>
     </div>
 
     <!-- Consignee Review Data -->
-    <div>
+    <div
+      id="consigneeData"
+      hidden
+      >
       <h2 
         style="
           text-align: left; 
@@ -284,6 +309,61 @@
         this.consigneeStateUSA = this.$store.state.consignee.address.stateUSA;
 
         console.log("Leaving populateOnLoad")
+      },
+
+      editShipperNameAddress: function() {
+        document.getElementById('editShipperNameAddress').hidden = true;
+        document.getElementById('doneEditShipperNameAddress').hidden = false;
+        document.getElementById('submitShipperNameAddress').hidden = true;
+
+        document.getElementById('shipperFirstName').disabled = false;
+        document.getElementById('shipperMiddleName').disabled = false;
+        document.getElementById('shipperLastName').disabled = false;
+        document.getElementById('shipperCompanyName').disabled = false;
+        document.getElementById('shipperStreetAddress1').disabled = false;
+        document.getElementById('shipperStreetAddress2').disabled = false;
+        document.getElementById('shipperCity').disabled = false;
+        document.getElementById('shipperStateUSA').disabled = false;
+      },
+
+      doneEditShipperNameAddress: function() {
+        document.getElementById('editShipperNameAddress').hidden = false;
+        document.getElementById('doneEditShipperNameAddress').hidden = true;
+        document.getElementById('submitShipperNameAddress').hidden = false;
+
+        document.getElementById('shipperFirstName').disabled = true;
+        document.getElementById('shipperMiddleName').disabled = true;
+        document.getElementById('shipperLastName').disabled = true;
+        document.getElementById('shipperCompanyName').disabled = true;
+        document.getElementById('shipperStreetAddress1').disabled = true;
+        document.getElementById('shipperStreetAddress2').disabled = true;
+        document.getElementById('shipperCity').disabled = true;
+        document.getElementById('shipperStateUSA').disabled = true;
+      },
+
+      submitShipperNameAddress: function() {
+
+        const payload = {
+          shipperFirstName: this.shipperFirstName,
+          shipperMiddleName: this.shipperMiddleName,
+          shipperLastName: this.shipperLastName,
+          shipperCompanyName: this.shipperCompanyName
+        }
+
+        this.$store.commit("setShipperName", payload)
+
+        this.shipperFirstName = '';
+        this.shipperMiddleName = '';
+        this.shipperLastName = '';
+        this.shipperCompanyName = '';
+
+        payload.shipperFirstName = '';
+        payload.shipperMiddleName = '';
+        payload.shipperLastName = '';
+        payload.shipperCompanyName = '';
+
+        document.getElementById('shipperData').hidden = true;
+        document.getElementById('consigneeData').hidden = false
       },
 
       submit: function() {
