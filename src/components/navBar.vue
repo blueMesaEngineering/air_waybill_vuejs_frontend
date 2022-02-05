@@ -8,7 +8,7 @@
         HOME
       </div>
     </div>
-    <div class = "grid-item-navbar">
+    <div class = "grid-item-navbar-spacer">
       <!-- Empty Grid Item for proper spacing -->
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
@@ -127,4 +127,23 @@ export default ({
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.grid-item-navbar-spacer {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.grid-item-navbar:visited {
+  background-color: white;
+}
+  
+.grid-item-navbar:hover {
+  background-color: white;
+}
+
+.grid-item-navbar:active {
+  background-color: white;
+}
+
+
 </style>
