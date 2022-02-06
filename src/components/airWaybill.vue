@@ -366,6 +366,61 @@
         document.getElementById('consigneeData').hidden = false
       },
 
+      editConsigneeNameAddress: function() {
+        document.getElementById('editConsigneeNameAddress').hidden = true;
+        document.getElementById('doneEditConsigneeNameAddress').hidden = false;
+        document.getElementById('submitConsigneeNameAddress').hidden = true;
+
+        document.getElementById('consigneeFirstName').disabled = false;
+        document.getElementById('consigneeMiddleName').disabled = false;
+        document.getElementById('consigneeLastName').disabled = false;
+        document.getElementById('consigneeCompanyName').disabled = false;
+        document.getElementById('consigneeStreetAddress1').disabled = false;
+        document.getElementById('consigneeStreetAddress2').disabled = false;
+        document.getElementById('consigneeCity').disabled = false;
+        document.getElementById('consigneeStateUSA').disabled = false;
+      },
+
+      doneEditConsigneeNameAddress: function() {
+        document.getElementById('editConsigneeNameAddress').hidden = false;
+        document.getElementById('doneEditConsigneeNameAddress').hidden = true;
+        document.getElementById('submitConsigneeNameAddress').hidden = false;
+
+        document.getElementById('consigneeFirstName').disabled = true;
+        document.getElementById('consigneeMiddleName').disabled = true;
+        document.getElementById('consigneeLastName').disabled = true;
+        document.getElementById('consigneeCompanyName').disabled = true;
+        document.getElementById('consigneeStreetAddress1').disabled = true;
+        document.getElementById('consigneeStreetAddress2').disabled = true;
+        document.getElementById('consigneeCity').disabled = true;
+        document.getElementById('consigneeStateUSA').disabled = true;
+      },
+
+      submitConsigneeNameAddress: function() {
+
+        const payload = {
+          consigneeFirstName: this.consigneeFirstName,
+          consigneeMiddleName: this.consigneeMiddleName,
+          consigneeLastName: this.consigneeLastName,
+          consigneeCompanyName: this.consigneeCompanyName
+        }
+
+        this.$store.commit("setConsigneeName", payload)
+
+        this.consigneeFirstName = '';
+        this.consigneeMiddleName = '';
+        this.consigneeLastName = '';
+        this.consigneeCompanyName = '';
+
+        payload.consigneeFirstName = '';
+        payload.consigneeMiddleName = '';
+        payload.consigneeLastName = '';
+        payload.consigneeCompanyName = '';
+
+        document.getElementById('consigneeData').hidden = true;
+        document.getElementById('consigneeData').hidden = false
+      },
+
       submit: function() {
         // console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
 
