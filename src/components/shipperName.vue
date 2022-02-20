@@ -74,6 +74,10 @@
       shipperCompanyName: '',
     }),
     methods: {
+      created: function(){
+        var currentUrl = window.location.pathname;
+        console.log(currentUrl);
+      },
       submit: function() {
         console.log(this.shipperFirstName, this.shipperMiddleName, this.shipperLastName, this.shipperCompanyName);
 

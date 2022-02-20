@@ -13,7 +13,7 @@
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
       <router-link to = "/shipperName">
-        <img src = "../assets/navbar/shipper.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
+        <img src = "../assets/navbar/shipper.png" style="height: 3.5vh; width 3.5vh; margin: .5vh" v-on:click = "checkURL">
       </router-link>
       <div style="font-size: .75em">
         SHIPPER
@@ -73,7 +73,13 @@
 <script>
 
 export default ({
-  name: 'navBar'
+  name: 'navBar',
+  methods: {
+    checkURL: function() {
+      var currentUrl = window.location.pathname;
+      console.log(currentUrl);
+    }
+  },
 })
 </script>
 
