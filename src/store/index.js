@@ -123,6 +123,20 @@ export default new Vuex.Store({
       console.log("shipperAddress has been set")
       // console.log(state.shipper.address.streetAddress1 + " " + state.shipper.address.streetAddress2 + " " + state.shipper.address.city + " " + state.shipper.address.stateUSA)
     },
+    setShipperData (state, payload) {
+      console.log("Entering setShipperData")
+      state.shipper.name.firstName = payload.shipperFirstName
+      state.shipper.name.middleName = payload.shipperMiddleName
+      state.shipper.name.lastName = payload.shipperLastName
+      state.shipper.name.companyName = payload.shipperCompanyName
+
+      state.shipper.address.streetAddress1 = payload.shipperStreetAddress1
+      state.shipper.address.streetAddress2 = payload.shipperStreetAddress2
+      state.shipper.address.city = payload.shipperCity
+      state.shipper.address.stateUSA = payload.shipperStateUSA
+
+      console.log("shipperData has been set")
+    },
     setConsigneeName (state, payload) {
       console.log("Entering setConsigneeName")
       state.consignee.name.firstName = payload.consigneeFirstName
