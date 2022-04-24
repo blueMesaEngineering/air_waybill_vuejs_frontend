@@ -54,22 +54,23 @@
         </div>
       </div>
     </center>
-    </div>
 
-    <!-- Shipper's Address -->
-    <div
-      id = "shipperAddress">
         <div align = "right">
           <input 
             type="submit" 
             value="Next" 
-            v-on:click="submit" 
+            v-on:click="next" 
             style="
               margin-right: 27vw; 
               margin-top: 2vw; 
               padding: .3vh .5vh .3vh .5vh;"/>
         </div>
 
+    </div>
+    <!-- Shipper's Address -->
+    <div
+      id = "shipperAddress"
+      hidden>
       <h2 
         style="
           text-align: left; 
@@ -147,7 +148,7 @@
 </template>
 
 <script> 
-import func from 'vue-editor-bridge';
+// import func from 'vue-editor-bridge';
   export default {
     data: () => ({
       shipperFirstName: '',
@@ -164,7 +165,12 @@ import func from 'vue-editor-bridge';
         var currentUrl = window.location.pathname;
         console.log(currentUrl);
       },
-      submit: function() {
+
+      mounted: function() {
+        console.log("shipper component mounted.")
+      },
+
+      next: function() {
         console.log(this.shipperFirstName, this.shipperMiddleName, this.shipperLastName, this.shipperCompanyName);
 
         if(this.shipperFirstName == "") {
@@ -185,23 +191,16 @@ import func from 'vue-editor-bridge';
           return
         }
 
-        const payload = {
-        }
+        document.getElementById('shipperName').hidden = true;
+        document.getElementById('shipperAddress').hidden = false
 
-        this.$store.commit("setShipperName", payload)
+      },
 
+      back: function() {
+        console.log(this.shipperStreetAddress1, this.shipperStreetAddress2, this.shipperCity, this.shipperStateUSA);
 
-        this.$router.push('/shipperAddress');
-      }
-    }
-  }
-
-  export default {
-    data: () => ({
-    }),
-    methods: {
-      mounted: function() {
-        console.log("shipperAddress component mounted.")
+        document.getElementById('shipperName').hidden = false;
+        document.getElementById('shipperAddress').hidden = true;
       },
       
       submit: function() {
@@ -237,7 +236,7 @@ import func from 'vue-editor-bridge';
           shipperStateUSA: this.shipperStateUSA
         }
 
-        this.$store.commit("setShipperAddress", payload)
+        this.$store.commit("setShipperData", payload)
 
         this.shipperFirstName = '';
         this.shipperMiddleName = '';
@@ -262,17 +261,6 @@ import func from 'vue-editor-bridge';
         this.$router.push('/shipperReviewNameAndAddress')
       },
 
-      back: function() {
-        console.log(this.shipperStreetAddress1, this.shipperStreetAddress2, this.shipperCity, this.shipperStateUSA);
-
-        this.$router.push('/shipperName')
-      },
-
-      submitShipperName: function() {
-
-        document.getElementById('shipperData').hidden = true;
-        document.getElementById('consigneeData').hidden = false
-      }
     }
   }
 </script>

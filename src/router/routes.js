@@ -1,5 +1,6 @@
 import login from "../components/login";
 import home from "../components/home";
+import shipper from "../components/shipper";
 import shipperName from "../components/shipperName";
 import shipperAddress from "../components/shipperAddress";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
@@ -22,6 +23,11 @@ export default [
     path: '/home',
     component: home,
     name: "Home",
+  },
+  {
+    path: '/shipper',
+    component: shipper,
+    name: "Shipper",
   },
   {
     path: '/shipperName',
