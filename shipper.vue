@@ -1,5 +1,8 @@
 <template>
   <div>
+    <!-- Shipper's Name -->
+    <div
+      id = "shipperName">
     <h2 
       style="
         text-align: left; 
@@ -51,94 +54,100 @@
         </div>
       </div>
     </center>
-    
-      <div align = "right">
-        <input 
-          type="submit" 
-          value="Next" 
-          v-on:click="submit" 
-          style="
-            margin-right: 27vw; 
-            margin-top: 2vw; 
-            padding: .3vh .5vh .3vh .5vh;"/>
-      </div>
+    </div>
 
-    <h2 
-      style="
-        text-align: left; 
-        padding-left: 27vw; 
-        text-decoration: underline; 
-        text-underline-position:under;
-        font-family: Verdana;"
-        >Shipper's Address</h2>
-    <center>
-      <div class="grid-container">
-        <div class="grid-item">
-          <h3>Street Address 1</h3>
-        </div>
-        <div class="grid-item" style="padding-top: 1.75vh;">
+    <!-- Shipper's Address -->
+    <div
+      id = "shipperAddress">
+        <div align = "right">
           <input 
-            type = "text" 
-            v-model = "shipperStreetAddress1" 
-            class = "input-field-item"/>
+            type="submit" 
+            value="Next" 
+            v-on:click="submit" 
+            style="
+              margin-right: 27vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
         </div>
 
-        <div class="grid-item">
-          <h3>Street Address 2</h3>
+      <h2 
+        style="
+          text-align: left; 
+          padding-left: 27vw; 
+          text-decoration: underline; 
+          text-underline-position:under;
+          font-family: Verdana;"
+          >Shipper's Address</h2>
+      <center>
+        <div class="grid-container">
+          <div class="grid-item">
+            <h3>Street Address 1</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh;">
+            <input 
+              type = "text" 
+              v-model = "shipperStreetAddress1" 
+              class = "input-field-item"/>
+          </div>
+
+          <div class="grid-item">
+            <h3>Street Address 2</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh;">
+            <input 
+              type = "text" 
+              v-model = "shipperStreetAddress2" 
+              class = "input-field-item"/>
+          </div>
+
+          <div class="grid-item">
+            <h3>City</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh;">
+            <input 
+              type = "text" 
+              v-model = "shipperCity" 
+              class = "input-field-item"/>
+          </div>
+
+          <div class="grid-item">
+            <h3>State</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh;">
+            <input 
+              type = "text" 
+              v-model = "shipperStateUSA" 
+              class = "input-field-item"/>
+          </div>
         </div>
-        <div class="grid-item" style="padding-top: 1.75vh;">
+      </center>
+      
+        <div align = "right">
           <input 
-            type = "text" 
-            v-model = "shipperStreetAddress2" 
-            class = "input-field-item"/>
-        </div>
+            type="submit" 
+            value="Back" 
+            v-on:click="back" 
+            style="
+              margin-right: 1vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
 
-        <div class="grid-item">
-          <h3>City</h3>
-        </div>
-        <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
-            type = "text" 
-            v-model = "shipperCity" 
-            class = "input-field-item"/>
+            type="submit" 
+            value="Submit" 
+            v-on:click="submit" 
+            style="
+              margin-right: 27vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
         </div>
-
-        <div class="grid-item">
-          <h3>State</h3>
-        </div>
-        <div class="grid-item" style="padding-top: 1.75vh;">
-          <input 
-            type = "text" 
-            v-model = "shipperStateUSA" 
-            class = "input-field-item"/>
-        </div>
-      </div>
-    </center>
-    
-      <div align = "right">
-        <input 
-          type="submit" 
-          value="Back" 
-          v-on:click="back" 
-          style="
-            margin-right: 1vw; 
-            margin-top: 2vw; 
-            padding: .3vh .5vh .3vh .5vh;"/>
-
-        <input 
-          type="submit" 
-          value="Submit" 
-          v-on:click="submit" 
-          style="
-            margin-right: 27vw; 
-            margin-top: 2vw; 
-            padding: .3vh .5vh .3vh .5vh;"/>
-      </div>
+    </div>
   </div>
 
 </template>
 
 <script> 
+import func from 'vue-editor-bridge';
   export default {
     data: () => ({
       shipperFirstName: '',
@@ -257,6 +266,12 @@
         console.log(this.shipperStreetAddress1, this.shipperStreetAddress2, this.shipperCity, this.shipperStateUSA);
 
         this.$router.push('/shipperName')
+      },
+
+      submitShipperName: function() {
+
+        document.getElementById('shipperData').hidden = true;
+        document.getElementById('consigneeData').hidden = false
       }
     }
   }
