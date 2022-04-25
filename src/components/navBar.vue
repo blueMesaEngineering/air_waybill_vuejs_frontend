@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <router-link to = "/consigneeName">
+      <router-link to = "/consignee">
         <img src = "../assets/navbar/consignee2.png" style="height: 4vh; width 4vh; margin-top: .25vh; margin-bottom: .25vh; margin-left: .25vh; margin-right: .25vh">
       </router-link>
       <div style="font-size: .75em">

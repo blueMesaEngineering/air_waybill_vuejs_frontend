@@ -156,7 +156,6 @@
       },
 
       submit: function() {
-        // console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
 
         if (confirm("Would you like to save this consignee to the database for future use?") == true) {
           axios({
@@ -185,7 +184,7 @@
 
       editConsigneeNameAddress: function() {
         
-        this.$router.push('/consigneeName')
+        this.$router.push('/consignee')
       }
     }
   }

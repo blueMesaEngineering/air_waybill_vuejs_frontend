@@ -183,12 +183,12 @@
           alert("Shipper data has been discarded.")
         }
 
-        this.$router.push('/consigneeName')
+        this.$router.push('/consignee')
       },
 
       editShipperNameAddress: function() {
         
-        this.$router.push('/shipperName')
+        this.$router.push('/shipper')
       }
     }
   }
