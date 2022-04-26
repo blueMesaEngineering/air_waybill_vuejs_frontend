@@ -28,9 +28,9 @@
       </div>
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <div>
+      <router-link to = "/carrier">
         <img src = "../assets/navbar/carrier.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
-      </div>
+      </router-link>
       <div style="font-size: .75em">
         CARRIER
       </div>
