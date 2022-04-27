@@ -35,6 +35,21 @@ export default new Vuex.Store({
         zip: '',
       }
     },
+    carrier: {
+      name: {
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        companyName: '',
+      },
+      address: {
+        streetAddress1: '',
+        streetAddress2: '',
+        city: '',
+        stateUSA: '',
+        zip: '',
+      }
+    },
   },
 
   getters: {
@@ -99,7 +114,35 @@ export default new Vuex.Store({
       return state.consignee.address.zip
     },
 
-    // Consignee Getters
+    // Carrier Getters
+
+    carrierFirstName: state => {
+      return state.carrier.name.firstName
+    },
+    carrierMiddleName: state => {
+      return state.carrier.name.middleName
+    },
+    carrierLastName: state => {
+      return state.carrier.name.lastName
+    },
+    carrierCompanyName: state => {
+      return state.carrier.name.companyName
+    },
+    carrierStreetAddress1: state => {
+      return state.carrier.address.streetAddress1
+    },
+    carrierStreetAddress2: state => {
+      return state.carrier.address.streetAddress2
+    },
+    carrierCity: state => {
+      return state.carrier.address.city
+    },
+    carrierStateUSA: state => {
+      return state.carrier.address.stateUSA
+    },
+    carrierZip: state => {
+      return state.carrier.address.zip
+    },
   },
 
   mutations: {
@@ -170,6 +213,20 @@ export default new Vuex.Store({
       state.consignee.address.stateUSA = payload.consigneeStateUSA
     
       console.log("consigneeData has been set")
+    },
+    setCarrierData (state, payload) {
+      console.log("Entering setCarrierData")
+      state.carrier.name.firstName = payload.carrierFirstName
+      state.carrier.name.middleName = payload.carrierMiddleName
+      state.carrier.name.lastName = payload.carrierLastName
+      state.carrier.name.companyName = payload.carrierCompanyName
+    
+      state.carrier.address.streetAddress1 = payload.carrierStreetAddress1
+      state.carrier.address.streetAddress2 = payload.carrierStreetAddress2
+      state.carrier.address.city = payload.carrierCity
+      state.carrier.address.stateUSA = payload.carrierStateUSA
+    
+      console.log("carrierData has been set")
     },
   },
 

@@ -5,6 +5,7 @@ import consignee from "../components/consignee";
 import carrier from "../components/carrier";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
 import consigneeReviewNameAndAddress from "../components/consigneeReviewNameAndAddress";
+import carrierReviewNameAndAddress from "../components/carrierReviewNameAndAddress";
 import searchByCompanyName from "../components/searchByCompanyName";
 import airWaybill from "../components/airWaybill";
 
@@ -47,11 +48,11 @@ export default [
     component: carrier,
     name: "Carrier",
   },
-  // {
-  //   path: '/carrierReviewNameAndAddress',
-  //   component: carrierReviewNameAndAddress,
-  //   name: "Carrier Review Name and Address",
-  // },
+  {
+    path: '/carrierReviewNameAndAddress',
+    component: carrierReviewNameAndAddress,
+    name: "Carrier Review Name and Address",
+  },
   {
     path: '/searchByCompanyName',
     component: searchByCompanyName,
