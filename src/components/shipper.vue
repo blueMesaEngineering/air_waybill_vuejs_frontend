@@ -162,8 +162,12 @@
     }),
     methods: {
       created: function(){
+        console.log("shipper component created.")
         var currentUrl = window.location.pathname;
         console.log(currentUrl);
+
+        window.addEventListener('beforeunload', this.checkForPopulatedFields)
+
       },
 
       mounted: function() {
@@ -261,6 +265,17 @@
         this.$router.push('/shipperReviewNameAndAddress')
       },
 
+      checkForPopulatedFields: function() {
+        if(this.shipperFirstName !== "" ||
+            this.shipperMiddleName !== "" ||
+            this.shipperLastName !== "" ||
+            this.shipperCompanyName !== "" ||
+            this.shipperStreetAddress1 !== "" ||
+            this.shipperStreetAddress2 !== "" ||
+            this.shipperCity !== "" ||
+            this.shipperStateUSA !== "")
+          return "Data has not been saved.  Changes will be lost."
+      },
     }
   }
 </script>
