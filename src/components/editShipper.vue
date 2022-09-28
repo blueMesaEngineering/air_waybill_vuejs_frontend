@@ -290,7 +290,6 @@
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
-  border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -305,7 +304,6 @@
 .input-field-item {
   width: 13vw;
   border: 1px solid rgba(0, 0, 0, 0.4); 
-  border-radius: 4px;
   padding: 1.5vh 2vw 1.5vh 2vw; 
   margin: 1vh 0vw 1vh 0vw;
 }

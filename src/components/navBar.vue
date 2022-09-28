@@ -12,11 +12,21 @@
       <!-- Empty Grid Item for proper spacing -->
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <router-link to = "/shipper">
-        <img src = "../assets/navbar/shipper.png" style="height: 3.5vh; width 3.5vh; margin: .5vh" v-on:click = "checkURL">
-      </router-link>
-      <div style="font-size: .75em">
-        SHIPPER
+      <div class="dropdown">
+        <span>
+          <img src = "../assets/navbar/shipper.png" style="height: 3.5vh; width 3.5vh; margin: .5vh" v-on:click = "checkURL">
+          <div style="font-size: .75em">
+            SHIPPER
+          </div>
+          <div class="dropdown-content">
+            <router-link to = "/shipper">
+              NEW SHIPPER
+            </router-link>
+            <router-link to = "/editShipper">
+              EDIT SHIPPER
+            </router-link>
+          </div>
+        </span>
       </div>
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
@@ -90,6 +100,38 @@ export default ({
   justify-content: center;
   background: rgba(0,0,0,.1);
   grid-template-columns: 6vw 52vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #dedede;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2);
+  padding: 4px 4px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: white}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 @media screen and (max-width: 1200px) {
