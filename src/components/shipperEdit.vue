@@ -149,6 +149,8 @@
 
 <script> 
 // import func from 'vue-editor-bridge';
+import axios from "axios";
+// shippersAPI = "http://localhost:5000/api/shippers"
   export default {
     data: () => ({
       shipperFirstName: '',
@@ -159,6 +161,7 @@
       shipperStreetAddress2: '',
       shipperCity: '',
       shipperStateUSA: '',
+      info: '',
     }),
     methods: {
       created: function(){
@@ -172,6 +175,8 @@
 
       mounted: function() {
         console.log("shipper component mounted.")
+        axios.get('http://localhost:5000/api/shippers')
+        .then(response => (this.info = response))
       },
 
       next: function() {

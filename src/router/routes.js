@@ -3,6 +3,7 @@ import home from "../components/home";
 import shipper from "../components/shipper";
 import consignee from "../components/consignee";
 import carrier from "../components/carrier";
+import shipperEdit from "../components/shipperEdit";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
 import consigneeReviewNameAndAddress from "../components/consigneeReviewNameAndAddress";
 import carrierReviewNameAndAddress from "../components/carrierReviewNameAndAddress";
@@ -27,6 +28,11 @@ export default [
     path: '/shipper',
     component: shipper,
     name: "Shipper",
+  },
+  {
+    path: '/shipperEdit',
+    component: shipperEdit,
+    name: "Shipper Edit",
   },
   {
     path: '/shipperReviewNameAndAddress',

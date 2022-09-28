@@ -11,54 +11,78 @@
     <div class = "grid-item-navbar-spacer">
       <!-- Empty Grid Item for proper spacing -->
     </div>
-    <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <div class="dropdown">
-        <span>
-          <img src = "../assets/navbar/shipper.png" style="height: 3.5vh; width 3.5vh; margin: .5vh" v-on:click = "checkURL">
-          <div style="font-size: .75em">
-            SHIPPER
-          </div>
-          <div class="dropdown-content">
-            <router-link to = "/shipper">
-              NEW SHIPPER
-            </router-link>
-            <router-link to = "/editShipper">
-              EDIT SHIPPER
-            </router-link>
-          </div>
-        </span>
-      </div>
+    <div class = "grid-item-navbar dropdown" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
+      <span>
+        <img src = "../assets/navbar/shipper.png" style="height: 3.5vh; width 3.5vh; margin: .5vh" v-on:click = "checkURL">
+        <div style="font-size: .75em">
+          SHIPPER
+        </div>
+        <div class="dropdown-content" style="font-size: .75em">
+          <router-link to = "/shipper">
+            NEW SHIPPER
+          </router-link>
+          <router-link to = "/shipperEdit">
+            EDIT SHIPPER
+          </router-link>
+        </div>
+      </span>
     </div>
-    <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <router-link to = "/consignee">
-        <img src = "../assets/navbar/consignee2.png" style="height: 4vh; width 4vh; margin-top: .25vh; margin-bottom: .25vh; margin-left: .25vh; margin-right: .25vh">
-      </router-link>
+    <div class = "grid-item-navbar dropdown" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
+      <img src = "../assets/navbar/consignee2.png" style="height: 4vh; width 4vh; margin-top: .25vh; margin-bottom: .25vh; margin-left: .25vh; margin-right: .25vh">
       <div style="font-size: .75em">
         CONSIGNEE
       </div>
+      <div class="dropdown-content" style="font-size: .75em">
+        <router-link to = "/consignee">
+          NEW CONSIGNEE
+        </router-link>
+        <router-link to = "/editConsignee">
+          EDIT CONSIGNEE
+        </router-link>
+      </div>
     </div>
-    <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <router-link to = "/carrier">
-        <img src = "../assets/navbar/carrier.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
-      </router-link>
+    <div class = "grid-item-navbar dropdown" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
+      <img src = "../assets/navbar/carrier.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
       <div style="font-size: .75em">
         CARRIER
       </div>
+      <div class="dropdown-content" style="font-size: .75em">
+        <router-link to = "/carrier">
+          NEW CARRIER
+        </router-link>
+        <router-link to = "/editCarrier">
+          EDIT CARRIER
+        </router-link>
+      </div>
     </div>
-        <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
+        <div class = "grid-item-navbar dropdown" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
       <div>
         <img src = "../assets/navbar/shipment4.png" style="height: 4vh; width 4vh; margin: .25vh; transform: scaleX(-1);">
       </div>
       <div style="font-size: .75em">
         SHIPMENT
       </div>
+      <div class="dropdown-content" style="font-size: .75em">
+        <router-link to = "/shipment">
+          NEW SHIPMENT
+        </router-link>
+        <router-link to = "/editShipment">
+          EDIT SHIPMENT
+        </router-link>
+      </div>
     </div>
-    <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
-      <router-link to = "/airWaybill">
-        <img src = "../assets/navbar/airWaybill.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
-      </router-link>
+    <div class = "grid-item-navbar dropdown" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
+      <img src = "../assets/navbar/airWaybill.png" style="height: 3.5vh; width 3.5vh; margin: .5vh">
       <div style="font-size: .75em">
         AIR WAYBILL
+      </div>
+      <div class="dropdown-content" style="font-size: .75em">
+        <router-link to = "/airWaybill">
+          NEW AIR WAYBILL
+        </router-link>
+        <router-link to = "/editAirWaybill">
+          EDIT AIR WAYBILL
+        </router-link>
       </div>
     </div>
     <div class = "grid-item-navbar" style = "padding: 1vh .5vw 1vh .5vw; text-align: center; float: right">
@@ -110,7 +134,7 @@ export default ({
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #dedede;
+  background-color: white;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2);
   padding: 4px 4px;
@@ -128,7 +152,7 @@ export default ({
   display: block;
 }
 
-.dropdown-content a:hover {background-color: white}
+.dropdown-content a:hover {background-color: #dedede}
 
 .dropdown:hover .dropdown-content {
   display: block;
