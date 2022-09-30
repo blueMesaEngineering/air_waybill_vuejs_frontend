@@ -1,6 +1,33 @@
 <template>
   <div>
     <!-- Shipper's Name -->
+    <div>
+      <input 
+        type="submit" 
+        value="Get Shippers" 
+        v-on:click="getShippers" 
+        style="
+          margin-right: 27vw; 
+          margin-top: 2vw; 
+          padding: .3vh .5vh .3vh .5vh;"/>
+    </div>
+    <!-- <div> 
+      <select class="form-control" @change="changeShipperDropdown($event)">
+        <option value="" selected disabled>Select Shipper</option>
+        <option v-for="shipperName in shipperNames" :value = "shipperName.id" :key = "shipperName.id">{{ shipperName }}</option>
+
+      </select>
+    </div> -->
+    <div>
+      {{this.info.data}}
+    </div>
+    <div>
+      {{this.shippers.data[0]}}
+    </div>
+    <div>
+      <p id="parsedJSON">   
+      </p>
+    </div>
     <div
       id = "shipperName">
     <h2 
@@ -162,6 +189,8 @@ import axios from "axios";
       shipperCity: '',
       shipperStateUSA: '',
       info: '',
+      shippers: '',
+      parsedJSON: []
     }),
     methods: {
       created: function(){
@@ -175,8 +204,19 @@ import axios from "axios";
 
       mounted: function() {
         console.log("shipper component mounted.")
+      },
+
+      getShippers: function() {
         axios.get('http://localhost:5000/api/shippers')
         .then(response => (this.info = response))
+        this.shippers = this.info
+        // const parsedJSON = JSON.parse(this.info)
+        // document.getElementById("parsedJSON").innerHTML = parsedJSON[0];
+      },
+
+      parseJSON: function() {
+        this.parsedJSON = JSON.parse(this.shippers)
+        document.getElementById("parsedJSON").innerHTML = this.parsedJSON[0];
       },
 
       next: function() {
