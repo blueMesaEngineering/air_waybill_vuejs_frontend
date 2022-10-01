@@ -20,9 +20,10 @@
     </div> -->
     <div>
       {{this.info.data}}
+      <!-- {{for i in }} -->
     </div>
     <div>
-      {{this.shippers.data[0]}}
+      <!-- {{this.shippers.data[0]}} -->
     </div>
     <div>
       <p id="parsedJSON">   
@@ -201,11 +202,7 @@ import axios from "axios";
         window.addEventListener('beforeunload', this.checkForPopulatedFields)
 
       },
-
-      mounted: function() {
-        console.log("shipper component mounted.")
-      },
-
+      
       getShippers: function() {
         axios.get('http://localhost:5000/api/shippers')
         .then(response => (this.info = response))
@@ -221,59 +218,59 @@ import axios from "axios";
 
       next: function() {
         console.log(this.shipperFirstName, this.shipperMiddleName, this.shipperLastName, this.shipperCompanyName);
-
+        
         if(this.shipperFirstName == "") {
           alert("The First Name cannot be blank.")
-
+          
           return
         }
-
+        
         if(this.shipperLastName == "") {
           alert("The Last Name cannot be blank.")
-
+          
           return
         }
-
+        
         if(this.shipperCompanyName == "") {
           alert("The Company Name cannot be blank.")
-
+          
           return
         }
-
+        
         document.getElementById('shipperName').hidden = true;
         document.getElementById('shipperAddress').hidden = false
-
+        
       },
-
+      
       back: function() {
         console.log(this.shipperStreetAddress1, this.shipperStreetAddress2, this.shipperCity, this.shipperStateUSA);
-
+        
         document.getElementById('shipperName').hidden = false;
         document.getElementById('shipperAddress').hidden = true;
       },
       
       submit: function() {
-
+        
         if(this.shipperStreetAddress1 == "") {
           alert("The Street Address cannot be blank.")
-
+          
           return
         }
-
+        
         if(this.shipperCity == "") {
           alert("The City cannot be blank.")
-
+          
           return
         }
-
+        
         if(this.shipperStateUSA == "") {
           alert("The State cannot be blank.")
-
+          
           return
         }
-
+        
         console.log(this.shipperStreetAddress1, this.shipperStreetAddress2, this.shipperCity, this.shipperStateUSA);
-
+        
         const payload = {
           shipperFirstName: this.shipperFirstName,
           shipperMiddleName: this.shipperMiddleName,
@@ -284,43 +281,49 @@ import axios from "axios";
           shipperCity: this.shipperCity,
           shipperStateUSA: this.shipperStateUSA
         }
-
+        
         this.$store.commit("setShipperData", payload)
-
+        
         this.shipperFirstName = '';
         this.shipperMiddleName = '';
         this.shipperLastName = '';
         this.shipperCompanyName = '';
-
+        
         payload.shipperFirstName = '';
         payload.shipperMiddleName = '';
         payload.shipperLastName = '';
         payload.shipperCompanyName = '';
-
+        
         this.shipperStreetAddress1 = '';
         this.shipperStreetAddress2 = '';
         this.shipperCity = '';
         this.shipperStateUSA = '';
-
+        
         payload.shipperStreetAddress1 = '';
         payload.shipperStreetAddress2 = '';
         payload.shipperCity = '';
         payload.shipperStateUSA = '';
-
+        
         this.$router.push('/shipperReviewNameAndAddress')
       },
-
+      
       checkForPopulatedFields: function() {
         if(this.shipperFirstName !== "" ||
-            this.shipperMiddleName !== "" ||
-            this.shipperLastName !== "" ||
-            this.shipperCompanyName !== "" ||
-            this.shipperStreetAddress1 !== "" ||
-            this.shipperStreetAddress2 !== "" ||
-            this.shipperCity !== "" ||
-            this.shipperStateUSA !== "")
-          return "Data has not been saved.  Changes will be lost."
+        this.shipperMiddleName !== "" ||
+        this.shipperLastName !== "" ||
+        this.shipperCompanyName !== "" ||
+        this.shipperStreetAddress1 !== "" ||
+        this.shipperStreetAddress2 !== "" ||
+        this.shipperCity !== "" ||
+        this.shipperStateUSA !== "")
+        return "Data has not been saved.  Changes will be lost."
       },
+    },
+    mounted: function() {
+      console.log("shipper component mounted.")
+      axios.get('http://localhost:5000/api/shippers')
+      .then(response => (this.info = response))
+      this.shippers = this.info
     }
   }
 </script>
