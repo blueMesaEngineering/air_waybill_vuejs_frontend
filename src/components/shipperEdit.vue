@@ -9,6 +9,107 @@
           text-underline-position:under;
           font-family: Verdana;"
           >Shippers List</h2>
+      <div>
+        {{this.shippers}}
+      </div>
+      <div>
+        <dl v-for="(shipper) in this.shippers" :key = "shipper.id">
+          <dt v-on:click="shipper.open = !shipper.open">
+            <center>
+                <div class="grid-container-name-and-address-shipper-edit">
+                  <div class="grid-item">
+                    <h3>Name</h3>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh;">
+                    <input 
+                      type = "text" 
+                      :value = "shipper.shipperFirstName"
+                      class = "input-field-item"
+                      disabled/>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh;">
+                    <input 
+                      type = "text" 
+                      :value = "shipper.shipperMiddleName"
+                      class = "input-field-item"
+                      disabled/>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh;">
+                    <input 
+                      type = "text" 
+                      :value = "shipper.shipperLastName"
+                      class = "input-field-item"
+                      disabled/>
+                  </div>
+                </div>
+            </center>
+          </dt>
+            <dd v-if="shipper.open">
+              <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border: none; padding: 0;">
+
+                    <div class="grid-item" style="grid-row-start: 2;">
+                      <h3>Company Name</h3>
+                    </div>
+                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
+                    <input 
+                      type = "text" 
+                      :value = "shipper.shipperCompanyName"
+                      class = "input-field-item"
+                      disabled
+                      style="width: 53vw;"/>
+                  </div>
+
+                  <div class="grid-item" style="grid-row-start: 3;">
+                    <h3>Street Address 1</h3>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
+                    <input 
+                      type = "text" 
+                      :value = "shipper.shipperStreetAddress1"
+                      class = "input-field-item"
+                      disabled
+                      style="width: 53vw;"/>
+                  </div>
+
+                  <div class="grid-item" style="grid-row-start: 4;">
+                    <h3>Street Address 2</h3>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
+                    <input 
+                      type = "text" 
+                      :value = "shipper.shipperStreetAddress2"
+                      class = "input-field-item"
+                      disabled
+                      style="width: 53vw;"/>
+                  </div>
+
+                  <div class="grid-item" style="grid-row-start: 5;">
+                    <h3>City</h3>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
+                    <input 
+                    type = "text" 
+                    :value = "shipper.shipperCity"
+                    class = "input-field-item"
+                    disabled
+                    style="width: 53vw;"/>
+                  </div>
+                  
+                  <div class="grid-item" style="grid-row-start: 6;">
+                    <h3>State</h3>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
+                    <input 
+                    type = "text" 
+                    :value = "shipper.shipperStateUSA"
+                    class = "input-field-item"
+                    disabled
+                    style="width: 53vw;"/>
+                  </div>
+                </div>
+            </dd>
+        </dl>
+      </div>
       <table>
         <tbody>
           <tr v-for="(shipper) in this.shippers" :key="shipper.id">
@@ -217,10 +318,11 @@
         }
       }
     },
-    mounted: function() {
+    mounted: function() { // Potential solution as of 20221007: https://stackoverflow.com/questions/38340104/adding-properties-to-json-object
       axios.get('http://localhost:5000/api/shippers')
       .then(response => (this.shippers = response.data))
       console.log("shipper component mounted.")
+      console.log(this.shippers)
     }
   }
 </script>
