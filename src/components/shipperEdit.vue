@@ -46,7 +46,7 @@
                       </label>
                     <!-- </input> -->
                   </div>
-                  <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border: none; padding: 0;">
+                  <!-- <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border: none; padding: 0;">
 
                     <div class="grid-item" style="grid-row-start: 2;">
                       <h3>Company Name</h3>
@@ -107,7 +107,7 @@
                     disabled
                     style="width: 53vw;"/>
                   </div>
-                </div>
+                </div> -->
               </div>
               </center>
               
