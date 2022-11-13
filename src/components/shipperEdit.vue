@@ -10,11 +10,11 @@
           font-family: Verdana;"
           >Shippers List</h2>
       <div>
-        {{this.shippers}}
+        <!-- {{this.shippers}} -->
       </div>
       <div>
         <dl v-for="(shipper) in this.shippers" :key = "shipper.id">
-          <dt v-on:click="shipper.open = !shipper.open">
+          <dt v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
             <center>
                 <div class="grid-container-name-and-address-shipper-edit">
                   <div class="grid-item">
@@ -42,10 +42,8 @@
                       disabled/>
                   </div>
                 </div>
-            </center>
-          </dt>
-            <dd v-if="shipper.open">
-              <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border: none; padding: 0;">
+                <dd v-if="shipper.shipperAccordionState">
+                  <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border-top: none; margin-right: 40px">
 
                     <div class="grid-item" style="grid-row-start: 2;">
                       <h3>Company Name</h3>
@@ -76,13 +74,13 @@
                   </div>
                   <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
                     <input 
-                      type = "text" 
-                      :value = "shipper.shipperStreetAddress2"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
+                    type = "text" 
+                    :value = "shipper.shipperStreetAddress2"
+                    class = "input-field-item"
+                    disabled
+                    style="width: 53vw;"/>
                   </div>
-
+                  
                   <div class="grid-item" style="grid-row-start: 5;">
                     <h3>City</h3>
                   </div>
@@ -107,7 +105,9 @@
                     style="width: 53vw;"/>
                   </div>
                 </div>
-            </dd>
+              </dd>
+            </center>
+          </dt>
         </dl>
       </div>
       <table>
@@ -318,6 +318,7 @@
         }
       }
     },
+
     mounted: function() { // Potential solution as of 20221007: https://stackoverflow.com/questions/38340104/adding-properties-to-json-object
       axios.get('http://localhost:5000/api/shippers')
       .then(response => (this.shippers = response.data))
@@ -330,9 +331,9 @@
 <style>
 .grid-container-name-and-address-shipper-edit {
   display: grid;
-  width: 87vw;
+  width: 80vw;
   justify-content: center;
-  grid-template-columns: 20vw 20vw 20vw 20vw 7vw;
+  grid-template-columns: 20vw 20vw 20vw 20vw;
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -348,6 +349,7 @@
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   /* height:0; */
   /* transition:all 0.4s linear; */
