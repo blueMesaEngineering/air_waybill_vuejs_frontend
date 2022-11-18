@@ -9,13 +9,15 @@
           text-underline-position:under;
           font-family: Verdana;"
           >Shippers List</h2>
-      <div>
-      </div>
-      <RecycleScroller>
-          <div>
-            <dl v-for="(shipper) in this.shippers" :key = "shipper.id">
+
+      <!-- <RecycleScroller> -->
+        <div>
+          <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
             <dt v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
               <center>
+                  <div>
+                    <!-- {{ shipper._id.$oid }} -->
+                  </div>
                   <div class="grid-container-name-and-address-shipper-edit">
                     <div class="grid-item">
                       <h3>Name</h3>
@@ -104,13 +106,50 @@
                       disabled
                       style="width: 53vw;"/>
                     </div>
+                    <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 7; grid-column-start: 1; grid-column-end: 4">
+
+                    </div>
+                    <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 7; grid-column-start: 4; grid-column-end: 5">
+                      <input 
+                        type="submit" 
+                        value="Edit" 
+                        v-on:click="editShipperNameAddress" 
+                        style="
+                          /* margin-right: 1vw;  */
+                          margin-top: .02vw; 
+                          margin-left: 6vw;
+                          padding: .3vh .5vh .3vh .5vh;"
+                          />
+
+                      <input 
+                        type="submit" 
+                        value="Delete" 
+                        v-on:click="deleteShipper" 
+                        style="
+                          /* margin-right: 1vw;  */
+                          margin-top: .02vw; 
+                          margin-left: 1vw;
+                          padding: .3vh .5vh .3vh .5vh;"
+                          />
+  
+                      <input 
+                        type="submit" 
+                        value="Submit" 
+                        v-on:click="submit" 
+                        style="
+                          /* margin-right: 1vw;  */
+                          margin-top: .02vw; 
+                          margin-left: .75vw;
+                          padding: .3vh .5vh .3vh .5vh;"
+                          />
+                      </div>
                   </div>
                 </dd>
               </center>
             </dt>
           </dl>
           </div>
-      </RecycleScroller>
+      <!-- </RecycleScroller> -->
     </center>
   </div>
 </template>
