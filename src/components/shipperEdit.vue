@@ -10,231 +10,107 @@
           font-family: Verdana;"
           >Shippers List</h2>
       <div>
-        <!-- {{this.shippers}} -->
       </div>
-      <div>
-        <dl v-for="(shipper) in this.shippers" :key = "shipper.id">
-          <dt v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
-            <center>
-                <div class="grid-container-name-and-address-shipper-edit">
-                  <div class="grid-item">
-                    <h3>Name</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh;">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperFirstName"
-                      class = "input-field-item"
-                      disabled/>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh;">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperMiddleName"
-                      class = "input-field-item"
-                      disabled/>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh;">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperLastName"
-                      class = "input-field-item"
-                      disabled/>
-                  </div>
-                </div>
-                <dd v-if="shipper.shipperAccordionState">
-                  <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border-top: none; margin-right: 40px">
-
-                    <div class="grid-item" style="grid-row-start: 2;">
-                      <h3>Company Name</h3>
-                    </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperCompanyName"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
-                  </div>
-
-                  <div class="grid-item" style="grid-row-start: 3;">
-                    <h3>Street Address 1</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperStreetAddress1"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
-                  </div>
-
-                  <div class="grid-item" style="grid-row-start: 4;">
-                    <h3>Street Address 2</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                    type = "text" 
-                    :value = "shipper.shipperStreetAddress2"
-                    class = "input-field-item"
-                    disabled
-                    style="width: 53vw;"/>
-                  </div>
-                  
-                  <div class="grid-item" style="grid-row-start: 5;">
-                    <h3>City</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                    type = "text" 
-                    :value = "shipper.shipperCity"
-                    class = "input-field-item"
-                    disabled
-                    style="width: 53vw;"/>
-                  </div>
-                  
-                  <div class="grid-item" style="grid-row-start: 6;">
-                    <h3>State</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                    type = "text" 
-                    :value = "shipper.shipperStateUSA"
-                    class = "input-field-item"
-                    disabled
-                    style="width: 53vw;"/>
-                  </div>
-                </div>
-              </dd>
-            </center>
-          </dt>
-        </dl>
-      </div>
-      <table>
-        <tbody>
-          <tr v-for="(shipper) in this.shippers" :key="shipper.id">
-            <div>
+      <RecycleScroller>
+          <div>
+            <dl v-for="(shipper) in this.shippers" :key = "shipper.id">
+            <dt v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
               <center>
-                <div class="grid-container-name-and-address-shipper-edit">
-                  <div class="grid-item">
-                    <h3>Name</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh;">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperFirstName"
-                      class = "input-field-item"
-                      disabled/>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh;">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperMiddleName"
-                      class = "input-field-item"
-                      disabled/>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh;">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperLastName"
-                      class = "input-field-item"
-                      disabled/>
-                  </div>
-                  <div class="grid-item" style="background: white; padding-top: 3.5vh;">
-                    <input id="toggle" type="checkbox" style="visibility:hidden">
-                      <label for="toggle">
-                        [ + ]
-                      </label>
-                    <!-- </input> -->
-                  </div>
-                  <!-- <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border: none; padding: 0;">
-
-                    <div class="grid-item" style="grid-row-start: 2;">
-                      <h3>Company Name</h3>
+                  <div class="grid-container-name-and-address-shipper-edit">
+                    <div class="grid-item">
+                      <h3>Name</h3>
                     </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperCompanyName"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
+                    <div class="grid-item" style="padding-top: 1.75vh;">
+                      <input 
+                        type = "text" 
+                        :value = "shipper.shipperFirstName"
+                        class = "input-field-item"
+                        disabled/>
+                    </div>
+                    <div class="grid-item" style="padding-top: 1.75vh;">
+                      <input 
+                        type = "text" 
+                        :value = "shipper.shipperMiddleName"
+                        class = "input-field-item"
+                        disabled/>
+                    </div>
+                    <div class="grid-item" style="padding-top: 1.75vh;">
+                      <input 
+                        type = "text" 
+                        :value = "shipper.shipperLastName"
+                        class = "input-field-item"
+                        disabled/>
+                    </div>
                   </div>
+                  <dd v-if="shipper.shipperAccordionState">
+                    <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border-top: none; margin-right: 40px">
 
-                  <div class="grid-item" style="grid-row-start: 3;">
-                    <h3>Street Address 1</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                      type = "text" 
-                      :value = "shipper.shipperStreetAddress1"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
-                  </div>
+                      <div class="grid-item" style="grid-row-start: 2;">
+                        <h3>Company Name</h3>
+                      </div>
+                    <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
+                      <input 
+                        type = "text" 
+                        :value = "shipper.shipperCompanyName"
+                        class = "input-field-item"
+                        disabled
+                        style="width: 53vw;"/>
+                    </div>
 
-                  <div class="grid-item" style="grid-row-start: 4;">
-                    <h3>Street Address 2</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
-                    <input 
+                    <div class="grid-item" style="grid-row-start: 3;">
+                      <h3>Street Address 1</h3>
+                    </div>
+                    <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
+                      <input 
+                        type = "text" 
+                        :value = "shipper.shipperStreetAddress1"
+                        class = "input-field-item"
+                        disabled
+                        style="width: 53vw;"/>
+                    </div>
+
+                    <div class="grid-item" style="grid-row-start: 4;">
+                      <h3>Street Address 2</h3>
+                    </div>
+                    <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
+                      <input 
                       type = "text" 
                       :value = "shipper.shipperStreetAddress2"
                       class = "input-field-item"
                       disabled
                       style="width: 53vw;"/>
+                    </div>
+                    
+                    <div class="grid-item" style="grid-row-start: 5;">
+                      <h3>City</h3>
+                    </div>
+                    <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
+                      <input 
+                      type = "text" 
+                      :value = "shipper.shipperCity"
+                      class = "input-field-item"
+                      disabled
+                      style="width: 53vw;"/>
+                    </div>
+                    
+                    <div class="grid-item" style="grid-row-start: 6;">
+                      <h3>State</h3>
+                    </div>
+                    <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
+                      <input 
+                      type = "text" 
+                      :value = "shipper.shipperStateUSA"
+                      class = "input-field-item"
+                      disabled
+                      style="width: 53vw;"/>
+                    </div>
                   </div>
-
-                  <div class="grid-item" style="grid-row-start: 5;">
-                    <h3>City</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                    type = "text" 
-                    :value = "shipper.shipperCity"
-                    class = "input-field-item"
-                    disabled
-                    style="width: 53vw;"/>
-                  </div>
-                  
-                  <div class="grid-item" style="grid-row-start: 6;">
-                    <h3>State</h3>
-                  </div>
-                  <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
-                    <input 
-                    type = "text" 
-                    :value = "shipper.shipperStateUSA"
-                    class = "input-field-item"
-                    disabled
-                    style="width: 53vw;"/>
-                  </div>
-                </div> -->
-              </div>
+                </dd>
               </center>
-              
-                <!-- <div align = "right">
-                  <input 
-                    type="submit" 
-                    value="Edit" 
-                    v-on:click="editShipperNameAddress" 
-                    style="
-                      margin-right: 1vw; 
-                      margin-top: 2vw; 
-                      padding: .3vh .5vh .3vh .5vh;"/>
-
-                  <input 
-                    type="submit" 
-                    value="Submit" 
-                    v-on:click="submit" 
-                    style="
-                      margin-right: 9vw; 
-                      margin-top: 2vw; 
-                      padding: .3vh .5vh .3vh .5vh;"/>
-                </div> -->
-            </div>
-          </tr>
-        </tbody>
-      </table>
+            </dt>
+          </dl>
+          </div>
+      </RecycleScroller>
     </center>
   </div>
 </template>
@@ -343,9 +219,9 @@
 
 .grid-container-name-and-address-sub-field {
   display: grid;
-  width: 80vw;
+  width: 79vw;
   justify-content: center;
-  grid-template-columns: 20vw 20vw 20vw 20vw;
+  grid-template-columns: 19vw 20vw 20vw 20vw;
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -363,5 +239,16 @@ input:checked ~ .grid-container-name-and-address-sub-field{height:220px;}
   padding: 1vh .5vw 1vh .5vw;
   text-align: center;
   background: #eee;
+}
+
+.scroller {
+  height: 100%;
+}
+
+.user {
+  height: 32%;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
 }
 </style>
