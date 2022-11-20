@@ -12,17 +12,15 @@
       <!-- <RecycleScroller> -->
         <div id="shipper">
           <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
-            <dt v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
+            <dt>
               <center>
-                  <div>
-                    <!-- {{ shipper._id.$oid }} -->
-                  </div>
-                  <div class="grid-container-name-and-address-shipper-edit">
+                  <div class="grid-container-name-and-address-shipper-edit" v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
                     <div class="grid-item">
                       <h3>Name</h3>
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh;">
                       <input 
+                        id = "shipperFirstName"
                         type = "text" 
                         :value = "shipper.shipperFirstName"
                         class = "input-field-item"
@@ -30,6 +28,7 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh;">
                       <input 
+                        id = "shipperMiddleName"
                         type = "text" 
                         :value = "shipper.shipperMiddleName"
                         class = "input-field-item"
@@ -37,6 +36,7 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh;">
                       <input 
+                        id = "shipperLastName"
                         type = "text" 
                         :value = "shipper.shipperLastName"
                         class = "input-field-item"
@@ -51,6 +51,7 @@
                       </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
                       <input 
+                        id = "shipperCompanyName"
                         type = "text" 
                         :value = "shipper.shipperCompanyName"
                         class = "input-field-item"
@@ -63,6 +64,7 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
                       <input 
+                        id = "shipperStreetAddress1"
                         type = "text" 
                         :value = "shipper.shipperStreetAddress1"
                         class = "input-field-item"
@@ -75,11 +77,12 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                      type = "text" 
-                      :value = "shipper.shipperStreetAddress2"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
+                        id = "shipperStreetAddress2"
+                        type = "text" 
+                        :value = "shipper.shipperStreetAddress2"
+                        class = "input-field-item"
+                        disabled
+                        style="width: 53vw;"/>
                     </div>
                     
                     <div class="grid-item" style="grid-row-start: 5;">
@@ -87,11 +90,12 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                      type = "text" 
-                      :value = "shipper.shipperCity"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
+                        id = "shipperCity"
+                        type = "text" 
+                        :value = "shipper.shipperCity"
+                        class = "input-field-item"
+                        disabled
+                        style="width: 53vw;"/>
                     </div>
                     
                     <div class="grid-item" style="grid-row-start: 6;">
@@ -99,17 +103,19 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                      type = "text" 
-                      :value = "shipper.shipperStateUSA"
-                      class = "input-field-item"
-                      disabled
-                      style="width: 53vw;"/>
+                        id = "shipperStateUSA"  
+                        type = "text" 
+                        :value = "shipper.shipperStateUSA"
+                        class = "input-field-item"
+                        disabled
+                        style="width: 53vw;"/>
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 7; grid-column-start: 1; grid-column-end: 4">
 
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 7; grid-column-start: 4; grid-column-end: 5">
                       <input 
+                        id = "editShipperNameAddress"
                         type="submit" 
                         value="Edit" 
                         v-on:click="editShipperNameAddress" 
@@ -147,7 +153,7 @@
               </center>
             </dt>
           </dl>
-          </div>
+        </div>
       <!-- </RecycleScroller> -->
     </center>
   </div>
@@ -191,6 +197,21 @@
         console.log("Leaving populateOnLoad")
       },
 
+      editShipperNameAddress: function() {
+        document.getElementById('editShipperNameAddress').hidden = true;
+        document.getElementById('doneEditShipperNameAddress').hidden = false;
+        document.getElementById('submitShipperNameAddress').hidden = true;
+
+        document.getElementById('shipperFirstName').disabled = false;
+        document.getElementById('shipperMiddleName').disabled = false;
+        document.getElementById('shipperLastName').disabled = false;
+        document.getElementById('shipperCompanyName').disabled = false;
+        document.getElementById('shipperStreetAddress1').disabled = false;
+        document.getElementById('shipperStreetAddress2').disabled = false;
+        document.getElementById('shipperCity').disabled = false;
+        document.getElementById('shipperStateUSA').disabled = false;
+      },
+
       submit: function() {
         console.log(this.$store.getters.shipperFirstName)
 
@@ -230,11 +251,6 @@
             .then(response => (this.shippers = response.data)
             .then(location.reload()))
         }
-      },
-
-      editShipperNameAddress: function() {
-        
-        this.$router.push('/shipper')
       },
 
       toggle: function() {
