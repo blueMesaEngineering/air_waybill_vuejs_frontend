@@ -1,17 +1,16 @@
 <template>
-  <div>
+  <div :key="shipperEditKey">
     <center>
       <h2 
         style="
           text-align: left;
-          padding-left: 9vw; 
-          text-decoration: underline; 
+          padding-left: 9vw;
+          text-decoration: underline;
           text-underline-position:under;
           font-family: Verdana;"
           >Shippers List</h2>
-
       <!-- <RecycleScroller> -->
-        <div>
+        <div id="shipper">
           <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
             <dt v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
               <center>
@@ -124,7 +123,7 @@
                       <input 
                         type="submit" 
                         value="Delete" 
-                        v-on:click="deleteShipper" 
+                        v-on:click="deleteShipper(shipper._id.$oid)"
                         style="
                           /* margin-right: 1vw;  */
                           margin-top: .02vw; 
@@ -168,12 +167,13 @@
       shipperCity: '',
       shipperStateUSA: '',
       shippers: '',
+      shipperEditKey: false,
     }),
     methods: {
-      // mounted: function() {
-      //   console.log("shipperReviewNameAndAddress component mounted.")
-      //   // this.populateOnLoad;
-      // },
+      forceRerender() {
+        console.log("Entering forceRerender()")
+        this.shipperEditKey += 1;
+      },
 
       populateOnLoad: function() {
         console.log("Entering populateOnLoad")
@@ -193,9 +193,6 @@
 
       submit: function() {
         console.log(this.$store.getters.shipperFirstName)
-        // console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
-
-        // var saveShipper;
 
         if (confirm("Would you like to save this shipper to the database for future use?") == true) {
           axios({
@@ -220,6 +217,19 @@
         }
 
         this.$router.push('/consignee')
+      },
+
+      deleteShipper: function(id) {
+        if (confirm("WARNING: This action will permanently delete this record from the database. Do you want to continue?") == true) {
+          // axios.delete("http://127.0.0.1:5000/api/shippers/" + id).then(window.location.reload())
+          axios({
+            method: 'delete',
+            url: "http://127.0.0.1:5000/api/shippers/" + id
+          });
+          axios.get('http://localhost:5000/api/shippers')
+            .then(response => (this.shippers = response.data)
+            .then(location.reload()))
+        }
       },
 
       editShipperNameAddress: function() {
