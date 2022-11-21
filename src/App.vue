@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id = "nav">
-        <navBar/>
-        <router-view/>
+        <navBar style="position: fixed;"/>
+        <router-view style="padding-top: 100px"/>
     </div>
   </div>
 </template>

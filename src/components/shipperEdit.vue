@@ -178,6 +178,7 @@
   import axios from "axios";
   
   export default {
+    props: ['data'],
     data: () => ({
       shipperFirstName: '',
       shipperMiddleName: '',

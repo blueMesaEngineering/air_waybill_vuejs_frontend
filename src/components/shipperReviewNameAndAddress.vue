@@ -133,12 +133,9 @@
       shipperCity: '',
       shipperStateUSA: '',
     }),
+    
     methods: {
-      mounted: function() {
-        console.log("shipperReviewNameAndAddress component mounted.")
-        // this.populateOnLoad;
-      },
-
+     
       populateOnLoad: function() {
         console.log("Entering populateOnLoad")
         console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
@@ -153,6 +150,38 @@
         this.shipperStateUSA = this.$store.state.shipper.address.shipperStateUSA;
 
         console.log("Leaving populateOnLoad")
+      },
+
+      editShipperNameAddress: function() {
+        document.getElementById('editShipperNameAddress').hidden = true;
+        document.getElementById('doneEditShipperNameAddress').hidden = false;
+        document.getElementById('submitShipperNameAddress').hidden = true;
+        document.getElementById('deleteShipper').hidden = true;
+
+        document.getElementById('shipperFirstName').disabled = false;
+        document.getElementById('shipperMiddleName').disabled = false;
+        document.getElementById('shipperLastName').disabled = false;
+        document.getElementById('shipperCompanyName').disabled = false;
+        document.getElementById('shipperStreetAddress1').disabled = false;
+        document.getElementById('shipperStreetAddress2').disabled = false;
+        document.getElementById('shipperCity').disabled = false;
+        document.getElementById('shipperStateUSA').disabled = false;
+      },
+
+      doneEditShipperNameAddress: function() {
+        document.getElementById('editShipperNameAddress').hidden = false;
+        document.getElementById('doneEditShipperNameAddress').hidden = true;
+        document.getElementById('submitShipperNameAddress').hidden = false;
+        document.getElementById('deleteShipper').hidden = false;
+
+        document.getElementById('shipperFirstName').disabled = true;
+        document.getElementById('shipperMiddleName').disabled = true;
+        document.getElementById('shipperLastName').disabled = true;
+        document.getElementById('shipperCompanyName').disabled = true;
+        document.getElementById('shipperStreetAddress1').disabled = true;
+        document.getElementById('shipperStreetAddress2').disabled = true;
+        document.getElementById('shipperCity').disabled = true;
+        document.getElementById('shipperStateUSA').disabled = true;
       },
 
       submit: function() {
@@ -186,11 +215,17 @@
         this.$router.push('/consignee')
       },
 
-      editShipperNameAddress: function() {
+      // editShipperNameAddress: function() {
         
-        this.$router.push('/shipper')
-      }
-    }
+      //   this.$router.push('/shipper')
+      // }
+    },
+
+    mounted: function() {
+        console.log("shipperReviewNameAndAddress component mounted.")
+        // this.populateOnLoad;
+      },
+
   }
 </script>
 

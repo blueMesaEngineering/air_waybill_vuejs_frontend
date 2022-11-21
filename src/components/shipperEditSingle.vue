@@ -42,7 +42,7 @@
                         disabled/>
                     </div>
                   </div>
-                  <dd v-if="shipper.shipperAccordionState">
+                  <dd>
                     <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border-top: none; margin-right: 40px">
 
                       <div class="grid-item" style="grid-row-start: 2;">
