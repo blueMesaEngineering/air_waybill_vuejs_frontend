@@ -9,8 +9,6 @@
           text-underline-position:under;
           font-family: Verdana;"
           >Shippers List</h2>
-      <!-- <vue-scrollbox mode="vertical" @scroll="onScroll" @resize="onResize"> -->
-      <!-- <RecycleScroller> -->
         <div id="shipper">
           <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
             <dt>
@@ -168,8 +166,6 @@
             </dt>
           </dl>
         </div>
-      <!-- </RecycleScroller> -->
-    <!-- </vue-scrollbox> -->
     </center>
   </div>
 </template>
