@@ -345,11 +345,10 @@ import axios from "axios";
 </script>
 
 <style>
-.grid-container {
+/* .grid-container {
   display: grid;
   width: 40vw;
   justify-content: center;
-  /* grid-template-columns: 22vw 22vw; */
   grid-template-columns: 20vw 20vw;
   grid-template-rows: auto auto;
   padding: 1.2vh;
@@ -359,7 +358,6 @@ import axios from "axios";
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
-  /* border: 1px solid rgba(0, 0, 0, 0.8); */
   padding: 1vh .5vw 1vh .5vw;
   text-align: center;
   background: #eee;
@@ -370,5 +368,5 @@ import axios from "axios";
   border: 1px solid rgba(0, 0, 0, 0.4); 
   padding: 1.5vh 2vw 1.5vh 2vw; 
   margin: 1vh 0vw 1vh 0vw;
-}
+} */
 </style>

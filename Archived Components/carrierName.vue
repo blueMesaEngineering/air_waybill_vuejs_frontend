@@ -123,7 +123,7 @@
 </script>
 
 <style>
-.grid-container {
+/* .grid-container {
   display: grid;
   width: 40vw;
   justify-content: center;
@@ -136,7 +136,6 @@
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
-  /* border: 1px solid rgba(0, 0, 0, 0.8); */
   padding: 1vh .5vw 1vh .5vw;
   text-align: center;
   background: #eee;
@@ -147,5 +146,5 @@
   border: 1px solid rgba(0, 0, 0, 0.4); 
   padding: 1.5vh 2vw 1.5vh 2vw; 
   margin: 1vh 0vw 1vh 0vw;
-}
+} */
 </style>

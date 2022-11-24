@@ -1,5 +1,5 @@
 <template>
-  <div :key="shipperEditKey">
+  <div>
     <center>
       <h2 
         style="
@@ -9,8 +9,6 @@
           text-underline-position:under;
           font-family: Verdana;"
           >Shippers List</h2>
-      <!-- <vue-scrollbox mode="vertical" @scroll="onScroll" @resize="onResize"> -->
-      <!-- <RecycleScroller> -->
         <div id="shipper">
           <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
             <dt>
@@ -119,7 +117,7 @@
                         id = "editShipperNameAddress"
                         type="submit" 
                         value="Edit" 
-                        v-on:click="editShipperNameAddress" 
+                        v-on:click="editShipperNameAddress(shipper._id.$oid)" 
                         style="
                           /* margin-right: 1vw;  */
                           margin-top: .02vw; 
@@ -144,7 +142,6 @@
                         value="Delete" 
                         v-on:click="deleteShipper(shipper._id.$oid)"
                         style="
-                          /* margin-right: 1vw;  */
                           margin-top: .02vw; 
                           margin-left: 1vw;
                           padding: .3vh .5vh .3vh .5vh;"
@@ -156,7 +153,6 @@
                         value="Submit" 
                         v-on:click="submit" 
                         style="
-                          /* margin-right: 1vw;  */
                           margin-top: .02vw; 
                           margin-left: .75vw;
                           padding: .3vh .5vh .3vh .5vh;"
@@ -168,8 +164,6 @@
             </dt>
           </dl>
         </div>
-      <!-- </RecycleScroller> -->
-    <!-- </vue-scrollbox> -->
     </center>
   </div>
 </template>
@@ -213,20 +207,27 @@
         console.log("Leaving populateOnLoad")
       },
 
-      editShipperNameAddress: function() {
-        document.getElementById('editShipperNameAddress').hidden = true;
-        document.getElementById('doneEditShipperNameAddress').hidden = false;
-        document.getElementById('submitShipperNameAddress').hidden = true;
-        document.getElementById('deleteShipper').hidden = true;
+      editShipperNameAddress: function(id) {
 
-        document.getElementById('shipperFirstName').disabled = false;
-        document.getElementById('shipperMiddleName').disabled = false;
-        document.getElementById('shipperLastName').disabled = false;
-        document.getElementById('shipperCompanyName').disabled = false;
-        document.getElementById('shipperStreetAddress1').disabled = false;
-        document.getElementById('shipperStreetAddress2').disabled = false;
-        document.getElementById('shipperCity').disabled = false;
-        document.getElementById('shipperStateUSA').disabled = false;
+        axios.get('http://localhost:5000/api/shippers/' + id)
+          .then(response => (this.shipper = response.data)
+          )
+          .then(
+            this.$store.commit("setShipperData", {      // This doesn't work.  Undefined.  Not sure why.  Must fix.  NDG 20221124
+              'shipperFirstName': this.shipperFirstName,
+              'shipperMiddleName': this.shipperMiddleName,
+              'shipperLastName': this.shipperLastName,
+              'shipperCompanyName': this.shipperCompanyName,
+              'shipperStreetAddress1': this.shipperStreetAddress1,
+              'shipperStreetAddress2': this.shipperStreetAddress2,
+              'shipperCity': this.shipperCity,
+              'shipperStateUSA': this.shipperStateUSA
+            }),
+          )
+          .then(
+            this.$router.push('/shipperReviewNameAndAddress'),
+          )
+          .then(console.log(this.shipper))
       },
 
       doneEditShipperNameAddress: function() {
@@ -275,7 +276,6 @@
 
       deleteShipper: function(id) {
         if (confirm("WARNING: This action will permanently delete this record from the database. Do you want to continue?") == true) {
-          // axios.delete("http://127.0.0.1:5000/api/shippers/" + id).then(window.location.reload())
           axios({
             method: 'delete',
             url: "http://127.0.0.1:5000/api/shippers/" + id
@@ -285,24 +285,9 @@
             .then(location.reload()))
         }
       },
-      
-      loadMoreItems() {   // From https://github.com/gautamkabiraj96/vuejs-infinite-scroll-example
-        this.isLoading = true;
-          setTimeout(() => {
-            this.itemsList = [
-              ...this.itemsList,
-              ...Array(10)
-                .fill()
-                .map(() => {
-                  return { id: parseInt((Math.random() * 10000).toString(), 10) };
-                }),
-            ];
-            this.isLoading = false;
-          }, 500);
-      }
     },
 
-    mounted: function() { // Potential solution as of 20221007: https://stackoverflow.com/questions/38340104/adding-properties-to-json-object
+    mounted: function() {
       axios.get('http://localhost:5000/api/shippers')
       .then(response => (this.shippers = response.data))
       console.log("shipper component mounted.")

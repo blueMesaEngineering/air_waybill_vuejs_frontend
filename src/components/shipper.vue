@@ -289,7 +289,7 @@
   grid-template-columns: 20vw 20vw;
   grid-template-rows: auto auto;
   padding: 1.2vh;
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
   border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
