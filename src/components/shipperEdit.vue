@@ -214,14 +214,14 @@
           )
           .then(
             this.$store.commit("setShipperData", {      // This doesn't work.  Undefined.  Not sure why.  Must fix.  NDG 20221124
-              'shipperFirstName': this.shipperFirstName,
-              'shipperMiddleName': this.shipperMiddleName,
-              'shipperLastName': this.shipperLastName,
-              'shipperCompanyName': this.shipperCompanyName,
-              'shipperStreetAddress1': this.shipperStreetAddress1,
-              'shipperStreetAddress2': this.shipperStreetAddress2,
-              'shipperCity': this.shipperCity,
-              'shipperStateUSA': this.shipperStateUSA
+              'shipperFirstName': this.shipper.shipperFirstName,
+              'shipperMiddleName': this.shipper.shipperMiddleName,
+              'shipperLastName': this.shipper.shipperLastName,
+              'shipperCompanyName': this.shipper.shipperCompanyName,
+              'shipperStreetAddress1': this.shipper.shipperStreetAddress1,
+              'shipperStreetAddress2': this.shipper.shipperStreetAddress2,
+              'shipperCity': this.shipper.shipperCity,
+              'shipperStateUSA': this.shipper.shipperStateUSA
             }),
           )
           .then(
