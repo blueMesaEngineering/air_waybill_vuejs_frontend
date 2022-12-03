@@ -27,7 +27,7 @@
       <div align = "right">
         <input 
           type="submit" 
-          value="Submit" 
+          value="Search" 
           v-on:click="submit" 
           style="
             margin-right: 27vw; 

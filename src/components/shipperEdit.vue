@@ -124,17 +124,6 @@
                           margin-left: 6vw;
                           padding: .3vh .5vh .3vh .5vh;"
                           />
-                          
-                      <input 
-                        id = "doneEditShipperNameAddress"
-                        type="submit" 
-                        value="Done" 
-                        v-on:click="doneEditShipperNameAddress"
-                        hidden
-                        style="
-                          margin-right: 1vw; 
-                          margin-top: 2vw; 
-                          padding: .3vh .5vh .3vh .5vh;"/>
 
                       <input 
                         id = "deleteShipper"
@@ -172,7 +161,6 @@
   import axios from "axios";
   
   export default {
-    props: ['data'],
     data: () => ({
       shipperFirstName: '',
       shipperMiddleName: '',
@@ -202,13 +190,15 @@
       //   console.log("Leaving populateOnLoad")
       // },
 
-      editShipperNameAddress: function(id) {
+      editShipperNameAddress: async function(id) {
 
-        axios.get('http://localhost:5000/api/shippers/' + id)
-          .then(response => (this.shipper = response.data)
-          )
-          .then(
-            this.$store.commit("setShipperData", {      // This doesn't work.  Undefined.  Not sure why.  Must fix.  NDG 20221124
+        const response = await axios.get('http://localhost:5000/api/shippers/' + id);
+
+        this.shipper = response.data;
+          // .then(response => (this.shipper = response.data)
+          // )
+          // .then(
+            this.$store.commit("setShipperData", {
               'shipperFirstName': this.shipper.shipperFirstName,
               'shipperMiddleName': this.shipper.shipperMiddleName,
               'shipperLastName': this.shipper.shipperLastName,
@@ -217,12 +207,11 @@
               'shipperStreetAddress2': this.shipper.shipperStreetAddress2,
               'shipperCity': this.shipper.shipperCity,
               'shipperStateUSA': this.shipper.shipperStateUSA
-            }),
-          )
-          .then(
-            this.$router.push('/shipperReviewNameAndAddress'),
-          )
-          .then(console.log(this.shipper))
+            });
+          // )
+          // .then(
+            this.$router.push('/shipperReviewNameAndAddress');
+          // )
       },
 
       // doneEditShipperNameAddress: function() {
