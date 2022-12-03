@@ -292,24 +292,23 @@
     methods: {
       mounted: function() {
         console.log("consigneeReviewNameAndAddress component mounted.")
-        // this.populateOnLoad;
       },
 
-      populateOnLoad: function() {
-        console.log("Entering populateOnLoad")
-        console.log(this.$store.state.getters.firstName + " " + this.$store.state.getters.middleName + " " + this.$store.state.getters.lastName + " " + this.$store.state.getters.companyName + " " + this.$store.state.getters.streetAddress1 + " " + this.$store.state.getters.streetAddress2 + " " + this.$store.state.getters.city + " " + this.$store.state.getters.stateUSA)
+      // populateOnLoad: function() {
+      //   console.log("Entering populateOnLoad")
+      //   console.log(this.$store.state.getters.firstName + " " + this.$store.state.getters.middleName + " " + this.$store.state.getters.lastName + " " + this.$store.state.getters.companyName + " " + this.$store.state.getters.streetAddress1 + " " + this.$store.state.getters.streetAddress2 + " " + this.$store.state.getters.city + " " + this.$store.state.getters.stateUSA)
 
-        this.consigneeFirstName = this.$store.state.consignee.name.firstName;
-        this.consigneeMiddleName = this.$store.state.consignee.name.middleName;
-        this.consigneeLastName = this.$store.state.consignee.name.lastName;
-        this.consigneeCompanyName = this.$store.state.consignee.name.companyName;
-        this.consigneeStreetAddress1 = this.$store.state.consignee.address.streetAddress1;
-        this.consigneeStreetAddress2 = this.$store.state.consignee.address.streetAddress2;
-        this.consigneeCity = this.$store.state.consignee.address.city;
-        this.consigneeStateUSA = this.$store.state.consignee.address.stateUSA;
+      //   this.consigneeFirstName = this.$store.state.consignee.name.firstName;
+      //   this.consigneeMiddleName = this.$store.state.consignee.name.middleName;
+      //   this.consigneeLastName = this.$store.state.consignee.name.lastName;
+      //   this.consigneeCompanyName = this.$store.state.consignee.name.companyName;
+      //   this.consigneeStreetAddress1 = this.$store.state.consignee.address.streetAddress1;
+      //   this.consigneeStreetAddress2 = this.$store.state.consignee.address.streetAddress2;
+      //   this.consigneeCity = this.$store.state.consignee.address.city;
+      //   this.consigneeStateUSA = this.$store.state.consignee.address.stateUSA;
 
-        console.log("Leaving populateOnLoad")
-      },
+      //   console.log("Leaving populateOnLoad")
+      // },
 
       editShipperNameAddress: function() {
         document.getElementById('editShipperNameAddress').hidden = true;

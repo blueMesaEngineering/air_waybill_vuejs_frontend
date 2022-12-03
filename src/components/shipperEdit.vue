@@ -19,7 +19,7 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh;">
                       <input 
-                        :id = "shipperFirstName"
+                        id = "shipperFirstName"
                         type = "text" 
                         :value = "shipper.shipperFirstName"
                         class = "input-field-item"
@@ -183,29 +183,24 @@
       shipperCity: '',
       shipperStateUSA: '',
       shippers: '',
-      shipperEditKey: false,
     }),
     methods: {
-      forceRerender() {
-        console.log("Entering forceRerender()")
-        this.shipperEditKey += 1;
-      },
 
-      populateOnLoad: function() {
-        console.log("Entering populateOnLoad")
-        console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
+      // populateOnLoad: function() {
+      //   console.log("Entering populateOnLoad")
+      //   console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
 
-        this.shipperFirstName = this.$store.state.shipper.name.shipperFirstName;
-        this.shipperMiddleName = this.$store.state.shipper.name.shipperMiddleName;
-        this.shipperLastName = this.$store.state.shipper.name.shipperLastName;
-        this.shipperCompanyName = this.$store.state.shipper.name.shipperCompanyName;
-        this.shipperStreetAddress1 = this.$store.state.shipper.address.shipperStreetAddress1;
-        this.shipperStreetAddress2 = this.$store.state.shipper.address.shipperStreetAddress2;
-        this.shipperCity = this.$store.state.shipper.address.shipperCity;
-        this.shipperStateUSA = this.$store.state.shipper.address.shipperStateUSA;
+      //   this.shipperFirstName = this.$store.state.shipper.name.shipperFirstName;
+      //   this.shipperMiddleName = this.$store.state.shipper.name.shipperMiddleName;
+      //   this.shipperLastName = this.$store.state.shipper.name.shipperLastName;
+      //   this.shipperCompanyName = this.$store.state.shipper.name.shipperCompanyName;
+      //   this.shipperStreetAddress1 = this.$store.state.shipper.address.shipperStreetAddress1;
+      //   this.shipperStreetAddress2 = this.$store.state.shipper.address.shipperStreetAddress2;
+      //   this.shipperCity = this.$store.state.shipper.address.shipperCity;
+      //   this.shipperStateUSA = this.$store.state.shipper.address.shipperStateUSA;
 
-        console.log("Leaving populateOnLoad")
-      },
+      //   console.log("Leaving populateOnLoad")
+      // },
 
       editShipperNameAddress: function(id) {
 
@@ -230,21 +225,21 @@
           .then(console.log(this.shipper))
       },
 
-      doneEditShipperNameAddress: function() {
-        document.getElementById('editShipperNameAddress').hidden = false;
-        document.getElementById('doneEditShipperNameAddress').hidden = true;
-        document.getElementById('submitShipperNameAddress').hidden = false;
-        document.getElementById('deleteShipper').hidden = false;
+      // doneEditShipperNameAddress: function() {
+      //   document.getElementById('editShipperNameAddress').hidden = false;
+      //   document.getElementById('doneEditShipperNameAddress').hidden = true;
+      //   document.getElementById('submitShipperNameAddress').hidden = false;
+      //   document.getElementById('deleteShipper').hidden = false;
 
-        document.getElementById('shipperFirstName').disabled = true;
-        document.getElementById('shipperMiddleName').disabled = true;
-        document.getElementById('shipperLastName').disabled = true;
-        document.getElementById('shipperCompanyName').disabled = true;
-        document.getElementById('shipperStreetAddress1').disabled = true;
-        document.getElementById('shipperStreetAddress2').disabled = true;
-        document.getElementById('shipperCity').disabled = true;
-        document.getElementById('shipperStateUSA').disabled = true;
-      },
+      //   document.getElementById('shipperFirstName').disabled = true;
+      //   document.getElementById('shipperMiddleName').disabled = true;
+      //   document.getElementById('shipperLastName').disabled = true;
+      //   document.getElementById('shipperCompanyName').disabled = true;
+      //   document.getElementById('shipperStreetAddress1').disabled = true;
+      //   document.getElementById('shipperStreetAddress2').disabled = true;
+      //   document.getElementById('shipperCity').disabled = true;
+      //   document.getElementById('shipperStateUSA').disabled = true;
+      // },
 
       submit: function() {
         console.log(this.$store.getters.shipperFirstName)

@@ -15,6 +15,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
+            id = "shipperFirstName"
             type = "text" 
             :value = "this.$store.getters.shipperFirstName"
             class = "input-field-item"
@@ -23,6 +24,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
+            id = "shipperMiddleName"
             type = "text" 
             :value = "this.$store.getters.shipperMiddleName"
             class = "input-field-item"
@@ -30,6 +32,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
+            id = "shipperLastName"
             type = "text" 
             :value = "this.$store.getters.shipperLastName"
             class = "input-field-item"
@@ -40,6 +43,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
           <input 
+            id = "shipperCompanyName"
             type = "text" 
             :value = "this.$store.getters.shipperCompanyName"
             class = "input-field-item"
@@ -52,6 +56,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
           <input 
+            id = "shipperStreetAddress1"
             type = "text" 
             :value = "this.$store.getters.shipperStreetAddress1"
             class = "input-field-item"
@@ -64,6 +69,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
           <input 
+            id = "shipperStreetAddress2"
             type = "text" 
             :value = "this.$store.getters.shipperStreetAddress2"
             class = "input-field-item"
@@ -76,6 +82,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
           <input 
+            id = "shipperCity"
             type = "text" 
             :value = "this.$store.getters.shipperCity"
             class = "input-field-item"
@@ -88,6 +95,7 @@
         </div>
         <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
           <input 
+            id = "shipperStateUSA"
             type = "text" 
             :value = "this.$store.getters.shipperStateUSA"
             class = "input-field-item"
@@ -99,18 +107,31 @@
     
       <div align = "right">
         <input 
+          id = "doneEditShipperNameAddress"
           type="submit" 
-          value="Edit" 
-          v-on:click="editShipperNameAddress" 
+          value="Done" 
+          v-on:click="doneEditShipperNameAddress"
+          hidden
           style="
             margin-right: 1vw; 
             margin-top: 2vw; 
             padding: .3vh .5vh .3vh .5vh;"/>
 
         <input 
+          id = "editShipperNameAddress"
           type="submit" 
-          value="Submit" 
-          v-on:click="submit" 
+          value="Edit" 
+          v-on:click="editShipperNameAddress"
+          style="
+            margin-right: 1vw; 
+            margin-top: 2vw; 
+            padding: .3vh .5vh .3vh .5vh;"/>
+
+        <input 
+          id = "submitShipperNameAddress"
+          type="submit" 
+          value="Next" 
+          v-on:click="submitShipperNameAddress"
           style="
             margin-right: 9vw; 
             margin-top: 2vw; 
@@ -136,27 +157,27 @@
     
     methods: {
      
-      populateOnLoad: function() {
-        console.log("Entering populateOnLoad")
-        console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
+      // populateOnLoad: function() {
+      //   console.log("Entering populateOnLoad")
+      //   console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
 
-        this.shipperFirstName = this.$store.state.shipper.name.shipperFirstName;
-        this.shipperMiddleName = this.$store.state.shipper.name.shipperMiddleName;
-        this.shipperLastName = this.$store.state.shipper.name.shipperLastName;
-        this.shipperCompanyName = this.$store.state.shipper.name.shipperCompanyName;
-        this.shipperStreetAddress1 = this.$store.state.shipper.address.shipperStreetAddress1;
-        this.shipperStreetAddress2 = this.$store.state.shipper.address.shipperStreetAddress2;
-        this.shipperCity = this.$store.state.shipper.address.shipperCity;
-        this.shipperStateUSA = this.$store.state.shipper.address.shipperStateUSA;
+      //   this.shipperFirstName = this.$store.state.shipper.name.shipperFirstName;
+      //   this.shipperMiddleName = this.$store.state.shipper.name.shipperMiddleName;
+      //   this.shipperLastName = this.$store.state.shipper.name.shipperLastName;
+      //   this.shipperCompanyName = this.$store.state.shipper.name.shipperCompanyName;
+      //   this.shipperStreetAddress1 = this.$store.state.shipper.address.shipperStreetAddress1;
+      //   this.shipperStreetAddress2 = this.$store.state.shipper.address.shipperStreetAddress2;
+      //   this.shipperCity = this.$store.state.shipper.address.shipperCity;
+      //   this.shipperStateUSA = this.$store.state.shipper.address.shipperStateUSA;
 
-        console.log("Leaving populateOnLoad")
-      },
+      //   console.log("Leaving populateOnLoad")
+      // },
 
       editShipperNameAddress: function() {
         document.getElementById('editShipperNameAddress').hidden = true;
         document.getElementById('doneEditShipperNameAddress').hidden = false;
         document.getElementById('submitShipperNameAddress').hidden = true;
-        document.getElementById('deleteShipper').hidden = true;
+        // document.getElementById('deleteShipper').hidden = true;
 
         document.getElementById('shipperFirstName').disabled = false;
         document.getElementById('shipperMiddleName').disabled = false;
@@ -172,7 +193,7 @@
         document.getElementById('editShipperNameAddress').hidden = false;
         document.getElementById('doneEditShipperNameAddress').hidden = true;
         document.getElementById('submitShipperNameAddress').hidden = false;
-        document.getElementById('deleteShipper').hidden = false;
+        // document.getElementById('deleteShipper').hidden = false;
 
         document.getElementById('shipperFirstName').disabled = true;
         document.getElementById('shipperMiddleName').disabled = true;
@@ -184,7 +205,7 @@
         document.getElementById('shipperStateUSA').disabled = true;
       },
 
-      submit: function() {
+      submitShipperNameAddress: function() {
         console.log(this.$store.getters.shipperFirstName)
         // console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
 
@@ -214,16 +235,10 @@
 
         this.$router.push('/consignee')
       },
-
-      // editShipperNameAddress: function() {
-        
-      //   this.$router.push('/shipper')
-      // }
     },
 
     mounted: function() {
         console.log("shipperReviewNameAndAddress component mounted.")
-        // this.populateOnLoad;
       },
 
   }
