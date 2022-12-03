@@ -7,31 +7,23 @@
         text-decoration: underline; 
         text-underline-position:under;
         font-family: Verdana;"
-        >Home Screen Template</h2>
+        >Dashboard Home</h2>
     <center>
-      <div class="grid-container">
-        <!-- <div class="grid-item"> -->
-          <!-- <h3>Home Screen Template</h3> -->
-        <!-- </div> -->
-      <!--  <div class="grid-item" style="padding-top: 1.75vh;">
-          <input 
-            type = "text" 
-            v-model = "userName" 
-            class = "input-field-item"/>
-        </div> -->
+      <div class="grid-container-name-and-address">
+        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 1; grid-column-end: 2">
+          Shipper Count
+        </div>
+        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 2; grid-column-end: 3">
+          Consignee Count
+        </div>
+        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 3; grid-column-end: 4">
+          Carrier Count
+        </div>
+        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 4; grid-column-end: 5">
+          Shipment Count
+        </div>
       </div>
     </center>
-    
-      <!-- <div align = "right">
-        <input 
-          type="submit" 
-          value="Log In" 
-          v-on:click="submit" 
-          style="
-            margin-right: 27vw; 
-            margin-top: 2vw; 
-            padding: .3vh .5vh .3vh .5vh;"/>
-      </div> -->
   </div>
 </template>
 
@@ -43,34 +35,7 @@
     }),
     methods: {
       submit: function() {
-        console.log(this.userName, this.password);
-
-        if(this.userName == "") {
-          alert("The User Name cannot be blank.")
-
-          return
-        }
-
-        if(this.lastName == "") {
-          alert("The Password cannot be blank.")
-
-          return
-        }
-
-        const payload = {
-          userName: this.userName,
-          password: this.password,
-        }
-
-        this.$store.commit("setShipperName", payload)
-
-        this.userName = '';
-        this.password = '';
-
-        payload.userName = '';
-        payload.password = '';
-
-        this.$router.push('/shipperName');
+        
       }
     }
   }
