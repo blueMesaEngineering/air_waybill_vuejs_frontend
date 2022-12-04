@@ -1,9 +1,8 @@
 <template>
   <div>
-   <div>
-    </div>
-    <h2 
-      style="
+   <div id = "searchDiv">
+     <h2 
+     style="
         text-align: left; 
         padding-left: 27vw; 
         text-decoration: underline; 
@@ -13,10 +12,11 @@
     <center>
       <div class="grid-container">
         <div class="grid-item">
-          <h3>Company Name</h3>
+          <h3>Shipper</h3>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
+            id = "searchBoxElement"
             type = "text" 
             v-model = "companyName"
             class = "input-field-item">
@@ -28,12 +28,87 @@
         <input 
           type="submit" 
           value="Search" 
-          v-on:click="submit" 
+          v-on:click="submitSearch" 
           style="
             margin-right: 27vw; 
             margin-top: 2vw; 
             padding: .3vh .5vh .3vh .5vh;"/>
       </div>
+    </div>
+    <div id = "resultsDiv"
+      hidden>
+      <h2 
+     style="
+        text-align: left; 
+        padding-left: 9vw; 
+        text-decoration: underline; 
+        text-underline-position:under;
+        font-family: Verdana;"
+        >Search Results</h2>
+        <div id = "results">
+          <dl v-for="(shipper) in this.searchResults" :key = "shipper._id">
+            <dt>
+              <center>
+                <div class="grid-container-name-and-address-shipper-search">
+                  <div class="grid-item">
+                    <h3>Name</h3>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh;">
+                    <input 
+                      id = "shipperFirstName"
+                      type = "text" 
+                      :value = "shipper.shipperFirstName"
+                      class = "input-field-item"
+                      disabled/>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh;">
+                    <input 
+                      id = "shipperMiddleName"
+                      type = "text"
+                      :value = "shipper.shipperMiddleName"
+                      class = "input-field-item"
+                      disabled/>
+                  </div>
+                  <div class="grid-item" style="padding-top: 1.75vh;">
+                    <input 
+                      id = "shipperLastName"
+                      type = "text" 
+                      :value = "shipper.shipperLastName"
+                      class = "input-field-item"
+                      disabled/>
+                  </div>
+                  <div  class="grid-item" style="padding-top: 1.75vh;">
+                    <input
+                      type = "submit"
+                      value="Edit"
+                      style="
+                        margin-right: .2vw; 
+                        margin-top: 1vw; 
+                        padding: .3vh .5vh .3vh .5vh;"/>
+                    <input
+                      type = "submit"
+                      value="Delete"
+                      style="
+                        /* margin-right: 7vw;  */
+                        margin-top: 1vw; 
+                        padding: .3vh .5vh .3vh .5vh;"/>
+                  </div>
+                </div>
+              </center>
+            </dt>
+          </dl>
+        </div>
+      <div align = "right">
+        <input 
+          type="submit" 
+          value="Back to Search" 
+          v-on:click="backToSearch" 
+          style="
+            margin-right: 9vw; 
+            margin-top: 1vw; 
+            padding: .3vh .5vh .3vh .5vh;"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,37 +125,60 @@
       streetAddress2: '',
       city: '',
       state: '',
+      shippers: '',
+      searchResults: []
     }),
+
     methods: {
-      mounted: function() {
-        console.log("shipperReviewNameAndAddress component mounted.")
-        this.populateOnLoad;
-      },
+      submitSearch: function() {
+        let searchValue = document.getElementById("searchBoxElement").value
+        // alert(searchValue)
 
-      submit: async function() {
-
-        const response = await axios({
-          method: 'get',
-          url: 'http://127.0.0.1:5000/api/shippers',
-          params: {
-            companyName: this.companyName
+        for(var index = 0; index < this.shippers.length; index++) {
+          if(this.shippers[index][this.shippers.shipperFirstName] == searchValue) {
+            this.searchResults.push(this.shippers[index]);
           }
+          if(this.shippers[index][this.shippers.shipperLastName] == searchValue) {
+            this.searchResults.push(this.shippers[index]);
+          }
+          if(this.shippers[index][this.shippers.shipperCompanyName] == searchValue) {
+            this.searchResults.push(this.shippers[index]);
+          }
+        }
+
+        document.getElementById("searchBoxElement").value = ""
+        document.getElementById("searchDiv").hidden = true;
+        document.getElementById("resultsDiv").hidden = false;
+      },
+      backToSearch: function() {
+        document.getElementById("searchDiv").hidden = false;
+        document.getElementById("resultsDiv").hidden = true;
+      }
+    },
+
+    mounted: async function() {
+      console.log("shipperReviewNameAndAddress component mounted.")
+      const response = await axios({
+          method: 'get',
+          url: 'http://127.0.0.1:5000/api/shippers'
         })
 
+        this.shippers = response.data
+
         console.log(response)
-      },
     }
   }
 </script>
 
 <style>
-.grid-container-name-and-address {
+.grid-container-name-and-address-shipper-search {
   display: grid;
   width: 80vw;
   justify-content: center;
-  grid-template-columns: 20vw 20vw 20vw 20vw;
+  grid-template-columns: 10vw 20vw 20vw 20vw 10vw;
   grid-template-rows: auto auto;
   padding: 1.2vh;
+  border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
