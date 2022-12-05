@@ -134,21 +134,38 @@
         let searchValue = document.getElementById("searchBoxElement").value
         // alert(searchValue)
 
-        for(var index = 0; index < this.shippers.length; index++) {
-          if(this.shippers[index][this.shippers.shipperFirstName] == searchValue) {
-            this.searchResults.push(this.shippers[index]);
-          }
-          if(this.shippers[index][this.shippers.shipperLastName] == searchValue) {
-            this.searchResults.push(this.shippers[index]);
-          }
-          if(this.shippers[index][this.shippers.shipperCompanyName] == searchValue) {
-            this.searchResults.push(this.shippers[index]);
+        // for(var index = 0; index < this.shippers.length; index++) {
+        //   if(this.shippers[index][shipperFirstName].toUpperCase == searchValue.toUpperCase) {
+        //     this.searchResults.push(this.shippers[index]);
+        //   }
+        //   else if(this.shippers[index][this.shippers.shipperLastName] == searchValue) {
+        //     this.searchResults.push(this.shippers[index]);
+        //   }
+        //   else if(this.shippers[index][this.shippers.shipperCompanyName] == searchValue) {
+        //     this.searchResults.push(this.shippers[index]);
+        //   }
+        // }
+
+        this.shippers.forEach(function(shipper) {
+          if(shipper.shipperFirstName == searchValue) {
+            this.searchResults.push(shipper)
           }
         }
+          
+        );
+
+        console.log(this.searchResults)
 
         document.getElementById("searchBoxElement").value = ""
         document.getElementById("searchDiv").hidden = true;
         document.getElementById("resultsDiv").hidden = false;
+      },
+      findShipper: function(shipper = {}, key, value) => {
+        const result = []
+        const recursiveSearch = (shipper = {}) => {
+          if (!shipper || typeof shipper !== 'object')
+            
+        }
       },
       backToSearch: function() {
         document.getElementById("searchDiv").hidden = false;
