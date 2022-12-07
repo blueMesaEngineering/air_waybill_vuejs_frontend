@@ -160,12 +160,21 @@
         document.getElementById("searchDiv").hidden = true;
         document.getElementById("resultsDiv").hidden = false;
       },
-      findShipper: function(shipper = {}, key, value) => {
+      findShipper: function(shipper = {}, key, value) {
         const result = []
         const recursiveSearch = (shipper = {}) => {
-          if (!shipper || typeof shipper !== 'object')
-            
-        }
+          if (!shipper || typeof shipper !== 'object'){
+            return;
+          }
+          if (shipper[key] === value) {
+            result.push(shipper);
+          };
+          Object.keys(shipper).forEach(function (k) {
+            recursiveSearch(shipper[k])
+          });
+        };
+        recursiveSearch(shippers);
+        return result;
       },
       backToSearch: function() {
         document.getElementById("searchDiv").hidden = false;
