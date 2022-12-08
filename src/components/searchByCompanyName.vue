@@ -12,7 +12,7 @@
     <center>
       <div class="grid-container">
         <div class="grid-item">
-          <h3>Shipper</h3>
+          <h3>Shipper Keyword</h3>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           <input 
@@ -46,6 +46,7 @@
         font-family: Verdana;"
         >Search Results</h2>
         <div id = "results">
+          {{ this.searchResults}}
           <dl v-for="(shipper) in this.searchResults" :key = "shipper._id">
             <dt>
               <center>
@@ -146,36 +147,74 @@
         //   }
         // }
 
-        this.shippers.forEach(function(shipper) {
-          if(shipper.shipperFirstName == searchValue) {
-            this.searchResults.push(shipper)
-          }
-        }
-          
-        );
+        // this.shippers.forEach(function(shipper) {
+        //   if(shipper.shipperFirstName == searchValue) {
+        //     this.searchResults.push(shipper)
+        //   }
+        // });
 
-        console.log(this.searchResults)
+        // this.searchResults = this.shippers
+
+        this.shippers.forEach(element => {
+          Object.entries(element).forEach(element => { 
+            if(element.includes(searchValue)) {
+              this.searchResults.push(element)
+            } 
+          })
+        });
+
+        console.log(this.shippers)
+        var currentShippers = this.getShippers() //this.shippers
+        console.log(currentShippers)
+        // var size = this.shippers.length
+        var results = []
+        // var searchField = "shipperFirstName"
+
+        // for(var index = 0; index < size; index++) {
+        //   let found = currentShippers.find(shipper => shipper.shipperFirstName === searchValue)
+        //   if(found != null) {
+        //     results.push(found)
+        //   }
+        // }
+
+        console.log(searchValue)
+        console.log(results)
 
         document.getElementById("searchBoxElement").value = ""
         document.getElementById("searchDiv").hidden = true;
         document.getElementById("resultsDiv").hidden = false;
       },
-      findShipper: function(shipper = {}, key, value) {
-        const result = []
-        const recursiveSearch = (shipper = {}) => {
-          if (!shipper || typeof shipper !== 'object'){
-            return;
-          }
-          if (shipper[key] === value) {
-            result.push(shipper);
-          };
-          Object.keys(shipper).forEach(function (k) {
-            recursiveSearch(shipper[k])
-          });
-        };
-        recursiveSearch(shippers);
-        return result;
+
+      // checkQuery: function (index, arr, value) {
+      //   if(arr[index].shipperFirstName == value) {
+      //     this.searchResults.push(arr[index])
+      //   }
+      // },
+
+      getShippers: async function() {
+        const response = await axios({
+          method: 'get',
+          url: 'http://127.0.0.1:5000/api/shippers'
+        })
+
+        return response.data
       },
+      // findShipper: function(shipper = {}, key, value) {
+      //   const result = []
+      //   const recursiveSearch = (shipper = {}) => {
+      //     if (!shipper || typeof shipper !== 'object'){
+      //       return;
+      //     }
+      //     if (shipper[key] === value) {
+      //       result.push(shipper);
+      //     }
+      //     Object.keys(shipper).forEach(function (k) {
+      //       recursiveSearch(shipper[k])
+      //     });
+      //   };
+      //   recursiveSearch(shippers);
+      //   return result;
+      // },
       backToSearch: function() {
         document.getElementById("searchDiv").hidden = false;
         document.getElementById("resultsDiv").hidden = true;
