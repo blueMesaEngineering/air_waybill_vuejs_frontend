@@ -46,7 +46,8 @@
         font-family: Verdana;"
         >Search Results</h2>
         <div id = "results">
-          {{ this.searchResults}}
+          {{ this.searchResults }}
+          {{ this.getShippers() }}
           <dl v-for="(shipper) in this.searchResults" :key = "shipper._id">
             <dt>
               <center>
@@ -167,7 +168,7 @@
         var currentShippers = this.getShippers() //this.shippers
         console.log(currentShippers)
         // var size = this.shippers.length
-        var results = []
+        // var results = []
         // var searchField = "shipperFirstName"
 
         // for(var index = 0; index < size; index++) {
@@ -178,7 +179,7 @@
         // }
 
         console.log(searchValue)
-        console.log(results)
+        // console.log(results)
 
         document.getElementById("searchBoxElement").value = ""
         document.getElementById("searchDiv").hidden = true;
@@ -194,10 +195,11 @@
       getShippers: async function() {
         const response = await axios({
           method: 'get',
-          url: 'http://127.0.0.1:5000/api/shippers'
+          url: 'http://127.0.0.1:5000/api/shippers',
+          params: { shipperFirstName: "Nathan" }
         })
 
-        return response.data
+        return response
       },
       // findShipper: function(shipper = {}, key, value) {
       //   const result = []
