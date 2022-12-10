@@ -18,7 +18,6 @@
           <input 
             id = "searchBoxElement"
             type = "text" 
-            v-model = "companyName"
             class = "input-field-item">
         </div>
       </div>
@@ -116,6 +115,7 @@
 
 <script> 
   import axios from "axios";
+  // import url from "url";
   
   export default {
     data: () => ({
@@ -164,62 +164,46 @@
           })
         });
 
-        console.log(this.shippers)
-        var currentShippers = this.getShippers() //this.shippers
-        console.log(currentShippers)
-        // var size = this.shippers.length
-        // var results = []
-        // var searchField = "shipperFirstName"
-
-        // for(var index = 0; index < size; index++) {
-        //   let found = currentShippers.find(shipper => shipper.shipperFirstName === searchValue)
-        //   if(found != null) {
-        //     results.push(found)
-        //   }
-        // }
-
+        // var currentShippers = this.getShippers()
+        // console.log("Current Shippers returned from this.getShippers():")
+        // console.log(currentShippers)
+        // console.log("Search Results:")
+        // console.log(this.searchResults)
+        console.log("Search Value (for pedantic purposes):")
         console.log(searchValue)
         // console.log(results)
 
-        document.getElementById("searchBoxElement").value = ""
+        // var searchBox = document.getElementById("searchBoxElement");
+        // searchBox.value = "";
         document.getElementById("searchDiv").hidden = true;
         document.getElementById("resultsDiv").hidden = false;
       },
 
-      // checkQuery: function (index, arr, value) {
-      //   if(arr[index].shipperFirstName == value) {
-      //     this.searchResults.push(arr[index])
-      //   }
-      // },
-
       getShippers: async function() {
         const response = await axios({
           method: 'get',
-          url: 'http://127.0.0.1:5000/api/shippers',
-          params: { shipperFirstName: "Nathan" }
+          url: 'http://127.0.0.1:5000/api/shippers/:id',
+          params: { shipperFirstName: 'Nathan' }
         })
 
-        return response
+
+        // let payload = { shipperFirstName: 'Nathan' }
+        
+        // const params = new url.URLSearchParams(payload)
+        
+        // let res = await axios.get(`http://127.0.0.1:5000/api/shippers?${params}`)
+        
+        // this.searchResults = res.data
+        
+        // return res.data
+        return response.data
       },
-      // findShipper: function(shipper = {}, key, value) {
-      //   const result = []
-      //   const recursiveSearch = (shipper = {}) => {
-      //     if (!shipper || typeof shipper !== 'object'){
-      //       return;
-      //     }
-      //     if (shipper[key] === value) {
-      //       result.push(shipper);
-      //     }
-      //     Object.keys(shipper).forEach(function (k) {
-      //       recursiveSearch(shipper[k])
-      //     });
-      //   };
-      //   recursiveSearch(shippers);
-      //   return result;
-      // },
+
       backToSearch: function() {
+        // document.getElementById("searchBoxElement").value = ""
         document.getElementById("searchDiv").hidden = false;
         document.getElementById("resultsDiv").hidden = true;
+        this.searchResults = null
       }
     },
 

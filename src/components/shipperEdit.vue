@@ -135,17 +135,6 @@
                           margin-left: 1vw;
                           padding: .3vh .5vh .3vh .5vh;"
                           />
-  
-                      <input 
-                        id = "submitShipperNameAddress"
-                        type="submit" 
-                        value="Submit" 
-                        v-on:click="submit" 
-                        style="
-                          margin-top: .02vw; 
-                          margin-left: .75vw;
-                          padding: .3vh .5vh .3vh .5vh;"
-                          />
                       </div>
                   </div>
                 </dd>
