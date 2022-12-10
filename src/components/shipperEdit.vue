@@ -13,7 +13,7 @@
           <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
             <dt>
               <center>
-                  <div class="grid-container-name-and-address-shipper-edit" v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
+                  <div class="grid-container-name-and-address-shipper-search" v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
                     <div class="grid-item">
                       <h3>Name</h3>
                     </div>
@@ -40,6 +40,28 @@
                         :value = "shipper.shipperLastName"
                         class = "input-field-item"
                         disabled/>
+                    </div>
+                    <div class="grid-item">
+                      <input 
+                        id = "editShipperNameAddress"
+                        type="submit" 
+                        value="Edit" 
+                        v-on:click="editShipperNameAddress(shipper._id.$oid)" 
+                        style="
+                        margin-right: .2vw; 
+                        margin-top: 1.25vw; 
+                        padding: .3vh .5vh .3vh .5vh;"/>
+
+                      <input 
+                        id = "deleteShipper"
+                        type="submit" 
+                        value="Delete" 
+                        v-on:click="deleteShipper(shipper._id.$oid)"
+                        style="
+                          margin-top: .02vw; 
+                          margin-left: 1vw;
+                          padding: .3vh .5vh .3vh .5vh;"
+                          />
                     </div>
                   </div>
                   <dd v-if="shipper.shipperAccordionState">
@@ -113,28 +135,7 @@
 
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 7; grid-column-start: 4; grid-column-end: 5">
-                      <input 
-                        id = "editShipperNameAddress"
-                        type="submit" 
-                        value="Edit" 
-                        v-on:click="editShipperNameAddress(shipper._id.$oid)" 
-                        style="
-                          /* margin-right: 1vw;  */
-                          margin-top: .02vw; 
-                          margin-left: 6vw;
-                          padding: .3vh .5vh .3vh .5vh;"
-                          />
 
-                      <input 
-                        id = "deleteShipper"
-                        type="submit" 
-                        value="Delete" 
-                        v-on:click="deleteShipper(shipper._id.$oid)"
-                        style="
-                          margin-top: .02vw; 
-                          margin-left: 1vw;
-                          padding: .3vh .5vh .3vh .5vh;"
-                          />
                       </div>
                   </div>
                 </dd>
