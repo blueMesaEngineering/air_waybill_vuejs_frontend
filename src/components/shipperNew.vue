@@ -58,6 +58,15 @@
         <div align = "right">
           <input 
             type="submit" 
+            value="Back" 
+            v-on:click="backToShipper" 
+            style="
+              margin-right: 1vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
+
+          <input 
+            type="submit" 
             value="Next" 
             v-on:click="next" 
             style="
@@ -205,6 +214,10 @@
 
         document.getElementById('shipperName').hidden = false;
         document.getElementById('shipperAddress').hidden = true;
+      },
+
+      backToShipper: function() {
+        this.$router.push("/shipper")
       },
       
       submit: function() {

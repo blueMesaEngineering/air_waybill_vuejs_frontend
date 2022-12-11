@@ -10,20 +10,36 @@
         >Shipper</h2>
     <center>
       <div class="grid-container-shipper">
-        <div class="grid-item">
-          <a href = "#/shipperNew"><h3>New Shipper</h3></a>
+        <div class="grid-item" style="padding-top: 4vh">
+          <a href = "#/shipperNew">
+            <img src="../assets/shipper/addItem.svg" style="width: 9vh; height: 9vh">
+          </a>
+          <h3>New Shipper</h3>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           
         </div>
 
         <div class="grid-item">
-          <a href = "#/shipperEdit"><h3>Select from List</h3></a>
+          <a href = "#/shipperEdit">
+            <img src="../assets/shipper/list.png" style="width: 7vh; height: 7vh">
+          </a>
+          <h3>Select from List</h3>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           
         </div>
       </div>
+      <div>
+          <input 
+            type="submit" 
+            value="Home" 
+            v-on:click="backToHome" 
+            style="
+              margin-left: 21vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
+        </div>
     </center>
   </div>
 </template>
@@ -35,7 +51,9 @@
       password: '',
     }),
     methods: {
-      
+      backToHome: function() {
+        this.$router.push("/home")
+      }
     }
   }
 </script>
