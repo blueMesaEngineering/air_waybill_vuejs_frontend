@@ -78,20 +78,21 @@
                       class = "input-field-item"
                       disabled/>
                   </div>
-                  <div  class="grid-item" style="padding-top: 1.75vh;">
+                  <div  class="grid-item">
                     <input
                       type = "submit"
                       value="Edit"
                       style="
                         margin-right: .2vw; 
-                        margin-top: 1vw; 
+                        margin-top: 1.25vw; 
                         padding: .3vh .5vh .3vh .5vh;"/>
+                        
                     <input
                       type = "submit"
                       value="Delete"
                       style="
-                        /* margin-right: 7vw;  */
-                        margin-top: 1vw; 
+                        margin-top: 1.25vw;  
+                        margin-left: 1vw;
                         padding: .3vh .5vh .3vh .5vh;"/>
                   </div>
                 </div>

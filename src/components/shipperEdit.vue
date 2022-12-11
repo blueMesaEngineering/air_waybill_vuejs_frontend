@@ -58,7 +58,7 @@
                         value="Delete" 
                         v-on:click="deleteShipper(shipper._id.$oid)"
                         style="
-                          margin-top: .02vw; 
+                          margin-top: 1.25vw; 
                           margin-left: 1vw;
                           padding: .3vh .5vh .3vh .5vh;"
                           />

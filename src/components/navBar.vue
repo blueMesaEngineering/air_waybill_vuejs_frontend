@@ -19,6 +19,9 @@
         </div>
         <div class="dropdown-content" style="font-size: .75em">
           <router-link to = "/shipper">
+            START SHIPPER
+          </router-link>
+          <router-link to = "/shipperNew">
             NEW SHIPPER
           </router-link>
           <router-link to = "/shipperEdit">

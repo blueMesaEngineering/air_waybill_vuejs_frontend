@@ -23,6 +23,12 @@
           Shipment Count
         </div>
       </div>
+      <div>
+        <a href="#/shipper"><img src="../assets/home/crane.svg" style="height: 10vh; width 10vh; padding-top: 10vh; margin: .5vh" ></a>
+      </div>
+      <div>
+        BUILD AIR WAYBILL
+      </div>
     </center>
   </div>
 </template>

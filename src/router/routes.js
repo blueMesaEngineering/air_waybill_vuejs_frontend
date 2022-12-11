@@ -1,11 +1,12 @@
 import login from "../components/login";
 import home from "../components/home";
 import shipper from "../components/shipper";
-import consignee from "../components/consignee";
-import carrier from "../components/carrier";
+import shipperNew from "../components/shipperNew";
 import shipperEdit from "../components/shipperEdit";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
+import consignee from "../components/consignee";
 import consigneeReviewNameAndAddress from "../components/consigneeReviewNameAndAddress";
+import carrier from "../components/carrier";
 import carrierReviewNameAndAddress from "../components/carrierReviewNameAndAddress";
 import searchByCompanyName from "../components/searchByCompanyName";
 import airWaybill from "../components/airWaybill";
@@ -28,6 +29,11 @@ export default [
     path: '/shipper',
     component: shipper,
     name: "Shipper",
+  },
+  {
+    path: '/shipperNew',
+    component: shipperNew,
+    name: "Shipper New",
   },
   {
     path: '/shipperEdit',
