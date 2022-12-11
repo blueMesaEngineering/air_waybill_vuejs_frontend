@@ -5,8 +5,10 @@ import shipperNew from "../components/shipperNew";
 import shipperEdit from "../components/shipperEdit";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
 import consignee from "../components/consignee";
+import consigneeNew from "../components/consigneeNew";
 import consigneeReviewNameAndAddress from "../components/consigneeReviewNameAndAddress";
 import carrier from "../components/carrier";
+import carrierNew from "../components/carrierNew";
 import carrierReviewNameAndAddress from "../components/carrierReviewNameAndAddress";
 import searchByCompanyName from "../components/searchByCompanyName";
 import airWaybill from "../components/airWaybill";
@@ -51,6 +53,11 @@ export default [
     name: "Consignee",
   },
   {
+    path: '/consigneeNew',
+    component: consigneeNew,
+    name: "Consignee New",
+  },
+  {
     path: '/consigneeReviewNameAndAddress',
     component: consigneeReviewNameAndAddress,
     name: "Consignee Review Name and Address",
@@ -59,6 +66,11 @@ export default [
     path: '/carrier',
     component: carrier,
     name: "Carrier",
+  },
+  {
+    path: '/carrierNew',
+    component: carrierNew,
+    name: "Carrier New",
   },
   {
     path: '/carrierReviewNameAndAddress',

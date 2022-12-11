@@ -251,6 +251,34 @@
             .then(location.reload()))
         }
       },
+
+      selectShipper: function(id) {
+        if(confirm("Add this shipper to the Air Waybill?") == true) {
+
+          var shipper = this.searchJSONArray(this.shippers, id)
+          console.log(shipper)
+          const payload = {
+            shipperFirstName: shipper.shipperFirstName,
+            shipperMiddleName: shipper.shipperMiddleName,
+            shipperLastName: shipper.shipperLastName,
+            shipperCompanyName: shipper.shipperCompanyName,
+            shipperStreetAddress1: shipper.shipperStreetAddress1,
+            shipperStreetAddress2: shipper.shipperStreetAddress2,
+            shipperCity: shipper.shipperCity,
+            shipperStateUSA: shipper.shipperStateUSA
+          }
+
+          this.$store.commit("setShipperData", payload)
+        }
+        this.$router.push("/consignee")
+      },
+
+      searchJSONArray: function(shippers, query) {
+        for(var index = 0; index < shippers.length; index++) {
+          if(shippers[index]._id == query)
+            return(shippers[index]);
+        }
+      }
     },
 
     mounted: function() {
