@@ -113,7 +113,7 @@
           v-on:click="doneEditShipperNameAddress"
           hidden
           style="
-            margin-right: 1vw; 
+            margin-right:12vw; 
             margin-top: 2vw; 
             padding: .3vh .5vh .3vh .5vh;"/>
 
