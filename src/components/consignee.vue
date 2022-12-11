@@ -64,8 +64,11 @@
             consigneeStateUSA: ""
           }
 
-        this.$store.commit("setShipperData", payload)
-        
+          this.$store.commit("setShipperData", payload)
+          alert("Consignee data for this Air Waybill has been cleared.")
+        }
+        else {
+          alert("Retaining Consignee data....")
         }
         this.$router.push("/home")
       }

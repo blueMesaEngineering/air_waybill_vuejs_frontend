@@ -64,8 +64,11 @@
             shipperStateUSA: ""
           }
 
-        this.$store.commit("setShipperData", payload)
-        
+          this.$store.commit("setShipperData", payload)
+          alert("Shipper data for this Air Waybill has been cleared.")
+        }
+        else {
+          alert("Retaining Shipper data....")
         }
         this.$router.push("/home")
       }
