@@ -52,6 +52,21 @@
     }),
     methods: {
       backToHome: function() {
+        if(confirm("Reset Air Waybill data and start with blank template?")) {
+          const payload = {
+            carrierFirstName: "",
+            carrierMiddleName: "",
+            carrierLastName: "",
+            carrierCompanyName: "",
+            carrierStreetAddress1: "",
+            carrierStreetAddress2: "",
+            carrierCity: "",
+            carrierStateUSA: ""
+          }
+
+        this.$store.commit("setShipperData", payload)
+        
+        }
         this.$router.push("/home")
       }
     }
