@@ -9,25 +9,29 @@
         font-family: Verdana;"
         >Dashboard Home</h2>
     <center>
-      <div class="grid-container-name-and-address">
-        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 1; grid-column-end: 2">
-          Shipper Count
+      <div class="grid-container-home">
+        <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 1; grid-row-end: 2">
+          SHIPPER COUNT
         </div>
-        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 2; grid-column-end: 3">
-          Consignee Count
+        <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-row-end: 3">
+          CONSIGNEE COUNT
         </div>
-        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 3; grid-column-end: 4">
-          Carrier Count
+        <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-row-end: 4">
+          CARRIER COUNT
         </div>
-        <div class="grid-item" style="padding-top: 1.75vh; grid-column-start: 4; grid-column-end: 5">
-          Shipment Count
+        <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-row-end: 5">
+          SHIPMENT COUNT
         </div>
-      </div>
-      <div>
-        <a href="#/shipper"><img src="../assets/home/crane.svg" style="height: 10vh; width 10vh; padding-top: 10vh; margin: .5vh" ></a>
-      </div>
-      <div>
-        BUILD AIR WAYBILL
+        <div class="grid-item" style="grid-row-start: 1; grid-row-end: 5; grid-column-start: 3; grid-column-end: 4; padding-bottom: 10vh; ">
+          <div>
+            <a href="#/shipper"><img src="../assets/home/crane.svg" style="height: 10vh; width 10vh; padding-top: 10vh; margin: .5vh" ></a>
+          </div>
+          <div>
+            <h3>
+              BUILD AIR WAYBILL
+            </h3>
+          </div>
+        </div>
       </div>
     </center>
   </div>
@@ -56,6 +60,19 @@
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.grid-container-home {
+  display: grid;
+  width: 50vw;
+  justify-content: center;
+  grid-template-columns: 12vw 12vw 26vw;
+  grid-template-rows: auto auto auto auto;
+  padding: 1.2vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

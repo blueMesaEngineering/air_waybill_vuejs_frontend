@@ -7,14 +7,14 @@
         text-decoration: underline; 
         text-underline-position:under;
         font-family: Verdana;"
-        >Shipper</h2>
+        >SHIPPER</h2>
     <center>
       <div class="grid-container-shipper">
         <div class="grid-item" style="padding-top: 4vh">
           <a href = "#/shipperNew">
             <img src="../assets/shipper/addItem.svg" style="width: 9vh; height: 9vh">
           </a>
-          <h3>New Shipper</h3>
+          <h3>NEW SHIPPER</h3>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           
@@ -24,7 +24,7 @@
           <a href = "#/shipperEdit">
             <img src="../assets/shipper/list.png" style="width: 7vh; height: 7vh">
           </a>
-          <h3>Select from List</h3>
+          <h3>SELECT FROM LIST</h3>
         </div>
         <div class="grid-item" style="padding-top: 1.75vh;">
           
