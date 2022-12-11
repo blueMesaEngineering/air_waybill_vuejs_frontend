@@ -13,7 +13,7 @@
           <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
             <dt>
               <center>
-                  <div class="grid-container-name-and-address-shipper-search" v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
+                  <div class="grid-container-name-and-address-shipper-edit" v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
                     <div class="grid-item">
                       <h3>Name</h3>
                     </div>
@@ -48,9 +48,10 @@
                         value="Edit" 
                         v-on:click="editShipperNameAddress(shipper._id.$oid)" 
                         style="
-                        margin-right: .2vw; 
+                        /* margin-right: .2vw;  */
                         margin-top: 1.25vw; 
-                        padding: .3vh .5vh .3vh .5vh;"/>
+                        padding: .3vh .5vh .3vh .5vh;
+                        "/>
 
                       <input 
                         id = "deleteShipper"
@@ -60,8 +61,19 @@
                         style="
                           margin-top: 1.25vw; 
                           margin-left: 1vw;
-                          padding: .3vh .5vh .3vh .5vh;"
-                          />
+                          padding: .3vh .5vh .3vh .5vh;
+                          "/>
+
+                      <input 
+                        id = "selectShipper"
+                        type="submit" 
+                        value="Select" 
+                        v-on:click="selectShipper(shipper._id.$oid)"
+                        style="
+                          margin-top: 1.25vw; 
+                          margin-left: 1vw;
+                          padding: .3vh .5vh .3vh .5vh;
+                          "/>
                     </div>
                   </div>
                   <dd v-if="shipper.shipperAccordionState">
@@ -185,40 +197,20 @@
         const response = await axios.get('http://localhost:5000/api/shippers/' + id);
 
         this.shipper = response.data;
-          // .then(response => (this.shipper = response.data)
-          // )
-          // .then(
-            this.$store.commit("setShipperData", {
-              'shipperFirstName': this.shipper.shipperFirstName,
-              'shipperMiddleName': this.shipper.shipperMiddleName,
-              'shipperLastName': this.shipper.shipperLastName,
-              'shipperCompanyName': this.shipper.shipperCompanyName,
-              'shipperStreetAddress1': this.shipper.shipperStreetAddress1,
-              'shipperStreetAddress2': this.shipper.shipperStreetAddress2,
-              'shipperCity': this.shipper.shipperCity,
-              'shipperStateUSA': this.shipper.shipperStateUSA
-            });
-          // )
-          // .then(
-            this.$router.push('/shipperReviewNameAndAddress');
-          // )
+
+        this.$store.commit("setShipperData", {
+          'shipperFirstName': this.shipper.shipperFirstName,
+          'shipperMiddleName': this.shipper.shipperMiddleName,
+          'shipperLastName': this.shipper.shipperLastName,
+          'shipperCompanyName': this.shipper.shipperCompanyName,
+          'shipperStreetAddress1': this.shipper.shipperStreetAddress1,
+          'shipperStreetAddress2': this.shipper.shipperStreetAddress2,
+          'shipperCity': this.shipper.shipperCity,
+          'shipperStateUSA': this.shipper.shipperStateUSA
+        });
+
+        this.$router.push('/shipperReviewNameAndAddress');
       },
-
-      // doneEditShipperNameAddress: function() {
-      //   document.getElementById('editShipperNameAddress').hidden = false;
-      //   document.getElementById('doneEditShipperNameAddress').hidden = true;
-      //   document.getElementById('submitShipperNameAddress').hidden = false;
-      //   document.getElementById('deleteShipper').hidden = false;
-
-      //   document.getElementById('shipperFirstName').disabled = true;
-      //   document.getElementById('shipperMiddleName').disabled = true;
-      //   document.getElementById('shipperLastName').disabled = true;
-      //   document.getElementById('shipperCompanyName').disabled = true;
-      //   document.getElementById('shipperStreetAddress1').disabled = true;
-      //   document.getElementById('shipperStreetAddress2').disabled = true;
-      //   document.getElementById('shipperCity').disabled = true;
-      //   document.getElementById('shipperStateUSA').disabled = true;
-      // },
 
       submit: function() {
         console.log(this.$store.getters.shipperFirstName)
@@ -275,7 +267,7 @@
   display: grid;
   width: 80vw;
   justify-content: center;
-  grid-template-columns: 20vw 20vw 20vw 20vw;
+  grid-template-columns: 8vw 20vw 20vw 20vw 12vw;
   grid-template-rows: auto auto;
   padding: 1.2vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
