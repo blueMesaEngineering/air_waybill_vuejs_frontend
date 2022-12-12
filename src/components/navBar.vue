@@ -42,7 +42,7 @@
         <router-link to = "/consigneeNew">
           NEW CONSIGNEE
         </router-link>
-        <router-link to = "/editConsignee">
+        <router-link to = "/consigneeEdit">
           EDIT CONSIGNEE
         </router-link>
       </div>
@@ -59,7 +59,7 @@
         <router-link to = "/carrierNew">
           NEW CARRIER
         </router-link>
-        <router-link to = "/editCarrier">
+        <router-link to = "/carrierEdit">
           EDIT CARRIER
         </router-link>
       </div>
@@ -78,7 +78,7 @@
         <router-link to = "/shipmentNew">
           NEW SHIPMENT
         </router-link>
-        <router-link to = "/editShipment">
+        <router-link to = "/shipmentEdit">
           EDIT SHIPMENT
         </router-link>
       </div>

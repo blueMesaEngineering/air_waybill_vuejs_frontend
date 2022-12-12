@@ -5,6 +5,7 @@ import shipperNew from "../components/shipperNew";
 import shipperEdit from "../components/shipperEdit";
 import shipperReviewNameAndAddress from "../components/shipperReviewNameAndAddress";
 import consignee from "../components/consignee";
+import consigneeEdit from "../components/consigneeEdit";
 import consigneeNew from "../components/consigneeNew";
 import consigneeReviewNameAndAddress from "../components/consigneeReviewNameAndAddress";
 import carrier from "../components/carrier";
@@ -56,6 +57,11 @@ export default [
     path: '/consigneeNew',
     component: consigneeNew,
     name: "Consignee New",
+  },
+  {
+    path: '/consigneeEdit',
+    component: consigneeEdit,
+    name: "Consignee Edit",
   },
   {
     path: '/consigneeReviewNameAndAddress',

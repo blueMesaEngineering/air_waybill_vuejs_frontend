@@ -8,45 +8,45 @@
           text-decoration: underline;
           text-underline-position:under;
           font-family: Verdana;"
-          >Shippers List</h2>
-        <div id="shipper">
-          <dl v-for="(shipper) in this.shippers" :key = "shipper._id">
+          >Consignees List</h2>
+        <div id="consignee">
+          <dl v-for="(consignee) in this.consignees" :key = "consignee._id">
             <dt>
               <center>
-                  <div class="grid-container-name-and-address-shipper-edit" v-on:click="shipper.shipperAccordionState = !shipper.shipperAccordionState">
+                  <div class="grid-container-name-and-address-consignee-edit" v-on:click="consignee.consigneeAccordionState = !consignee.consigneeAccordionState">
                     <div class="grid-item">
                       <h3>Name</h3>
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh;">
                       <input 
-                        id = "shipperFirstName"
+                        id = "consigneeFirstName"
                         type = "text" 
-                        :value = "shipper.shipperFirstName"
+                        :value = "consignee.consigneeFirstName"
                         class = "input-field-item"
                         disabled/>
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh;">
                       <input 
-                        id = "shipperMiddleName"
+                        id = "consigneeMiddleName"
                         type = "text" 
-                        :value = "shipper.shipperMiddleName"
+                        :value = "consignee.consigneeMiddleName"
                         class = "input-field-item"
                         disabled/>
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh;">
                       <input 
-                        id = "shipperLastName"
+                        id = "consigneeLastName"
                         type = "text" 
-                        :value = "shipper.shipperLastName"
+                        :value = "consignee.consigneeLastName"
                         class = "input-field-item"
                         disabled/>
                     </div>
                     <div class="grid-item">
                       <input 
-                        id = "editShipperNameAddress"
+                        id = "editConsigneeNameAddress"
                         type="submit" 
                         value="Edit" 
-                        v-on:click="editShipperNameAddress(shipper._id.$oid)" 
+                        v-on:click="editConsigneeNameAddress(consignee._id.$oid)" 
                         style="
                         /* margin-right: .2vw;  */
                         margin-top: 1.25vw; 
@@ -54,10 +54,10 @@
                         "/>
 
                       <input 
-                        id = "deleteShipper"
+                        id = "deleteConsignee"
                         type="submit" 
                         value="Delete" 
-                        v-on:click="deleteShipper(shipper._id.$oid)"
+                        v-on:click="deleteConsignee(consignee._id.$oid)"
                         style="
                           margin-top: 1.25vw; 
                           margin-left: 1vw;
@@ -65,10 +65,10 @@
                           "/>
 
                       <input 
-                        id = "selectShipper"
+                        id = "selectConsignee"
                         type="submit" 
                         value="Select" 
-                        v-on:click="selectShipper(shipper._id.$oid)"
+                        v-on:click="selectConsignee(consignee._id.$oid)"
                         style="
                           margin-top: 1.25vw; 
                           margin-left: 1vw;
@@ -76,17 +76,17 @@
                           "/>
                     </div>
                   </div>
-                  <dd v-if="shipper.shipperAccordionState">
-                    <div :id = "shipper.id" class="grid-container-name-and-address-sub-field" style="border-top: none; margin-right: 40px">
+                  <dd v-if="consignee.consigneeAccordionState">
+                    <div :id = "consignee.id" class="grid-container-name-and-address-sub-field" style="border-top: none; margin-right: 40px">
 
                       <div class="grid-item" style="grid-row-start: 2;">
                         <h3>Company Name</h3>
                       </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                        id = "shipperCompanyName"
+                        id = "consigneeCompanyName"
                         type = "text" 
-                        :value = "shipper.shipperCompanyName"
+                        :value = "consignee.consigneeCompanyName"
                         class = "input-field-item"
                         disabled
                         style="width: 53vw;"/>
@@ -97,9 +97,9 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                        id = "shipperStreetAddress1"
+                        id = "consigneeStreetAddress1"
                         type = "text" 
-                        :value = "shipper.shipperStreetAddress1"
+                        :value = "consignee.consigneeStreetAddress1"
                         class = "input-field-item"
                         disabled
                         style="width: 53vw;"/>
@@ -110,9 +110,9 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                        id = "shipperStreetAddress2"
+                        id = "consigneeStreetAddress2"
                         type = "text" 
-                        :value = "shipper.shipperStreetAddress2"
+                        :value = "consignee.consigneeStreetAddress2"
                         class = "input-field-item"
                         disabled
                         style="width: 53vw;"/>
@@ -123,9 +123,9 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                        id = "shipperCity"
+                        id = "consigneeCity"
                         type = "text" 
-                        :value = "shipper.shipperCity"
+                        :value = "consignee.consigneeCity"
                         class = "input-field-item"
                         disabled
                         style="width: 53vw;"/>
@@ -136,9 +136,9 @@
                     </div>
                     <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
                       <input 
-                        id = "shipperStateUSA"
+                        id = "consigneeStateUSA"
                         type = "text" 
-                        :value = "shipper.shipperStateUSA"
+                        :value = "consignee.consigneeStateUSA"
                         class = "input-field-item"
                         disabled
                         style="width: 53vw;"/>
@@ -164,143 +164,143 @@
   
   export default {
     data: () => ({
-      shipperFirstName: '',
-      shipperMiddleName: '',
-      shipperLastName: '',
-      shipperCompanyName: '',
-      shipperStreetAddress1: '',
-      shipperStreetAddress2: '',
-      shipperCity: '',
-      shipperStateUSA: '',
-      shippers: '',
+      consigneeFirstName: '',
+      consigneeMiddleName: '',
+      consigneeLastName: '',
+      consigneeCompanyName: '',
+      consigneeStreetAddress1: '',
+      consigneeStreetAddress2: '',
+      consigneeCity: '',
+      consigneeStateUSA: '',
+      consignees: '',
     }),
     methods: {
 
       // populateOnLoad: function() {
       //   console.log("Entering populateOnLoad")
-      //   console.log(this.$store.state.getters.shipperFirstName + " " + this.$store.state.getters.shipperMiddleName + " " + this.$store.state.getters.shipperLastName + " " + this.$store.state.getters.shipperCompanyName + " " + this.$store.state.getters.shipperStreetAddress1 + " " + this.$store.state.getters.shipperStreetAddress2 + " " + this.$store.state.getters.shipperCity + " " + this.$store.state.getters.shipperStateUSA)
+      //   console.log(this.$store.state.getters.consigneeFirstName + " " + this.$store.state.getters.consigneeMiddleName + " " + this.$store.state.getters.consigneeLastName + " " + this.$store.state.getters.consigneeCompanyName + " " + this.$store.state.getters.consigneeStreetAddress1 + " " + this.$store.state.getters.consigneeStreetAddress2 + " " + this.$store.state.getters.consigneeCity + " " + this.$store.state.getters.consigneeStateUSA)
 
-      //   this.shipperFirstName = this.$store.state.shipper.name.shipperFirstName;
-      //   this.shipperMiddleName = this.$store.state.shipper.name.shipperMiddleName;
-      //   this.shipperLastName = this.$store.state.shipper.name.shipperLastName;
-      //   this.shipperCompanyName = this.$store.state.shipper.name.shipperCompanyName;
-      //   this.shipperStreetAddress1 = this.$store.state.shipper.address.shipperStreetAddress1;
-      //   this.shipperStreetAddress2 = this.$store.state.shipper.address.shipperStreetAddress2;
-      //   this.shipperCity = this.$store.state.shipper.address.shipperCity;
-      //   this.shipperStateUSA = this.$store.state.shipper.address.shipperStateUSA;
+      //   this.consigneeFirstName = this.$store.state.consignee.name.consigneeFirstName;
+      //   this.consigneeMiddleName = this.$store.state.consignee.name.consigneeMiddleName;
+      //   this.consigneeLastName = this.$store.state.consignee.name.consigneeLastName;
+      //   this.consigneeCompanyName = this.$store.state.consignee.name.consigneeCompanyName;
+      //   this.consigneeStreetAddress1 = this.$store.state.consignee.address.consigneeStreetAddress1;
+      //   this.consigneeStreetAddress2 = this.$store.state.consignee.address.consigneeStreetAddress2;
+      //   this.consigneeCity = this.$store.state.consignee.address.consigneeCity;
+      //   this.consigneeStateUSA = this.$store.state.consignee.address.consigneeStateUSA;
 
       //   console.log("Leaving populateOnLoad")
       // },
 
-      editShipperNameAddress: async function(id) {
+      editConsigneeNameAddress: async function(id) {
 
-        const response = await axios.get('http://localhost:5000/api/shippers/' + id);
+        const response = await axios.get('http://localhost:5000/api/consignees/' + id);
 
-        this.shipper = response.data;
+        this.consignee = response.data;
 
-        this.$store.commit("setShipperData", {
-          'shipperFirstName': this.shipper.shipperFirstName,
-          'shipperMiddleName': this.shipper.shipperMiddleName,
-          'shipperLastName': this.shipper.shipperLastName,
-          'shipperCompanyName': this.shipper.shipperCompanyName,
-          'shipperStreetAddress1': this.shipper.shipperStreetAddress1,
-          'shipperStreetAddress2': this.shipper.shipperStreetAddress2,
-          'shipperCity': this.shipper.shipperCity,
-          'shipperStateUSA': this.shipper.shipperStateUSA
+        this.$store.commit("setConsigneeData", {
+          'consigneeFirstName': this.consignee.consigneeFirstName,
+          'consigneeMiddleName': this.consignee.consigneeMiddleName,
+          'consigneeLastName': this.consignee.consigneeLastName,
+          'consigneeCompanyName': this.consignee.consigneeCompanyName,
+          'consigneeStreetAddress1': this.consignee.consigneeStreetAddress1,
+          'consigneeStreetAddress2': this.consignee.consigneeStreetAddress2,
+          'consigneeCity': this.consignee.consigneeCity,
+          'consigneeStateUSA': this.consignee.consigneeStateUSA
         });
 
-        this.$router.push('/shipperReviewNameAndAddress');
+        this.$router.push('/consigneeReviewNameAndAddress');
       },
 
       submit: function() {
-        console.log(this.$store.getters.shipperFirstName)
+        console.log(this.$store.getters.consigneeFirstName)
 
-        if (confirm("Would you like to save this shipper to the database for future use?") == true) {
+        if (confirm("Would you like to save this consignee to the database for future use?") == true) {
           axios({
             method: 'post',
-            url: 'http://127.0.0.1:5000/api/shippers',
+            url: 'http://127.0.0.1:5000/api/consignees',
             data: {
-              'shipperFirstName': this.$store.getters.shipperFirstName,
-              'shipperMiddleName': this.$store.getters.shipperMiddleName,
-              'shipperLastName': this.$store.getters.shipperLastName,
-              'shipperCompanyName': this.$store.getters.shipperCompanyName,
-              'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
-              'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
-              'shipperCity': this.$store.getters.shipperCity,
-              'shipperStateUSA': this.$store.getters.shipperStateUSA
+              'consigneeFirstName': this.$store.getters.consigneeFirstName,
+              'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
+              'consigneeLastName': this.$store.getters.consigneeLastName,
+              'consigneeCompanyName': this.$store.getters.consigneeCompanyName,
+              'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
+              'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
+              'consigneeCity': this.$store.getters.consigneeCity,
+              'consigneeStateUSA': this.$store.getters.consigneeStateUSA
             }
           })
 
-          alert("Shipper saved to database.")
+          alert("Consignee saved to database.")
         }
         else {
-          alert("Shipper data has been discarded.")
+          alert("Consignee data has been discarded.")
         }
 
-        this.$router.push('/consignee')
+        this.$router.push('/carrier')
       },
 
-      deleteShipper: function(id) {
+      deleteConsignee: function(id) {
         if (confirm("WARNING: This action will permanently delete this record from the database. Do you want to continue?") == true) {
           axios({
             method: 'delete',
-            url: "http://127.0.0.1:5000/api/shippers/" + id
+            url: "http://127.0.0.1:5000/api/consignees/" + id
           });
-          axios.get('http://localhost:5000/api/shippers')
-            .then(response => (this.shippers = response.data)
+          axios.get('http://localhost:5000/api/consignees')
+            .then(response => (this.consignees = response.data)
             .then(location.reload()))
         }
       },
 
-      selectShipper: function(id) {
-        if(confirm("Add this shipper to the Air Waybill?") == true) {
+      selectConsignee: function(id) {
+        if(confirm("Add this consignee to the Air Waybill?") == true) {
 
-          var shipper = this.searchJSONArray(this.shippers, id)
-          console.log("this.shippers:")
-          console.log(this.shippers)
+          var consignee = this.searchJSONArray(this.consignees, id)
+          console.log("this.consignees:")
+          console.log(this.consignees)
           console.log("ID:")
           console.log(id)
-          console.log("Shipper:")
-          console.log(shipper)
+          console.log("Consignee:")
+          console.log(consignee)
           const payload = {
-            shipperFirstName: shipper.shipperFirstName,
-            shipperMiddleName: shipper.shipperMiddleName,
-            shipperLastName: shipper.shipperLastName,
-            shipperCompanyName: shipper.shipperCompanyName,
-            shipperStreetAddress1: shipper.shipperStreetAddress1,
-            shipperStreetAddress2: shipper.shipperStreetAddress2,
-            shipperCity: shipper.shipperCity,
-            shipperStateUSA: shipper.shipperStateUSA
+            consigneeFirstName: consignee.consigneeFirstName,
+            consigneeMiddleName: consignee.consigneeMiddleName,
+            consigneeLastName: consignee.consigneeLastName,
+            consigneeCompanyName: consignee.consigneeCompanyName,
+            consigneeStreetAddress1: consignee.consigneeStreetAddress1,
+            consigneeStreetAddress2: consignee.consigneeStreetAddress2,
+            consigneeCity: consignee.consigneeCity,
+            consigneeStateUSA: consignee.consigneeStateUSA
           }
 
           console.log(payload)
 
-          this.$store.commit("setShipperData", payload)
+          this.$store.commit("setConsigneeData", payload)
         }
-        this.$router.push("/consignee")
+        this.$router.push("/carrier")
       },
 
-      searchJSONArray: function(shippers, query) {
-        for(var index = 0; index < shippers.length; index++) {
-          console.log("Inside for loop. this.shippers[" + index + "]")
-          console.log(shippers[index])
-          if(shippers[index]._id.$oid == query)
-            return(shippers[index]);
+      searchJSONArray: function(consignees, query) {
+        for(var index = 0; index < consignees.length; index++) {
+          console.log("Inside for loop. this.consignees[" + index + "]")
+          console.log(consignees[index])
+          if(consignees[index]._id.$oid == query)
+            return(consignees[index]);
         }
       }
     },
 
     mounted: function() {
-      axios.get('http://localhost:5000/api/shippers')
-      .then(response => (this.shippers = response.data))
-      console.log("shipper component mounted.")
-      console.log(this.shippers)
+      axios.get('http://localhost:5000/api/consignees')
+      .then(response => (this.consignees = response.data))
+      console.log("consignee component mounted.")
+      console.log(this.consignees)
     }
   }
 </script>
 
 <style>
-.grid-container-name-and-address-shipper-edit {
+.grid-container-name-and-address-consignee-edit {
   display: grid;
   width: 80vw;
   justify-content: center;
