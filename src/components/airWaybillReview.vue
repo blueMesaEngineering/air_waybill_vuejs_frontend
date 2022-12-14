@@ -23,7 +23,6 @@
               :value = "this.$store.getters.shipperFirstName"
               class = "input-field-item"
               disabled/>
-              <!-- {{this.$store.state.shipper.name.firstName}} -->
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
@@ -249,6 +248,130 @@
             type="submit" 
             value="Edit" 
             v-on:click="editConsigneeNameAddress" 
+            style="
+              margin-right: 1vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
+
+          <input 
+            type="submit" 
+            value="Submit" 
+            v-on:click="submit" 
+            style="
+              margin-right: 9vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
+        </div>
+    </div>
+    
+    <!-- Carrier Review Data -->
+
+    <div
+      id="carrierData"
+      hidden
+      >
+      <h2 
+        style="
+          text-align: left; 
+          padding-left: 9vw; 
+          text-decoration: underline; 
+          text-underline-position:under;
+          font-family: Verdana;"
+          >Review Carrier's Name and Address</h2>
+      <center>
+        <div class="grid-container-name-and-address">
+          <div class="grid-item">
+            <h3>Name</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh;">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierFirstName"
+              class = "input-field-item"
+              disabled/>
+              <!-- {{this.$store.state.carrier.name.firstName}} -->
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh;">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierMiddleName"
+              class = "input-field-item"
+              disabled/>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh;">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierLastName"
+              class = "input-field-item"
+              disabled/>
+          </div>        
+          <div class="grid-item" style="grid-row-start: 2;">
+            <h3>Company Name</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierCompanyName"
+              class = "input-field-item"
+              disabled
+              style="width: 53vw;"/>
+          </div>
+
+          <div class="grid-item" style="grid-row-start: 3;">
+            <h3>Street Address 1</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierStreetAddress1"
+              class = "input-field-item"
+              disabled
+              style="width: 53vw;"/>
+          </div>
+
+          <div class="grid-item" style="grid-row-start: 4;">
+            <h3>Street Address 2</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierStreetAddress2"
+              class = "input-field-item"
+              disabled
+              style="width: 53vw;"/>
+          </div>
+
+          <div class="grid-item" style="grid-row-start: 5;">
+            <h3>City</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierCity"
+              class = "input-field-item"
+              disabled
+              style="width: 53vw;"/>
+          </div>
+
+          <div class="grid-item" style="grid-row-start: 6;">
+            <h3>State</h3>
+          </div>
+          <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
+            <input 
+              type = "text" 
+              :value = "this.$store.getters.carrierStateUSA"
+              class = "input-field-item"
+              disabled
+              style="width: 53vw;"/>
+          </div>
+        </div>
+      </center>
+      
+        <div align = "right">
+          <input 
+            type="submit" 
+            value="Edit" 
+            v-on:click="editCarrierNameAddress" 
             style="
               margin-right: 1vw; 
               margin-top: 2vw; 
