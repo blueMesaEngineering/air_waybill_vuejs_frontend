@@ -10,6 +10,7 @@ import consigneeNew from "../components/consigneeNew";
 import consigneeReviewNameAndAddress from "../components/consigneeReviewNameAndAddress";
 import carrier from "../components/carrier";
 import carrierNew from "../components/carrierNew";
+import carrierEdit from "../components/carrierEdit";
 import carrierReviewNameAndAddress from "../components/carrierReviewNameAndAddress";
 import searchByCompanyName from "../components/searchByCompanyName";
 import airWaybill from "../components/airWaybill";
@@ -77,6 +78,11 @@ export default [
     path: '/carrierNew',
     component: carrierNew,
     name: "Carrier New",
+  },
+  {
+    path: '/carrierEdit',
+    component: carrierEdit,
+    name: "Carrier Edit",
   },
   {
     path: '/carrierReviewNameAndAddress',
