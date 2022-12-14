@@ -165,7 +165,6 @@
               :value = "this.$store.getters.consigneeFirstName"
               class = "input-field-item"
               disabled/>
-              <!-- {{this.$store.state.consignee.name.firstName}} -->
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
@@ -289,7 +288,6 @@
               :value = "this.$store.getters.carrierFirstName"
               class = "input-field-item"
               disabled/>
-              <!-- {{this.$store.state.carrier.name.firstName}} -->
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
@@ -542,6 +540,61 @@
         document.getElementById('consigneeData').hidden = true;
         document.getElementById('consigneeData').hidden = false
       },
+
+      editCarrierNameAddress: function() {
+      document.getElementById('editCarrierNameAddress').hidden = true;
+      document.getElementById('doneEditCarrierNameAddress').hidden = false;
+      document.getElementById('submitCarrierNameAddress').hidden = true;
+
+      document.getElementById('carrierFirstName').disabled = false;
+      document.getElementById('carrierMiddleName').disabled = false;
+      document.getElementById('carrierLastName').disabled = false;
+      document.getElementById('carrierCompanyName').disabled = false;
+      document.getElementById('carrierStreetAddress1').disabled = false;
+      document.getElementById('carrierStreetAddress2').disabled = false;
+      document.getElementById('carrierCity').disabled = false;
+      document.getElementById('carrierStateUSA').disabled = false;
+    },
+
+    doneEditCarrierNameAddress: function() {
+      document.getElementById('editCarrierNameAddress').hidden = false;
+      document.getElementById('doneEditCarrierNameAddress').hidden = true;
+      document.getElementById('submitCarrierNameAddress').hidden = false;
+
+      document.getElementById('carrierFirstName').disabled = true;
+      document.getElementById('carrierMiddleName').disabled = true;
+      document.getElementById('carrierLastName').disabled = true;
+      document.getElementById('carrierCompanyName').disabled = true;
+      document.getElementById('carrierStreetAddress1').disabled = true;
+      document.getElementById('carrierStreetAddress2').disabled = true;
+      document.getElementById('carrierCity').disabled = true;
+      document.getElementById('carrierStateUSA').disabled = true;
+    },
+
+    submitCarrierNameAddress: function() {
+
+      const payload = {
+        carrierFirstName: this.carrierFirstName,
+        carrierMiddleName: this.carrierMiddleName,
+        carrierLastName: this.carrierLastName,
+        carrierCompanyName: this.carrierCompanyName
+      }
+
+      this.$store.commit("setCarrierName", payload)
+
+      this.carrierFirstName = '';
+      this.carrierMiddleName = '';
+      this.carrierLastName = '';
+      this.carrierCompanyName = '';
+
+      payload.carrierFirstName = '';
+      payload.carrierMiddleName = '';
+      payload.carrierLastName = '';
+      payload.carrierCompanyName = '';
+
+      document.getElementById('carrierData').hidden = true;
+      document.getElementById('carrierData').hidden = false
+    },
 
       submit: function() {
         // console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
