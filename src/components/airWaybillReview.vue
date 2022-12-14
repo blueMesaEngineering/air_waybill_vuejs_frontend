@@ -161,6 +161,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "consigneeFirstName"
               type = "text" 
               :value = "this.$store.getters.consigneeFirstName"
               class = "input-field-item"
@@ -168,6 +169,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "consigneeMiddleName"
               type = "text" 
               :value = "this.$store.getters.consigneeMiddleName"
               class = "input-field-item"
@@ -175,6 +177,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "consigneeLastName"
               type = "text" 
               :value = "this.$store.getters.consigneeLastName"
               class = "input-field-item"
@@ -185,6 +188,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "consigneeCompanyName"
               type = "text" 
               :value = "this.$store.getters.consigneeCompanyName"
               class = "input-field-item"
@@ -197,6 +201,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "consigneeStreetAddress1"
               type = "text" 
               :value = "this.$store.getters.consigneeStreetAddress1"
               class = "input-field-item"
@@ -209,6 +214,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = consigneeStreetAddress2
               type = "text" 
               :value = "this.$store.getters.consigneeStreetAddress2"
               class = "input-field-item"
@@ -221,6 +227,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = consigneeCity
               type = "text" 
               :value = "this.$store.getters.consigneeCity"
               class = "input-field-item"
@@ -233,6 +240,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = consigneeStateUSA
               type = "text" 
               :value = "this.$store.getters.consigneeStateUSA"
               class = "input-field-item"
@@ -244,18 +252,31 @@
       
         <div align = "right">
           <input 
+            id = "doneEditConsigneeNameAddress"
             type="submit" 
-            value="Edit" 
-            v-on:click="editConsigneeNameAddress" 
+            value="Done" 
+            v-on:click="doneEditConsigneeNameAddress"
+            hidden
             style="
               margin-right: 1vw; 
               margin-top: 2vw; 
               padding: .3vh .5vh .3vh .5vh;"/>
 
           <input 
+            id = "editConsigneeNameAddress"
             type="submit" 
-            value="Submit" 
-            v-on:click="submit" 
+            value="Edit" 
+            v-on:click="editConsigneeNameAddress"
+            style="
+              margin-right: 1vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
+
+          <input 
+            id = "submitConsigneeNameAddress"
+            type="submit" 
+            value="Next" 
+            v-on:click="submitConsigneeNameAddress"
             style="
               margin-right: 9vw; 
               margin-top: 2vw; 
@@ -284,6 +305,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "carrierFirstName"
               type = "text" 
               :value = "this.$store.getters.carrierFirstName"
               class = "input-field-item"
@@ -291,6 +313,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "carrierMiddleName"
               type = "text" 
               :value = "this.$store.getters.carrierMiddleName"
               class = "input-field-item"
@@ -298,6 +321,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
+              id = "carrierLastName"
               type = "text" 
               :value = "this.$store.getters.carrierLastName"
               class = "input-field-item"
@@ -308,6 +332,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 2; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "carrierCompanyName"
               type = "text" 
               :value = "this.$store.getters.carrierCompanyName"
               class = "input-field-item"
@@ -320,6 +345,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 3; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "carrierStreetAddress1"
               type = "text" 
               :value = "this.$store.getters.carrierStreetAddress1"
               class = "input-field-item"
@@ -332,6 +358,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 4; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "carrierStreetAddress2"
               type = "text" 
               :value = "this.$store.getters.carrierStreetAddress2"
               class = "input-field-item"
@@ -344,6 +371,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 5; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "carrierCity"
               type = "text" 
               :value = "this.$store.getters.carrierCity"
               class = "input-field-item"
@@ -356,6 +384,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh; grid-row-start: 6; grid-column-start: 2; grid-column-end: 5">
             <input 
+              id = "carrierStateUSA"
               type = "text" 
               :value = "this.$store.getters.carrierStateUSA"
               class = "input-field-item"
@@ -367,18 +396,31 @@
       
         <div align = "right">
           <input 
+            id = "doneEditCarrierNameAddress"
             type="submit" 
-            value="Edit" 
-            v-on:click="editCarrierNameAddress" 
+            value="Done" 
+            v-on:click="doneEditCarrierNameAddress"
+            hidden
             style="
               margin-right: 1vw; 
               margin-top: 2vw; 
               padding: .3vh .5vh .3vh .5vh;"/>
 
           <input 
+            id = "editCarrierNameAddress"
+            type="submit" 
+            value="Edit" 
+            v-on:click="editCarrierNameAddress"
+            style="
+              margin-right: 1vw; 
+              margin-top: 2vw; 
+              padding: .3vh .5vh .3vh .5vh;"/>
+
+          <input 
+            id = "submitCarrierNameAddress"
             type="submit" 
             value="Submit" 
-            v-on:click="submit" 
+            v-on:click="submit"
             style="
               margin-right: 9vw; 
               margin-top: 2vw; 
@@ -538,68 +580,67 @@
         payload.consigneeCompanyName = '';
 
         document.getElementById('consigneeData').hidden = true;
-        document.getElementById('consigneeData').hidden = false
+        document.getElementById('carrierData').hidden = false
       },
 
       editCarrierNameAddress: function() {
-      document.getElementById('editCarrierNameAddress').hidden = true;
-      document.getElementById('doneEditCarrierNameAddress').hidden = false;
-      document.getElementById('submitCarrierNameAddress').hidden = true;
+        document.getElementById('editCarrierNameAddress').hidden = true;
+        document.getElementById('doneEditCarrierNameAddress').hidden = false;
+        document.getElementById('submitCarrierNameAddress').hidden = true;
 
-      document.getElementById('carrierFirstName').disabled = false;
-      document.getElementById('carrierMiddleName').disabled = false;
-      document.getElementById('carrierLastName').disabled = false;
-      document.getElementById('carrierCompanyName').disabled = false;
-      document.getElementById('carrierStreetAddress1').disabled = false;
-      document.getElementById('carrierStreetAddress2').disabled = false;
-      document.getElementById('carrierCity').disabled = false;
-      document.getElementById('carrierStateUSA').disabled = false;
-    },
+        document.getElementById('carrierFirstName').disabled = false;
+        document.getElementById('carrierMiddleName').disabled = false;
+        document.getElementById('carrierLastName').disabled = false;
+        document.getElementById('carrierCompanyName').disabled = false;
+        document.getElementById('carrierStreetAddress1').disabled = false;
+        document.getElementById('carrierStreetAddress2').disabled = false;
+        document.getElementById('carrierCity').disabled = false;
+        document.getElementById('carrierStateUSA').disabled = false;
+      },
 
-    doneEditCarrierNameAddress: function() {
-      document.getElementById('editCarrierNameAddress').hidden = false;
-      document.getElementById('doneEditCarrierNameAddress').hidden = true;
-      document.getElementById('submitCarrierNameAddress').hidden = false;
+      doneEditCarrierNameAddress: function() {
+        document.getElementById('editCarrierNameAddress').hidden = false;
+        document.getElementById('doneEditCarrierNameAddress').hidden = true;
+        document.getElementById('submitCarrierNameAddress').hidden = false;
 
-      document.getElementById('carrierFirstName').disabled = true;
-      document.getElementById('carrierMiddleName').disabled = true;
-      document.getElementById('carrierLastName').disabled = true;
-      document.getElementById('carrierCompanyName').disabled = true;
-      document.getElementById('carrierStreetAddress1').disabled = true;
-      document.getElementById('carrierStreetAddress2').disabled = true;
-      document.getElementById('carrierCity').disabled = true;
-      document.getElementById('carrierStateUSA').disabled = true;
-    },
+        document.getElementById('carrierFirstName').disabled = true;
+        document.getElementById('carrierMiddleName').disabled = true;
+        document.getElementById('carrierLastName').disabled = true;
+        document.getElementById('carrierCompanyName').disabled = true;
+        document.getElementById('carrierStreetAddress1').disabled = true;
+        document.getElementById('carrierStreetAddress2').disabled = true;
+        document.getElementById('carrierCity').disabled = true;
+        document.getElementById('carrierStateUSA').disabled = true;
+      },
 
-    submitCarrierNameAddress: function() {
+      submitCarrierNameAddress: function() {
 
-      const payload = {
-        carrierFirstName: this.carrierFirstName,
-        carrierMiddleName: this.carrierMiddleName,
-        carrierLastName: this.carrierLastName,
-        carrierCompanyName: this.carrierCompanyName
-      }
+        const payload = {
+          carrierFirstName: this.carrierFirstName,
+          carrierMiddleName: this.carrierMiddleName,
+          carrierLastName: this.carrierLastName,
+          carrierCompanyName: this.carrierCompanyName
+        }
 
-      this.$store.commit("setCarrierName", payload)
+        this.$store.commit("setCarrierName", payload)
 
-      this.carrierFirstName = '';
-      this.carrierMiddleName = '';
-      this.carrierLastName = '';
-      this.carrierCompanyName = '';
+        this.carrierFirstName = '';
+        this.carrierMiddleName = '';
+        this.carrierLastName = '';
+        this.carrierCompanyName = '';
 
-      payload.carrierFirstName = '';
-      payload.carrierMiddleName = '';
-      payload.carrierLastName = '';
-      payload.carrierCompanyName = '';
+        payload.carrierFirstName = '';
+        payload.carrierMiddleName = '';
+        payload.carrierLastName = '';
+        payload.carrierCompanyName = '';
 
-      document.getElementById('carrierData').hidden = true;
-      document.getElementById('carrierData').hidden = false
-    },
+        document.getElementById('carrierData').hidden = true;
+        document.getElementById('carrierData').hidden = false
+      },
 
-      submit: function() {
-        // console.log(this.$store.getters.consigneeFirstName + " " + this.$store.getters.consigneeMiddleName + " " + this.$store.getters.consigneeLastName + "\n" + this.$store.getters.consigneeCompanyName + "\n" + this.$store.getters.consigneeStreetAddress1 + "\n" + this.$store.getters.consigneeStreetAddress2 + "\n" + this.$store.getters.consigneeCity + ", " + this.$store.getters.consigneeStateUSA)
+      submit: async function() {
 
-        axios({
+        await axios({
           method: 'post',
           url: 'http://127.0.0.1:5000/api/airWaybills',
           data: {
@@ -622,11 +663,21 @@
             'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
             'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
             'consigneeCity': this.$store.getters.consigneeCity,
-            'consigneeStateUSA': this.$store.getters.consigneeStateUSA
+            'consigneeStateUSA': this.$store.getters.consigneeStateUSA,
+
+            // Carrier data
+            'carrierFirstName': this.$store.getters.carrierFirstName,
+            'carrierMiddleName': this.$store.getters.carrierMiddleName,
+            'carrierLastName': this.$store.getters.carrierLastName,
+            'carrierCompanyName': this.$store.getters.carrierCompanyName,
+            'carrierStreetAddress1': this.$store.getters.carrierStreetAddress1,
+            'carrierStreetAddress2': this.$store.getters.carrierStreetAddress2,
+            'carrierCity': this.$store.getters.carrierCity,
+            'carrierStateUSA': this.$store.getters.carrierStateUSA
           }
         })
 
-        // this.$router.push('/airWaybill')
+        this.$router.push('/home')
       }
     }
   }

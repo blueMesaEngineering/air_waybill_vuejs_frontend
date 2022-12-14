@@ -14,6 +14,8 @@ import carrierEdit from "../components/carrierEdit";
 import carrierReviewNameAndAddress from "../components/carrierReviewNameAndAddress";
 import searchByCompanyName from "../components/searchByCompanyName";
 import airWaybill from "../components/airWaybill";
+// import airWaybillEdit from "../components/airWaybillEdit";
+import airWaybillReview from "../components/airWaybillReview";
 
 export default [
   {
@@ -97,6 +99,16 @@ export default [
   {
     path: '/airWaybill',
     component: airWaybill,
+    name: "Air Waybill",
+  },
+  // {
+  //   path: '/airWaybillEdit',
+  //   component: airWaybillEdit,
+  //   name: "Air Waybill Edit",
+  // },
+  {
+    path: '/airWaybillReview',
+    component: airWaybillReview,
     name: "Air Waybill Review",
   },
 ]

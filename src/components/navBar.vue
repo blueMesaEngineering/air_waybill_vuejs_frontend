@@ -89,11 +89,14 @@
         AIR WAYBILL
       </div>
       <div class="dropdown-content" style="font-size: .75em">
-        <router-link to = "/airWaybill">
+        <router-link to = "/shipper">
           NEW AIR WAYBILL
         </router-link>
-        <router-link to = "/editAirWaybill">
+        <router-link to = "/airWaybillEdit">
           EDIT AIR WAYBILL
+        </router-link>
+        <router-link to = "/airWaybillReview">
+          REVIEW AIR WAYBILL
         </router-link>
       </div>
     </div>
