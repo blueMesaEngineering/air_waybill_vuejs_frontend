@@ -435,6 +435,7 @@
 
   export default {
     data: () => ({
+      serialNumberAWBPDF: '',
       shipperFirstName: '',
       shipperMiddleName: '',
       shipperLastName: '',
@@ -451,6 +452,14 @@
       consigneeStreetAddress2: '',
       consigneeCity: '',
       consigneeStateUSA: '',
+      carrierFirstName: '',
+      carrierMiddleName: '',
+      carrierLastName: '',
+      carrierCompanyName: '',
+      carrierStreetAddress1: '',
+      carrierStreetAddress2: '',
+      carrierCity: '',
+      carrierStateUSA: '',
     }),
     methods: {
       mounted: function() {
@@ -644,6 +653,8 @@
           method: 'post',
           url: 'http://127.0.0.1:5000/api/airWaybills',
           data: {
+
+            'serialNumberAWB': this.$store.getters.serialNumberAWBPDF,
 
             // Shipper data
             'shipperFirstName': this.$store.getters.shipperFirstName,
