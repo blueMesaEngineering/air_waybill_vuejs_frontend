@@ -409,6 +409,14 @@
       consigneeStreetAddress2: '',
       consigneeCity: '',
       consigneeStateUSA: '',
+      carrierFirstName: '',
+      carrierMiddleName: '',
+      carrierLastName: '',
+      carrierCompanyName: '',
+      carrierStreetAddress1: '',
+      carrierStreetAddress2: '',
+      carrierCity: '',
+      carrierStateUSA: '',
     }),
     methods: {
       mounted: function() {
@@ -593,7 +601,7 @@
       payload.carrierCompanyName = '';
 
       document.getElementById('carrierData').hidden = true;
-      document.getElementById('carrierData').hidden = false
+      document.getElementById('carrierData').hidden = false;
     },
 
       submit: function() {
@@ -603,6 +611,8 @@
           method: 'post',
           url: 'http://127.0.0.1:5000/api/airWaybills',
           data: {
+
+            'serialNumberAWB': this.$store.getters.serialNumberAWBPDF,
 
             // Shipper data
             'shipperFirstName': this.$store.getters.shipperFirstName,
@@ -622,7 +632,17 @@
             'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
             'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
             'consigneeCity': this.$store.getters.consigneeCity,
-            'consigneeStateUSA': this.$store.getters.consigneeStateUSA
+            'consigneeStateUSA': this.$store.getters.consigneeStateUSA,
+
+            // Carrier data
+            'carrierFirstName': this.$store.getters.carrierFirstName,
+            'carrierMiddleName': this.$store.getters.carrierMiddleName,
+            'carrierLastName': this.$store.getters.carrierLastName,
+            'carrierCompanyName': this.$store.getters.carrierCompanyName,
+            'carrierStreetAddress1': this.$store.getters.carrierStreetAddress1,
+            'carrierStreetAddress2': this.$store.getters.carrierStreetAddress2,
+            'carrierCity': this.$store.getters.carrierCity,
+            'carrierStateUSA': this.$store.getters.carrierStateUSA
           }
         })
 
