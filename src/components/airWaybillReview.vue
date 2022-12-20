@@ -649,14 +649,14 @@
 
       submit: async function() {
 
-        var serialNumber = Math.floor(1000 + Math.random() * 9000)
+        // var serialNumber = Math.floor(1000 + Math.random() * 9000)
 
         await axios({
           method: 'post',
           url: 'http://127.0.0.1:5000/api/airWaybills',
           data: {
 
-            'serialNumberAWBPDF': serialNumber,
+            // 'serialNumberAWBPDF': serialNumber,
 
             // Shipper data
             'shipperFirstName': this.$store.getters.shipperFirstName,
