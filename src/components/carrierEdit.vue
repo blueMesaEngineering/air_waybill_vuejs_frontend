@@ -277,6 +277,7 @@
 
           this.$store.commit("setCarrierData", payload)
         }
+        alert("Carrier added to Air Waybill.")
         this.$router.push("/shipment")
       },
 

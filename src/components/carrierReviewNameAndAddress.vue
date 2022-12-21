@@ -157,9 +157,6 @@
 
       submit: function() {
         console.log(this.$store.getters.carrierFirstName)
-        // console.log(this.$store.state.getters.carrierFirstName + " " + this.$store.state.getters.carrierMiddleName + " " + this.$store.state.getters.carrierLastName + " " + this.$store.state.getters.carrierCompanyName + " " + this.$store.state.getters.carrierStreetAddress1 + " " + this.$store.state.getters.carrierStreetAddress2 + " " + this.$store.state.getters.carrierCity + " " + this.$store.state.getters.carrierStateUSA)
-
-        // var saveCarrier;
 
         if (confirm("Would you like to save this carrier to the database for future use?") == true) {
           axios({

@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // serialNumberAWBPDF: '',
+    serialNumberAWBPDF: '',
     shipper: {
       name: {
         firstName: '',
@@ -57,9 +57,9 @@ export default new Vuex.Store({
 
     // serialNumberAWBPDF Getter
 
-    // serialNumberAWBPDF: state => {
-    //   return state.shipper.serialNumberAWBPDF
-    // },
+    serialNumberAWBPDF: state => {
+      return state.shipper.serialNumberAWBPDF
+    },
 
     // Shipper Getters
 
@@ -153,11 +153,11 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    // setSerialNumberAWBPDF(state, payload) {
-    //   console.log("Entering setSerialNumber AWBPDF")
-    //   state.shipper.serialNumberAWBPDF = payload.serialNumberAWBPDF
-    //   console.log("serialNumberAWBPDF has been set")
-    // },
+    setSerialNumberAWBPDF(state, payload) {
+      console.log("Entering setSerialNumber AWBPDF")
+      state.shipper.serialNumberAWBPDF = payload.serialNumberAWBPDF
+      console.log("serialNumberAWBPDF has been set")
+    },
     setShipperName (state, payload) {
       console.log("Entering setShipperName")
       state.shipper.name.firstName = payload.shipperFirstName
@@ -166,7 +166,6 @@ export default new Vuex.Store({
       state.shipper.name.companyName = payload.shipperCompanyName
 
       console.log("shipperName has been set")
-      // console.log(state.shipper.name.firstName + " " + state.shipper.name.middleName + " " + state.shipper.name.lastName + " " + state.shipper.name.companyName)
     },
     setShipperAddress (state, payload) {
       console.log("Entering setShipperAddress")
