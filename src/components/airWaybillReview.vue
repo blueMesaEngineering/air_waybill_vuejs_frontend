@@ -656,7 +656,7 @@
           url: 'http://127.0.0.1:5000/api/airWaybills',
           data: {
 
-            'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
+            // 'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
 
             // Shipper data
             'shipperFirstName': this.$store.getters.shipperFirstName,

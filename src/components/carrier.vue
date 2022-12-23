@@ -64,7 +64,7 @@
             carrierStateUSA: ""
           }
 
-          this.$store.commit("setShipperData", payload)
+          this.$store.commit("setCarrierData", payload)
           alert("Carrier data for this Air Waybill has been cleared.")
         }
         else {

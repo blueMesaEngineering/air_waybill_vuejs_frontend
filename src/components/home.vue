@@ -46,7 +46,47 @@
     methods: {
       submit: function() {
         
+      },
+    },
+    mounted: function() {
+      var payload = {
+        shipperFirstName: "",
+        shipperMiddleName: "",
+        shipperLastName: "",
+        shipperCompanyName: "",
+        shipperStreetAddress1: "",
+        shipperStreetAddress2: "",
+        shipperCity: "",
+        shipperStateUSA: ""
       }
+
+      this.$store.commit("setShipperData", payload)
+
+      payload = {
+        consigneeFirstName: "",
+        consigneeMiddleName: "",
+        consigneeLastName: "",
+        consigneeCompanyName: "",
+        consigneeStreetAddress1: "",
+        consigneeStreetAddress2: "",
+        consigneeCity: "",
+        consigneeStateUSA: ""
+      }
+
+      this.$store.commit("setConsigneeData", payload)
+
+      payload = {
+        carrierFirstName: "",
+        carrierMiddleName: "",
+        carrierLastName: "",
+        carrierCompanyName: "",
+        carrierStreetAddress1: "",
+        carrierStreetAddress2: "",
+        carrierCity: "",
+        carrierStateUSA: ""
+      }
+
+      this.$store.commit("setCarrierData", payload)
     }
   }
 </script>
