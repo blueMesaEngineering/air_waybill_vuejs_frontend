@@ -514,14 +514,18 @@
 
       submitShipperNameAddress: function() {
 
-        // const payload = {
-        //   shipperFirstName: document.getElementById('shipperFirstName'),
-        //   shipperMiddleName: document.getElementById('shipperMiddleName').value,
-        //   shipperLastName: document.getElementById('shipperLastName').value,
-        //   shipperCompanyName: document.getElementById('shipperCompanyName').value
-        // }
+        console.log("Before setting shipper payload.")
+        var payload = {
+          shipperFirstName: document.getElementById('shipperFirstName'),
+          shipperMiddleName: document.getElementById('shipperMiddleName'),
+          shipperLastName: document.getElementById('shipperLastName'),
+          shipperCompanyName: document.getElementById('shipperCompanyName')
+        }
+        console.log("Shipper payload set.")
 
-        // this.$store.commit("setShipperName", payload)
+        this.$store.commit("setShipperName", payload)
+
+        console.log("Shipper store data has been committed.")
 
         // this.shipperFirstName = '';
         // this.shipperMiddleName = '';
@@ -569,24 +573,28 @@
 
       submitConsigneeNameAddress: function() {
 
-        const payload = {
-          consigneeFirstName: this.consigneeFirstName,
-          consigneeMiddleName: this.consigneeMiddleName,
-          consigneeLastName: this.consigneeLastName,
-          consigneeCompanyName: this.consigneeCompanyName
-        }
+        console.log("Before setting consignee payload.")
+        // var payload = {
+        //   consigneeFirstName: document.getElementById('consigneeFirstName'),
+        //   consigneeMiddleName: document.getElementById('consigneeMiddleName'),
+        //   consigneeLastName: document.getElementById('consigneeLastName'),
+        //   consigneeCompanyName: document.getElementById('consigneeCompanyName')
+        // }
+        console.log("Shipper payload set.")
 
-        this.$store.commit("setConsigneeName", payload)
+        // this.$store.commit("setConsigneeName", payload)
 
-        this.consigneeFirstName = '';
-        this.consigneeMiddleName = '';
-        this.consigneeLastName = '';
-        this.consigneeCompanyName = '';
+        console.log("Shipper store data has been committed.")
+        
+        // this.consigneeFirstName = '';
+        // this.consigneeMiddleName = '';
+        // this.consigneeLastName = '';
+        // this.consigneeCompanyName = '';
 
-        payload.consigneeFirstName = '';
-        payload.consigneeMiddleName = '';
-        payload.consigneeLastName = '';
-        payload.consigneeCompanyName = '';
+        // payload.consigneeFirstName = '';
+        // payload.consigneeMiddleName = '';
+        // payload.consigneeLastName = '';
+        // payload.consigneeCompanyName = '';
 
         document.getElementById('consigneeData').hidden = true;
         document.getElementById('carrierData').hidden = false
@@ -624,24 +632,24 @@
 
       submitCarrierNameAddress: function() {
 
-        const payload = {
-          carrierFirstName: this.carrierFirstName,
-          carrierMiddleName: this.carrierMiddleName,
-          carrierLastName: this.carrierLastName,
-          carrierCompanyName: this.carrierCompanyName
-        }
+        // const payload = {
+        //   carrierFirstName: this.carrierFirstName,
+        //   carrierMiddleName: this.carrierMiddleName,
+        //   carrierLastName: this.carrierLastName,
+        //   carrierCompanyName: this.carrierCompanyName
+        // }
 
-        this.$store.commit("setCarrierName", payload)
+        // this.$store.commit("setCarrierName", payload)
 
-        this.carrierFirstName = '';
-        this.carrierMiddleName = '';
-        this.carrierLastName = '';
-        this.carrierCompanyName = '';
+        // this.carrierFirstName = '';
+        // this.carrierMiddleName = '';
+        // this.carrierLastName = '';
+        // this.carrierCompanyName = '';
 
-        payload.carrierFirstName = '';
-        payload.carrierMiddleName = '';
-        payload.carrierLastName = '';
-        payload.carrierCompanyName = '';
+        // payload.carrierFirstName = '';
+        // payload.carrierMiddleName = '';
+        // payload.carrierLastName = '';
+        // payload.carrierCompanyName = '';
 
         document.getElementById('carrierData').hidden = true;
         document.getElementById('carrierData').hidden = false
