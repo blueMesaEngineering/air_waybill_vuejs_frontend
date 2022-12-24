@@ -189,6 +189,8 @@ export default new Vuex.Store({
       state.shipper.address.city = payload.shipperCity
       state.shipper.address.stateUSA = payload.shipperStateUSA
 
+      console.log("shipperData: ")
+      console.log(state.shipper)
       console.log("shipperData has been set")
     },
     setConsigneeName (state, payload) {

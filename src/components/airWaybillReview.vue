@@ -514,24 +514,24 @@
 
       submitShipperNameAddress: function() {
 
-        const payload = {
-          shipperFirstName: this.shipperFirstName,
-          shipperMiddleName: this.shipperMiddleName,
-          shipperLastName: this.shipperLastName,
-          shipperCompanyName: this.shipperCompanyName
-        }
+        // const payload = {
+        //   shipperFirstName: document.getElementById('shipperFirstName'),
+        //   shipperMiddleName: document.getElementById('shipperMiddleName').value,
+        //   shipperLastName: document.getElementById('shipperLastName').value,
+        //   shipperCompanyName: document.getElementById('shipperCompanyName').value
+        // }
 
-        this.$store.commit("setShipperName", payload)
+        // this.$store.commit("setShipperName", payload)
 
-        this.shipperFirstName = '';
-        this.shipperMiddleName = '';
-        this.shipperLastName = '';
-        this.shipperCompanyName = '';
+        // this.shipperFirstName = '';
+        // this.shipperMiddleName = '';
+        // this.shipperLastName = '';
+        // this.shipperCompanyName = '';
 
-        payload.shipperFirstName = '';
-        payload.shipperMiddleName = '';
-        payload.shipperLastName = '';
-        payload.shipperCompanyName = '';
+        // payload.shipperFirstName = '';
+        // payload.shipperMiddleName = '';
+        // payload.shipperLastName = '';
+        // payload.shipperCompanyName = '';
 
         document.getElementById('shipperData').hidden = true;
         document.getElementById('consigneeData').hidden = false
