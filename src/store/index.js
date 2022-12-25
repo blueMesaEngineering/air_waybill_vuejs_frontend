@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -241,6 +242,47 @@ export default new Vuex.Store({
     
       console.log("carrierData has been set")
     },
+    async airWaybillPOST (state) {
+
+      await axios({
+        method: 'post',
+        url: 'http://127.0.0.1:5000/api/airWaybills',
+        data: {
+
+          // 'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
+
+          // Shipper data
+          'shipperFirstName': state.shipper.name.shipperFirstName,
+          'shipperMiddleName': state.shipper.name.shipperMiddleName,
+          'shipperLastName': state.shipper.name.shipperLastName,
+          'shipperCompanyName': state.shipper.name.shipperCompanyName,
+          'shipperStreetAddress1': state.shipper.address.shipperStreetAddress1,
+          'shipperStreetAddress2': state.shipper.address.shipperStreetAddress2,
+          'shipperCity': state.shipper.address.shipperCity,
+          'shipperStateUSA': state.shipper.address.shipperStateUSA,
+
+          // // Consignee data
+          'consigneeFirstName': state.consignee.name.consigneeFirstName,
+          'consigneeMiddleName': state.consignee.name.consigneeMiddleName,
+          'consigneeLastName': state.consignee.name.consigneeLastName,
+          'consigneeCompanyName': state.consignee.name.consigneeCompanyName,
+          'consigneeStreetAddress1': state.consignee.address.consigneeStreetAddress1,
+          'consigneeStreetAddress2': state.consignee.address.consigneeStreetAddress2,
+          'consigneeCity': state.consignee.address.consigneeCity,
+          'consigneeStateUSA': state.consignee.address.consigneeStateUSA,
+
+          // // Carrier data
+          'carrierFirstName': state.carrier.name.carrierFirstName,
+          'carrierMiddleName': state.carrier.name.carrierMiddleName,
+          'carrierLastName': state.carrier.name.carrierLastName,
+          'carrierCompanyName': state.carrier.name.carrierCompanyName,
+          'carrierStreetAddress1': state.carrier.address.carrierStreetAddress1,
+          'carrierStreetAddress2': state.carrier.address.carrierStreetAddress2,
+          'carrierCity': state.carrier.address.carrierCity,
+          'carrierStateUSA': state.carrier.address.carrierStateUSA
+        }
+      })
+    }
   },
 
   actions: {}
