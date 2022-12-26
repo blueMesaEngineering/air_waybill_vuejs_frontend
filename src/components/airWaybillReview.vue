@@ -431,7 +431,7 @@
 </template>
 
 <script>
-  // import axios from "axios";
+  import axios from "axios";
 
   export default {
     data: () => ({
@@ -516,10 +516,10 @@
 
         console.log("Before setting shipper payload.")
         var payload = {
-          shipperFirstName: document.getElementById('shipperFirstName'),
-          shipperMiddleName: document.getElementById('shipperMiddleName'),
-          shipperLastName: document.getElementById('shipperLastName'),
-          shipperCompanyName: document.getElementById('shipperCompanyName')
+          'shipperFirstName': document.getElementById('shipperFirstName'),
+          'shipperMiddleName': document.getElementById('shipperMiddleName'),
+          'shipperLastName': document.getElementById('shipperLastName'),
+          'shipperCompanyName': document.getElementById('shipperCompanyName')
         }
         console.log("Shipper payload set.")
 
@@ -574,15 +574,15 @@
       submitConsigneeNameAddress: function() {
 
         console.log("Before setting consignee payload.")
-        // var payload = {
-        //   consigneeFirstName: document.getElementById('consigneeFirstName'),
-        //   consigneeMiddleName: document.getElementById('consigneeMiddleName'),
-        //   consigneeLastName: document.getElementById('consigneeLastName'),
-        //   consigneeCompanyName: document.getElementById('consigneeCompanyName')
-        // }
+        var payload = {
+          'consigneeFirstName': document.getElementById('consigneeFirstName'),
+          'consigneeMiddleName': document.getElementById('consigneeMiddleName'),
+          'consigneeLastName': document.getElementById('consigneeLastName'),
+          'consigneeCompanyName': document.getElementById('consigneeCompanyName')
+        }
         console.log("Shipper payload set.")
 
-        // this.$store.commit("setConsigneeName", payload)
+        this.$store.commit("setConsigneeName", payload)
 
         console.log("Shipper store data has been committed.")
         
@@ -632,14 +632,14 @@
 
       submitCarrierNameAddress: function() {
 
-        // const payload = {
-        //   carrierFirstName: this.carrierFirstName,
-        //   carrierMiddleName: this.carrierMiddleName,
-        //   carrierLastName: this.carrierLastName,
-        //   carrierCompanyName: this.carrierCompanyName
-        // }
+        const payload = {
+          carrierFirstName: this.carrierFirstName,
+          carrierMiddleName: this.carrierMiddleName,
+          carrierLastName: this.carrierLastName,
+          carrierCompanyName: this.carrierCompanyName
+        }
 
-        // this.$store.commit("setCarrierName", payload)
+        this.$store.commit("setCarrierName", payload)
 
         // this.carrierFirstName = '';
         // this.carrierMiddleName = '';
@@ -657,75 +657,76 @@
 
       submit: async function() {
 
-        await this.$store.commit("airWaybillPOST")
+        // await this.$store.commit("airWaybillPOST")
 
-        // await axios({
-        //   method: 'post',
-        //   url: 'http://127.0.0.1:5000/api/airWaybills',
-        //   data: {
+        await axios({
+          method: 'post',
+          url: 'http://127.0.0.1:5000/api/airWaybills',
+          data: {
 
-        //     // 'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
+            // 'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
 
-        //     // Shipper data
-        //     // 'shipperFirstName': this.$store.getters.shipperFirstName,
-        //     // 'shipperMiddleName': this.$store.getters.shipperMiddleName,
-        //     // 'shipperLastName': this.$store.getters.shipperLastName,
-        //     // 'shipperCompanyName': this.$store.getters.shipperCompanyName,
-        //     // 'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
-        //     // 'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
-        //     // 'shipperCity': this.$store.getters.shipperCity,
-        //     // 'shipperStateUSA': this.$store.getters.shipperStateUSA,
+            // Shipper data
+            'shipperFirstName': this.$store.getters.shipperFirstName,
+            'shipperMiddleName': this.$store.getters.shipperMiddleName,
+            'shipperLastName': this.$store.getters.shipperLastName,
+            'shipperCompanyName': this.$store.getters.shipperCompanyName,
+            'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
+            'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
+            'shipperCity': this.$store.getters.shipperCity,
+            'shipperStateUSA': this.$store.getters.shipperStateUSA,
 
-        //     // // Consignee data
-        //     // 'consigneeFirstName': this.$store.getters.consigneeFirstName,
-        //     // 'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
-        //     // 'consigneeLastName': this.$store.getters.consigneeLastName,
-        //     // 'consigneeCompanyName': this.$store.getters.consigneeCompanyName,
-        //     // 'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
-        //     // 'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
-        //     // 'consigneeCity': this.$store.getters.consigneeCity,
-        //     // 'consigneeStateUSA': this.$store.getters.consigneeStateUSA,
+            // Consignee data
+            'consigneeFirstName': this.$store.getters.consigneeFirstName,
+            'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
+            'consigneeLastName': this.$store.getters.consigneeLastName,
+            'consigneeCompanyName': this.$store.getters.consigneeCompanyName,
+            'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
+            'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
+            'consigneeCity': this.$store.getters.consigneeCity,
+            'consigneeStateUSA': this.$store.getters.consigneeStateUSA,
 
-        //     // // Carrier data
-        //     // 'carrierFirstName': this.$store.getters.carrierFirstName,
-        //     // 'carrierMiddleName': this.$store.getters.carrierMiddleName,
-        //     // 'carrierLastName': this.$store.getters.carrierLastName,
-        //     // 'carrierCompanyName': this.$store.getters.carrierCompanyName,
-        //     // 'carrierStreetAddress1': this.$store.getters.carrierStreetAddress1,
-        //     // 'carrierStreetAddress2': this.$store.getters.carrierStreetAddress2,
-        //     // 'carrierCity': this.$store.getters.carrierCity,
-        //     // 'carrierStateUSA': this.$store.getters.carrierStateUSA
+            // Carrier data
+            'carrierFirstName': this.$store.getters.carrierFirstName,
+            'carrierMiddleName': this.$store.getters.carrierMiddleName,
+            'carrierLastName': this.$store.getters.carrierLastName,
+            'carrierCompanyName': this.$store.getters.carrierCompanyName,
+            'carrierStreetAddress1': this.$store.getters.carrierStreetAddress1,
+            'carrierStreetAddress2': this.$store.getters.carrierStreetAddress2,
+            'carrierCity': this.$store.getters.carrierCity,
+            'carrierStateUSA': this.$store.getters.carrierStateUSA
 
-        //     'shipperFirstName': document.getElementById('shipperFirstName'),
-        //     'shipperMiddleName': document.getElementById('shipperMiddleName'),
-        //     'shipperLastName': document.getElementById('shipperLastName'),
-        //     'shipperCompanyName': document.getElementById('shipperCompanyName'),
-        //     'shipperStreetAddress1': document.getElementById('shipperStreetAddress1'),
-        //     'shipperStreetAddress2': document.getElementById('shipperStreetAddress2'),
-        //     'shipperCity': document.getElementById('shipperCity'),
-        //     'shipperStateUSA': document.getElementById('shipperStateUSA'),
+            // // Shipper data
+            // 'shipperFirstName': document.getElementById('shipperFirstName'),
+            // 'shipperMiddleName': document.getElementById('shipperMiddleName'),
+            // 'shipperLastName': document.getElementById('shipperLastName'),
+            // 'shipperCompanyName': document.getElementById('shipperCompanyName'),
+            // 'shipperStreetAddress1': document.getElementById('shipperStreetAddress1'),
+            // 'shipperStreetAddress2': document.getElementById('shipperStreetAddress2'),
+            // 'shipperCity': document.getElementById('shipperCity'),
+            // 'shipperStateUSA': document.getElementById('shipperStateUSA'),
 
-        //     // Consignee data
-        //     'consigneeFirstName': document.getElementById('consigneeFirstName'),
-        //     'consigneeMiddleName': document.getElementById('consigneeMiddleName'),
-        //     'consigneeLastName': document.getElementById('consigneeLastName'),
-        //     'consigneeCompanyName': document.getElementById('consigneeCompanyName'),
-        //     'consigneeStreetAddress1': document.getElementById('consigneeStreetAddress1'),
-        //     'consigneeStreetAddress2': document.getElementById('consigneeStreetAddress2'),
-        //     'consigneeCity': document.getElementById('consigneeCity'),
-        //     'consigneeStateUSA': document.getElementById('consigneeStateUSA'),
+            // // Consignee data
+            // 'consigneeFirstName': document.getElementById('consigneeFirstName'),
+            // 'consigneeMiddleName': document.getElementById('consigneeMiddleName'),
+            // 'consigneeLastName': document.getElementById('consigneeLastName'),
+            // 'consigneeCompanyName': document.getElementById('consigneeCompanyName'),
+            // 'consigneeStreetAddress1': document.getElementById('consigneeStreetAddress1'),
+            // 'consigneeStreetAddress2': document.getElementById('consigneeStreetAddress2'),
+            // 'consigneeCity': document.getElementById('consigneeCity'),
+            // 'consigneeStateUSA': document.getElementById('consigneeStateUSA'),
 
-        //     // Carrier data
-        //     'carrierFirstName': document.getElementById('carrierFirstName'),
-        //     'carrierMiddleName': document.getElementById('carrierMiddleName'),
-        //     'carrierLastName': document.getElementById('carrierLastName'),
-        //     'carrierCompanyName': document.getElementById('carrierCompanyName'),
-        //     'carrierStreetAddress1': document.getElementById('carrierStreetAddress1'),
-        //     'carrierStreetAddress2': document.getElementById('carrierStreetAddress2'),
-        //     'carrierCity': document.getElementById('carrierCity'),
-        //     'carrierStateUSA': document.getElementById('carrierStateUSA')
-        //   }
-        // })
+            // // Carrier data
+            // 'carrierFirstName': document.getElementById('carrierFirstName'),
+            // 'carrierMiddleName': document.getElementById('carrierMiddleName'),
+            // 'carrierLastName': document.getElementById('carrierLastName'),
+            // 'carrierCompanyName': document.getElementById('carrierCompanyName'),
+            // 'carrierStreetAddress1': document.getElementById('carrierStreetAddress1'),
+            // 'carrierStreetAddress2': document.getElementById('carrierStreetAddress2'),
+            // 'carrierCity': document.getElementById('carrierCity'),
+            // 'carrierStateUSA': document.getElementById('carrierStateUSA')
+          }
+        })
 
         this.$router.push('/home')
       }
