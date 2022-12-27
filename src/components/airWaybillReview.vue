@@ -26,7 +26,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
-              id = "shipperMiddleName"
+              id = "shipperMiddleNameID"
               type = "text" 
               :value = "this.$store.getters.shipperMiddleName"
               class = "input-field-item"
@@ -488,7 +488,7 @@
         document.getElementById('submitShipperNameAddress').hidden = true;
 
         document.getElementById('shipperFirstName').disabled = false;
-        document.getElementById('shipperMiddleName').disabled = false;
+        document.getElementById('shipperMiddleNameID').disabled = false;
         document.getElementById('shipperLastName').disabled = false;
         document.getElementById('shipperCompanyName').disabled = false;
         document.getElementById('shipperStreetAddress1').disabled = false;
@@ -516,10 +516,10 @@
 
         console.log("Before setting shipper payload.")
         var payload = {
-          'shipperFirstName': document.getElementById('shipperFirstName'),
-          'shipperMiddleName': document.getElementById('shipperMiddleName'),
-          'shipperLastName': document.getElementById('shipperLastName'),
-          'shipperCompanyName': document.getElementById('shipperCompanyName')
+          'shipperFirstName': this.$store.getters.shipperFirstName,
+          'shipperMiddleName': document.getElementById('shipperMiddleNameID'),
+          'shipperLastName': this.$store.getters.shipperLastName,
+          'shipperCompanyName': this.$store.getters.shipperCompanyName,
         }
         console.log("Shipper payload set.")
 
@@ -575,10 +575,10 @@
 
         console.log("Before setting consignee payload.")
         var payload = {
-          'consigneeFirstName': document.getElementById('consigneeFirstName'),
-          'consigneeMiddleName': document.getElementById('consigneeMiddleName'),
-          'consigneeLastName': document.getElementById('consigneeLastName'),
-          'consigneeCompanyName': document.getElementById('consigneeCompanyName')
+          'consigneeFirstName': this.$store.getters.consigneeFirstName,
+          'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
+          'consigneeLastName': this.$store.getters.consigneeLastName,
+          'consigneeCompanyName': this.$store.getters.consigneeCompanyName
         }
         console.log("Shipper payload set.")
 
@@ -633,10 +633,10 @@
       submitCarrierNameAddress: function() {
 
         const payload = {
-          carrierFirstName: this.carrierFirstName,
-          carrierMiddleName: this.carrierMiddleName,
-          carrierLastName: this.carrierLastName,
-          carrierCompanyName: this.carrierCompanyName
+          'carrierFirstName': this.$store.getters.carrierFirstName,
+          'carrierMiddleName': this.$store.getters.carrierMiddleName,
+          'carrierLastName': this.$store.getters.carrierLastName,
+          'carrierCompanyName': this.$store.getters.carrierCompanyName,
         }
 
         this.$store.commit("setCarrierName", payload)
