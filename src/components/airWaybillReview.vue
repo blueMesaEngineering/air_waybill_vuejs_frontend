@@ -463,28 +463,12 @@
     }),
     methods: {
 
-      // populateOnLoad: function() {
-      //   console.log("Entering populateOnLoad")
-      //   console.log(this.$store.state.getters.firstName + " " + this.$store.state.getters.middleName + " " + this.$store.state.getters.lastName + " " + this.$store.state.getters.companyName + " " + this.$store.state.getters.streetAddress1 + " " + this.$store.state.getters.streetAddress2 + " " + this.$store.state.getters.city + " " + this.$store.state.getters.stateUSA)
-
-      //   this.consigneeFirstName = this.$store.state.consignee.name.firstName;
-      //   this.consigneeMiddleName = this.$store.state.consignee.name.middleName;
-      //   this.consigneeLastName = this.$store.state.consignee.name.lastName;
-      //   this.consigneeCompanyName = this.$store.state.consignee.name.companyName;
-      //   this.consigneeStreetAddress1 = this.$store.state.consignee.address.streetAddress1;
-      //   this.consigneeStreetAddress2 = this.$store.state.consignee.address.streetAddress2;
-      //   this.consigneeCity = this.$store.state.consignee.address.city;
-      //   this.consigneeStateUSA = this.$store.state.consignee.address.stateUSA;
-
-      //   console.log("Leaving populateOnLoad")
-      // },
-
       editShipperNameAddress: function() {
         document.getElementById('editShipperNameAddress').hidden = true;
         document.getElementById('doneEditShipperNameAddress').hidden = false;
         document.getElementById('submitShipperNameAddress').hidden = true;
 
-        document.getElementById('shipperFirstNameID').disabled = false;
+        document.getElementById('shipperFirstName').disabled = false;
         document.getElementById('shipperMiddleName').disabled = false;
         document.getElementById('shipperLastName').disabled = false;
         document.getElementById('shipperCompanyName').disabled = false;
@@ -499,7 +483,7 @@
         document.getElementById('doneEditShipperNameAddress').hidden = true;
         document.getElementById('submitShipperNameAddress').hidden = false;
 
-        document.getElementById('shipperFirstNameID').disabled = true;
+        document.getElementById('shipperFirstName').disabled = true;
         document.getElementById('shipperMiddleName').disabled = true;
         document.getElementById('shipperLastName').disabled = true;
         document.getElementById('shipperCompanyName').disabled = true;
@@ -511,33 +495,16 @@
 
       submitShipperNameAddress: function() {
 
-        // console.log("Before setting shipper payload.")
-        // var payload = {
-        //   'shipperFirstName': this.shipperFirstName,
-        //   // 'shipperFirstName': this.$store.getters.shipperFirstName,
-        //   // 'shipperMiddleName': document.getElementById('shipperMiddleName'),
-        //   'shipperMiddleName': this.$store.getters.shipperMiddleName,
-        //   'shipperLastName': this.$store.getters.shipperLastName,
-        //   'shipperCompanyName': this.$store.getters.shipperCompanyName,
-        // }
-        // console.log("Shipper payload set.")
-
-        // this.$store.commit("setShipperName", payload)
-
         this.shipperFirstName = document.getElementById('shipperFirstName').value
         this.shipperMiddleName = document.getElementById('shipperMiddleName').value
+        this.shipperLastName = document.getElementById('shipperLastName').value
+        this.shipperCompanyName = document.getElementById('shipperCompanyName').value
+        this.shipperStreetAddress1 = document.getElementById('shipperStreetAddress1').value
+        this.shipperStreetAddress2 = document.getElementById('shipperStreetAddress2').value
+        this.shipperCity = document.getElementById('shipperCity').value
+        this.shipperStateUSA = document.getElementById('shipperStateUSA').value
 
         console.log("Shipper store data has been committed.")
-
-        // this.shipperFirstName = '';
-        // this.shipperMiddleName = '';
-        // this.shipperLastName = '';
-        // this.shipperCompanyName = '';
-
-        // payload.shipperFirstName = '';
-        // payload.shipperMiddleName = '';
-        // payload.shipperLastName = '';
-        // payload.shipperCompanyName = '';
 
         document.getElementById('shipperData').hidden = true;
         document.getElementById('consigneeData').hidden = false
@@ -575,28 +542,16 @@
 
       submitConsigneeNameAddress: function() {
 
-        console.log("Before setting consignee payload.")
-        var payload = {
-          'consigneeFirstName': this.$store.getters.consigneeFirstName,
-          'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
-          'consigneeLastName': this.$store.getters.consigneeLastName,
-          'consigneeCompanyName': this.$store.getters.consigneeCompanyName
-        }
-        console.log("Shipper payload set.")
-
-        this.$store.commit("setConsigneeName", payload)
+        this.consigneeFirstName = document.getElementById('consigneeFirstName').value
+        this.consigneeMiddleName = document.getElementById('consigneeMiddleName').value
+        this.consigneeLastName = document.getElementById('consigneeLastName').value
+        this.consigneeCompanyName = document.getElementById('consigneeCompanyName').value
+        this.consigneeStreetAddress1 = document.getElementById('consigneeStreetAddress1').value
+        this.consigneeStreetAddress2 = document.getElementById('consigneeStreetAddress2').value
+        this.consigneeCity = document.getElementById('consigneeCity').value
+        this.consigneeStateUSA = document.getElementById('consigneeStateUSA').value
 
         console.log("Shipper store data has been committed.")
-        
-        // this.consigneeFirstName = '';
-        // this.consigneeMiddleName = '';
-        // this.consigneeLastName = '';
-        // this.consigneeCompanyName = '';
-
-        // payload.consigneeFirstName = '';
-        // payload.consigneeMiddleName = '';
-        // payload.consigneeLastName = '';
-        // payload.consigneeCompanyName = '';
 
         document.getElementById('consigneeData').hidden = true;
         document.getElementById('carrierData').hidden = false
@@ -634,24 +589,14 @@
 
       submitCarrierNameAddress: function() {
 
-        const payload = {
-          'carrierFirstName': this.$store.getters.carrierFirstName,
-          'carrierMiddleName': this.$store.getters.carrierMiddleName,
-          'carrierLastName': this.$store.getters.carrierLastName,
-          'carrierCompanyName': this.$store.getters.carrierCompanyName,
-        }
-
-        this.$store.commit("setCarrierName", payload)
-
-        // this.carrierFirstName = '';
-        // this.carrierMiddleName = '';
-        // this.carrierLastName = '';
-        // this.carrierCompanyName = '';
-
-        // payload.carrierFirstName = '';
-        // payload.carrierMiddleName = '';
-        // payload.carrierLastName = '';
-        // payload.carrierCompanyName = '';
+        this.carrierFirstName = document.getElementById('carrierFirstName').value
+        this.carrierMiddleName = document.getElementById('carrierMiddleName').value
+        this.carrierLastName = document.getElementById('carrierLastName').value
+        this.carrierCompanyName = document.getElementById('carrierCompanyName').value
+        this.carrierStreetAddress1 = document.getElementById('carrierStreetAddress1').value
+        this.carrierStreetAddress2 = document.getElementById('carrierStreetAddress2').value
+        this.carrierCity = document.getElementById('carrierCity').value
+        this.carrierStateUSA = document.getElementById('carrierStateUSA').value
 
         document.getElementById('carrierData').hidden = true;
         document.getElementById('carrierData').hidden = false
@@ -671,32 +616,32 @@
             // Shipper data
             'shipperFirstName': this.shipperFirstName,
             'shipperMiddleName': this.shipperMiddleName,
-            'shipperLastName': this.$store.getters.shipperLastName,
-            'shipperCompanyName': this.$store.getters.shipperCompanyName,
-            'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
-            'shipperStreetAddress2': this.$store.getters.shipperStreetAddress2,
-            'shipperCity': this.$store.getters.shipperCity,
-            'shipperStateUSA': this.$store.getters.shipperStateUSA,
+            'shipperLastName': this.shipperLastName,
+            'shipperCompanyName': this.shipperCompanyName,
+            'shipperStreetAddress1': this.shipperStreetAddress1,
+            'shipperStreetAddress2': this.shipperStreetAddress2,
+            'shipperCity': this.shipperCity,
+            'shipperStateUSA': this.shipperStateUSA,
 
             // Consignee data
-            'consigneeFirstName': this.$store.getters.consigneeFirstName,
-            'consigneeMiddleName': this.$store.getters.consigneeMiddleName,
-            'consigneeLastName': this.$store.getters.consigneeLastName,
-            'consigneeCompanyName': this.$store.getters.consigneeCompanyName,
-            'consigneeStreetAddress1': this.$store.getters.consigneeStreetAddress1,
-            'consigneeStreetAddress2': this.$store.getters.consigneeStreetAddress2,
-            'consigneeCity': this.$store.getters.consigneeCity,
-            'consigneeStateUSA': this.$store.getters.consigneeStateUSA,
+            'consigneeFirstName': this.consigneeFirstName,
+            'consigneeMiddleName': this.consigneeMiddleName,
+            'consigneeLastName': this.consigneeLastName,
+            'consigneeCompanyName': this.consigneeCompanyName,
+            'consigneeStreetAddress1': this.consigneeStreetAddress1,
+            'consigneeStreetAddress2': this.consigneeStreetAddress2,
+            'consigneeCity': this.consigneeCity,
+            'consigneeStateUSA': this.consigneeStateUSA,
 
             // Carrier data
-            'carrierFirstName': this.$store.getters.carrierFirstName,
-            'carrierMiddleName': this.$store.getters.carrierMiddleName,
-            'carrierLastName': this.$store.getters.carrierLastName,
-            'carrierCompanyName': this.$store.getters.carrierCompanyName,
-            'carrierStreetAddress1': this.$store.getters.carrierStreetAddress1,
-            'carrierStreetAddress2': this.$store.getters.carrierStreetAddress2,
-            'carrierCity': this.$store.getters.carrierCity,
-            'carrierStateUSA': this.$store.getters.carrierStateUSA
+            'carrierFirstName': this.carrierFirstName,
+            'carrierMiddleName': this.carrierMiddleName,
+            'carrierLastName': this.carrierLastName,
+            'carrierCompanyName': this.carrierCompanyName,
+            'carrierStreetAddress1': this.carrierStreetAddress1,
+            'carrierStreetAddress2': this.carrierStreetAddress2,
+            'carrierCity': this.carrierCity,
+            'carrierStateUSA': this.carrierStateUSA
 
             // // Shipper data
             // 'shipperFirstName': document.getElementById('shipperFirstName'),
