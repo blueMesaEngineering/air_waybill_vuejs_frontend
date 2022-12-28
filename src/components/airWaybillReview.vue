@@ -18,7 +18,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
-              id = "shipperFirstNameID"
+              id = "shipperFirstName"
               type = "text" 
               v-model = "shipperFirstName"
               class = "input-field-item"
@@ -26,7 +26,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
-              id = "shipperMiddleNameID"
+              id = "shipperMiddleName"
               type = "text" 
               v-model = "shipperMiddleName"
               class = "input-field-item"
@@ -485,7 +485,7 @@
         document.getElementById('submitShipperNameAddress').hidden = true;
 
         document.getElementById('shipperFirstNameID').disabled = false;
-        document.getElementById('shipperMiddleNameID').disabled = false;
+        document.getElementById('shipperMiddleName').disabled = false;
         document.getElementById('shipperLastName').disabled = false;
         document.getElementById('shipperCompanyName').disabled = false;
         document.getElementById('shipperStreetAddress1').disabled = false;
@@ -500,7 +500,7 @@
         document.getElementById('submitShipperNameAddress').hidden = false;
 
         document.getElementById('shipperFirstNameID').disabled = true;
-        document.getElementById('shipperMiddleNameID').disabled = true;
+        document.getElementById('shipperMiddleName').disabled = true;
         document.getElementById('shipperLastName').disabled = true;
         document.getElementById('shipperCompanyName').disabled = true;
         document.getElementById('shipperStreetAddress1').disabled = true;
@@ -511,20 +511,21 @@
 
       submitShipperNameAddress: function() {
 
-        console.log("Before setting shipper payload.")
-        var payload = {
-          'shipperFirstName': this.shipperFirstName,
-          // 'shipperFirstName': this.$store.getters.shipperFirstName,
-          // 'shipperMiddleName': document.getElementById('shipperMiddleNameID'),
-          'shipperMiddleName': this.$store.getters.shipperMiddleName,
-          'shipperLastName': this.$store.getters.shipperLastName,
-          'shipperCompanyName': this.$store.getters.shipperCompanyName,
-        }
-        console.log("Shipper payload set.")
+        // console.log("Before setting shipper payload.")
+        // var payload = {
+        //   'shipperFirstName': this.shipperFirstName,
+        //   // 'shipperFirstName': this.$store.getters.shipperFirstName,
+        //   // 'shipperMiddleName': document.getElementById('shipperMiddleName'),
+        //   'shipperMiddleName': this.$store.getters.shipperMiddleName,
+        //   'shipperLastName': this.$store.getters.shipperLastName,
+        //   'shipperCompanyName': this.$store.getters.shipperCompanyName,
+        // }
+        // console.log("Shipper payload set.")
 
-        this.$store.commit("setShipperName", payload)
+        // this.$store.commit("setShipperName", payload)
 
-        this.shipperFirstName = document.getElementById('shipperFirstNameID').value
+        this.shipperFirstName = document.getElementById('shipperFirstName').value
+        this.shipperMiddleName = document.getElementById('shipperMiddleName').value
 
         console.log("Shipper store data has been committed.")
 
