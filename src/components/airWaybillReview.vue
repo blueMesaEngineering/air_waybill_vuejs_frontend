@@ -18,7 +18,7 @@
           </div>
           <div class="grid-item" style="padding-top: 1.75vh;">
             <input 
-              id = "shipperFirstName"
+              id = "shipperFirstNameID"
               type = "text" 
               v-model = "shipperFirstName"
               class = "input-field-item"
@@ -28,7 +28,7 @@
             <input 
               id = "shipperMiddleNameID"
               type = "text" 
-              :value = "this.$store.getters.shipperMiddleName"
+              v-model = "shipperMiddleName"
               class = "input-field-item"
               disabled/>
           </div>
@@ -484,7 +484,7 @@
         document.getElementById('doneEditShipperNameAddress').hidden = false;
         document.getElementById('submitShipperNameAddress').hidden = true;
 
-        document.getElementById('shipperFirstName').disabled = false;
+        document.getElementById('shipperFirstNameID').disabled = false;
         document.getElementById('shipperMiddleNameID').disabled = false;
         document.getElementById('shipperLastName').disabled = false;
         document.getElementById('shipperCompanyName').disabled = false;
@@ -499,7 +499,7 @@
         document.getElementById('doneEditShipperNameAddress').hidden = true;
         document.getElementById('submitShipperNameAddress').hidden = false;
 
-        document.getElementById('shipperFirstName').disabled = true;
+        document.getElementById('shipperFirstNameID').disabled = true;
         document.getElementById('shipperMiddleNameID').disabled = true;
         document.getElementById('shipperLastName').disabled = true;
         document.getElementById('shipperCompanyName').disabled = true;
@@ -513,7 +513,8 @@
 
         console.log("Before setting shipper payload.")
         var payload = {
-          'shipperFirstName': this.$store.getters.shipperFirstName,
+          'shipperFirstName': this.shipperFirstName,
+          // 'shipperFirstName': this.$store.getters.shipperFirstName,
           // 'shipperMiddleName': document.getElementById('shipperMiddleNameID'),
           'shipperMiddleName': this.$store.getters.shipperMiddleName,
           'shipperLastName': this.$store.getters.shipperLastName,
@@ -522,6 +523,8 @@
         console.log("Shipper payload set.")
 
         this.$store.commit("setShipperName", payload)
+
+        this.shipperFirstName = document.getElementById('shipperFirstNameID').value
 
         console.log("Shipper store data has been committed.")
 
@@ -665,8 +668,8 @@
             // 'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
 
             // Shipper data
-            'shipperFirstName': this.$store.getters.shipperFirstName,
-            'shipperMiddleName': this.$store.getters.shipperMiddleName,
+            'shipperFirstName': this.shipperFirstName,
+            'shipperMiddleName': this.shipperMiddleName,
             'shipperLastName': this.$store.getters.shipperLastName,
             'shipperCompanyName': this.$store.getters.shipperCompanyName,
             'shipperStreetAddress1': this.$store.getters.shipperStreetAddress1,
