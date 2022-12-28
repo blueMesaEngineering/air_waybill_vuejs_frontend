@@ -20,7 +20,6 @@
             <input 
               id = "shipperFirstName"
               type = "text" 
-              :value = "this.$store.getters.shipperFirstName"
               v-model = "shipperFirstName"
               class = "input-field-item"
               disabled/>
@@ -30,7 +29,6 @@
               id = "shipperMiddleNameID"
               type = "text" 
               :value = "this.$store.getters.shipperMiddleName"
-              v-model = "shipperMiddleName"
               class = "input-field-item"
               disabled/>
           </div>
@@ -39,7 +37,6 @@
               id = "shipperLastName"
               type = "text" 
               :value = "this.$store.getters.shipperLastName"
-              v-model = "shipperLastName"
               class = "input-field-item"
               disabled/>
           </div>        
@@ -51,7 +48,6 @@
               id = "shipperCompanyName"
               type = "text" 
               :value = "this.$store.getters.shipperCompanyName"
-              v-model = "shipperCompanyName"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -65,7 +61,6 @@
               id = "shipperStreetAddress1"
               type = "text" 
               :value = "this.$store.getters.shipperStreetAddress1"
-              v-model = "shipperStreetAddress1"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -79,7 +74,6 @@
               id = "shipperStreetAddress2"
               type = "text" 
               :value = "this.$store.getters.shipperStreetAddress2"
-              v-model = "shipperStreetAddress2"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -93,7 +87,6 @@
               id = "shipperCity"
               type = "text" 
               :value = "this.$store.getters.shipperCity"
-              v-model = "shipperCity"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -107,7 +100,6 @@
               id = "shipperStateUSA"
               type = "text" 
               :value = "this.$store.getters.shipperStateUSA"
-              v-model = "shipperStateUSA"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -470,9 +462,6 @@
       carrierStateUSA: '',
     }),
     methods: {
-      mounted: function() {
-        console.log("consigneeReviewNameAndAddress component mounted.")
-      },
 
       // populateOnLoad: function() {
       //   console.log("Entering populateOnLoad")
@@ -739,6 +728,11 @@
 
         this.$router.push('/home')
       }
-    }
+    },
+
+    mounted: function() {
+      this.shipperFirstName = this.$store.getters.shipperFirstName,
+      console.log("consigneeReviewNameAndAddress component mounted.")
+    },
   }
 </script>
