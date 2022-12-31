@@ -611,7 +611,7 @@
           url: 'http://127.0.0.1:5000/api/airWaybills',
           data: {
 
-            // 'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
+            'serialNumberAWBPDF': (Math.floor(1000 + Math.random() * 9000)).toString(),
 
             // Shipper data
             'shipperFirstName': this.shipperFirstName,
@@ -642,36 +642,6 @@
             'carrierStreetAddress2': this.carrierStreetAddress2,
             'carrierCity': this.carrierCity,
             'carrierStateUSA': this.carrierStateUSA
-
-            // // Shipper data
-            // 'shipperFirstName': document.getElementById('shipperFirstName'),
-            // 'shipperMiddleName': document.getElementById('shipperMiddleName'),
-            // 'shipperLastName': document.getElementById('shipperLastName'),
-            // 'shipperCompanyName': document.getElementById('shipperCompanyName'),
-            // 'shipperStreetAddress1': document.getElementById('shipperStreetAddress1'),
-            // 'shipperStreetAddress2': document.getElementById('shipperStreetAddress2'),
-            // 'shipperCity': document.getElementById('shipperCity'),
-            // 'shipperStateUSA': document.getElementById('shipperStateUSA'),
-
-            // // Consignee data
-            // 'consigneeFirstName': document.getElementById('consigneeFirstName'),
-            // 'consigneeMiddleName': document.getElementById('consigneeMiddleName'),
-            // 'consigneeLastName': document.getElementById('consigneeLastName'),
-            // 'consigneeCompanyName': document.getElementById('consigneeCompanyName'),
-            // 'consigneeStreetAddress1': document.getElementById('consigneeStreetAddress1'),
-            // 'consigneeStreetAddress2': document.getElementById('consigneeStreetAddress2'),
-            // 'consigneeCity': document.getElementById('consigneeCity'),
-            // 'consigneeStateUSA': document.getElementById('consigneeStateUSA'),
-
-            // // Carrier data
-            // 'carrierFirstName': document.getElementById('carrierFirstName'),
-            // 'carrierMiddleName': document.getElementById('carrierMiddleName'),
-            // 'carrierLastName': document.getElementById('carrierLastName'),
-            // 'carrierCompanyName': document.getElementById('carrierCompanyName'),
-            // 'carrierStreetAddress1': document.getElementById('carrierStreetAddress1'),
-            // 'carrierStreetAddress2': document.getElementById('carrierStreetAddress2'),
-            // 'carrierCity': document.getElementById('carrierCity'),
-            // 'carrierStateUSA': document.getElementById('carrierStateUSA')
           }
         })
 
