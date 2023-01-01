@@ -237,7 +237,7 @@
           alert("Carrier data has been discarded.")
         }
 
-        this.$router.push('/shipment')
+        this.$router.push('/airWaybillReview')
       },
 
       deleteCarrier: function(id) {
@@ -278,7 +278,7 @@
           this.$store.commit("setCarrierData", payload)
         }
         alert("Carrier added to Air Waybill.")
-        this.$router.push("/shipment")
+        this.$router.push("/airWaybillReview")
       },
 
       searchJSONArray: function(carriers, query) {
