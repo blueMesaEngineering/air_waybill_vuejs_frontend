@@ -36,7 +36,7 @@
             <input 
               id = "shipperLastName"
               type = "text" 
-              :value = "this.$store.getters.shipperLastName"
+              :value = "shipperLastName"
               class = "input-field-item"
               disabled/>
           </div>        
@@ -47,7 +47,7 @@
             <input 
               id = "shipperCompanyName"
               type = "text" 
-              :value = "this.$store.getters.shipperCompanyName"
+              :value = "shipperCompanyName"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -60,7 +60,7 @@
             <input 
               id = "shipperStreetAddress1"
               type = "text" 
-              :value = "this.$store.getters.shipperStreetAddress1"
+              :value = "shipperStreetAddress1"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -73,7 +73,7 @@
             <input 
               id = "shipperStreetAddress2"
               type = "text" 
-              :value = "this.$store.getters.shipperStreetAddress2"
+              :value = "shipperStreetAddress2"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -86,7 +86,7 @@
             <input 
               id = "shipperCity"
               type = "text" 
-              :value = "this.$store.getters.shipperCity"
+              :value = "shipperCity"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -99,7 +99,7 @@
             <input 
               id = "shipperStateUSA"
               type = "text" 
-              :value = "this.$store.getters.shipperStateUSA"
+              :value = "shipperStateUSA"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -163,7 +163,7 @@
             <input 
               id = "consigneeFirstName"
               type = "text" 
-              :value = "this.$store.getters.consigneeFirstName"
+              :value = "consigneeFirstName"
               class = "input-field-item"
               disabled/>
           </div>
@@ -171,7 +171,7 @@
             <input 
               id = "consigneeMiddleName"
               type = "text" 
-              :value = "this.$store.getters.consigneeMiddleName"
+              :value = "consigneeMiddleName"
               class = "input-field-item"
               disabled/>
           </div>
@@ -179,7 +179,7 @@
             <input 
               id = "consigneeLastName"
               type = "text" 
-              :value = "this.$store.getters.consigneeLastName"
+              :value = "consigneeLastName"
               class = "input-field-item"
               disabled/>
           </div>        
@@ -190,7 +190,7 @@
             <input 
               id = "consigneeCompanyName"
               type = "text" 
-              :value = "this.$store.getters.consigneeCompanyName"
+              :value = "consigneeCompanyName"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -203,7 +203,7 @@
             <input 
               id = "consigneeStreetAddress1"
               type = "text" 
-              :value = "this.$store.getters.consigneeStreetAddress1"
+              :value = "consigneeStreetAddress1"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -216,7 +216,7 @@
             <input 
               id = consigneeStreetAddress2
               type = "text" 
-              :value = "this.$store.getters.consigneeStreetAddress2"
+              :value = "consigneeStreetAddress2"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -229,7 +229,7 @@
             <input 
               id = consigneeCity
               type = "text" 
-              :value = "this.$store.getters.consigneeCity"
+              :value = "consigneeCity"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -242,7 +242,7 @@
             <input 
               id = consigneeStateUSA
               type = "text" 
-              :value = "this.$store.getters.consigneeStateUSA"
+              :value = "consigneeStateUSA"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -307,7 +307,7 @@
             <input 
               id = "carrierFirstName"
               type = "text" 
-              :value = "this.$store.getters.carrierFirstName"
+              :value = "carrierFirstName"
               class = "input-field-item"
               disabled/>
           </div>
@@ -315,7 +315,7 @@
             <input 
               id = "carrierMiddleName"
               type = "text" 
-              :value = "this.$store.getters.carrierMiddleName"
+              :value = "carrierMiddleName"
               class = "input-field-item"
               disabled/>
           </div>
@@ -323,7 +323,7 @@
             <input 
               id = "carrierLastName"
               type = "text" 
-              :value = "this.$store.getters.carrierLastName"
+              :value = "carrierLastName"
               class = "input-field-item"
               disabled/>
           </div>        
@@ -334,7 +334,7 @@
             <input 
               id = "carrierCompanyName"
               type = "text" 
-              :value = "this.$store.getters.carrierCompanyName"
+              :value = "carrierCompanyName"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -347,7 +347,7 @@
             <input 
               id = "carrierStreetAddress1"
               type = "text" 
-              :value = "this.$store.getters.carrierStreetAddress1"
+              :value = "carrierStreetAddress1"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -360,7 +360,7 @@
             <input 
               id = "carrierStreetAddress2"
               type = "text" 
-              :value = "this.$store.getters.carrierStreetAddress2"
+              :value = "carrierStreetAddress2"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -373,7 +373,7 @@
             <input 
               id = "carrierCity"
               type = "text" 
-              :value = "this.$store.getters.carrierCity"
+              :value = "carrierCity"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -386,7 +386,7 @@
             <input 
               id = "carrierStateUSA"
               type = "text" 
-              :value = "this.$store.getters.carrierStateUSA"
+              :value = "carrierStateUSA"
               class = "input-field-item"
               disabled
               style="width: 53vw;"/>
@@ -604,8 +604,6 @@
 
       submit: async function() {
 
-        // await this.$store.commit("airWaybillPOST")
-
         await axios({
           method: 'post',
           url: 'http://127.0.0.1:5000/api/airWaybills',
@@ -651,6 +649,30 @@
 
     mounted: function() {
       this.shipperFirstName = this.$store.getters.shipperFirstName,
+      this.shipperMiddleName = this.$store.getters.shipperMiddleName
+      this.shipperLastName = this.$store.getters.shipperLastName
+      this.shipperCompanyName = this.$store.getters.shipperCompanyName
+      this.shipperStreetAddress1 = this.$store.getters.shipperStreetAddress1
+      this.shipperStreetAddress2 = this.$store.getters.shipperStreetAddress2
+      this.shipperCity = this.$store.getters.shipperCity
+      this.shipperStateUSA = this.$store.getters.shipperStateUSA
+      this.consigneeFirstName = this.$store.getters.consigneeFirstName
+      this.consigneeMiddleName = this.$store.getters.consigneeMiddleName
+      this.consigneeLastName = this.$store.getters.consigneeLastName
+      this.consigneeCompanyName = this.$store.getters.consigneeCompanyName
+      this.consigneeStreetAddress1 = this.$store.getters.consigneeStreetAddress1
+      this.consigneeStreetAddress2 = this.$store.getters.consigneeStreetAddress2
+      this.consigneeCity = this.$store.getters.consigneeCity
+      this.consigneeStateUSA = this.$store.getters.consigneeStateUSA
+      this.carrierFirstName = this.$store.getters.carrierFirstName
+      this.carrierMiddleName = this.$store.getters.carrierMiddleName
+      this.carrierLastName = this.$store.getters.carrierLastName
+      this.carrierCompanyName = this.$store.getters.carrierCompanyName
+      this.carrierStreetAddress1 = this.$store.getters.carrierStreetAddress1
+      this.carrierStreetAddress2 = this.$store.getters.carrierStreetAddress2
+      this.carrierCity = this.$store.getters.carrierCity
+      this.carrierStateUSA = this.$store.getters.carrierStateUSA
+      
       console.log("consigneeReviewNameAndAddress component mounted.")
     },
   }
